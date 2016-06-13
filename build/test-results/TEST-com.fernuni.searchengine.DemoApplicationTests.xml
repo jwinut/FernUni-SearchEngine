@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.fernuni.searchengine.DemoApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-06-10T12:45:50" hostname="knpc111.fernuni-hagen.de" time="0.01">
+  <properties/>
+  <testcase name="contextLoads" classname="com.fernuni.searchengine.DemoApplicationTests" time="0.01"/>
+  <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.5.RELEASE)
+
+]]></system-out>
+  <system-err><![CDATA[INFO  Could not detect default resource locations for test class [com.fernuni.searchengine.DemoApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+INFO  Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+INFO  Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+INFO  Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+INFO  Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4ae3eeec, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@342b18a0, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7ceaeaa0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@574dbfcc]
+INFO  Starting DemoApplicationTests on knpc111.fernuni-hagen.de with PID 55671 (started by Nut in /Users/Nut/Google Drive/internship/IdeaProj/Searchengine)
+INFO  No active profile set, falling back to default profiles: default
+INFO  Refreshing org.springframework.web.context.support.GenericWebApplicationContext@5300bc06: startup date [Fri Jun 10 14:45:45 CEST 2016]; root of context hierarchy
+INFO  HV000001: Hibernate Validator 5.2.4.Final
+INFO  Mapped "{[/index]}" onto public java.lang.String com.fernuni.searchengine.RESTController.index()
+INFO  Mapped "{[]}" onto public org.springframework.http.ResponseEntity com.fernuni.searchengine.RESTController.handle(org.springframework.http.HttpHeaders,javax.servlet.http.HttpServletRequest)
+INFO  Mapped "{[/deleteOldIndex],methods=[DELETE]}" onto public boolean com.fernuni.searchengine.RESTController.deleteOldIndex()
+INFO  Mapped "{[/deleteDataDir],methods=[DELETE],params=[path]}" onto public boolean com.fernuni.searchengine.RESTController.deleteDataDir(java.lang.String)
+INFO  Mapped "{[/setIndexDir],methods=[POST],params=[path]}" onto public boolean com.fernuni.searchengine.RESTController.setIndexDir(java.lang.String)
+INFO  Mapped "{[/addDataDir],methods=[POST],params=[path]}" onto public java.lang.String com.fernuni.searchengine.RESTController.addDataDir(java.lang.String)
+INFO  Mapped "{[/status],methods=[GET]}" onto public java.lang.String com.fernuni.searchengine.RESTController.statusReport()
+INFO  Mapped "{[/status/dataDir],methods=[GET]}" onto public java.lang.String com.fernuni.searchengine.RESTController.statusDataDir()
+INFO  Mapped "{[/status/indexDir],methods=[GET]}" onto public java.lang.String com.fernuni.searchengine.RESTController.statusIndexDir()
+INFO  Mapped "{[/useContent],methods=[PUT]}" onto public boolean com.fernuni.searchengine.RESTController.setContentStoreTrue()
+INFO  Mapped "{[/notUseContent],methods=[PUT]}" onto public boolean com.fernuni.searchengine.RESTController.setContentStoreFalse()
+INFO  Mapped "{[/usePreContent],methods=[PUT]}" onto public boolean com.fernuni.searchengine.RESTController.setPreContentStoreTrue()
+INFO  Mapped "{[/notUsePreContent],methods=[PUT]}" onto public boolean com.fernuni.searchengine.RESTController.setPreContentStoreFalse()
+INFO  Mapped "{[/search],methods=[GET],params=[searchString]}" onto public java.util.ArrayList<com.fernuni.searchengine.SearchEngine.Result> com.fernuni.searchengine.RESTController.searchString(java.lang.String)
+INFO  Mapped "{[/]}" onto public java.lang.String com.fernuni.searchengine.RESTController.isRunning()
+INFO  Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+INFO  Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+INFO  Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@5300bc06: startup date [Fri Jun 10 14:45:45 CEST 2016]; root of context hierarchy
+INFO  Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+INFO  Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+INFO  Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+INFO  Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Started DemoApplicationTests in 5.596 seconds (JVM running for 7.44)
+]]></system-err>
+</testsuite>

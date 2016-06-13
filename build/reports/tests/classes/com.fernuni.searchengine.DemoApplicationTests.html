@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.fernuni.searchengine.DemoApplicationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.fernuni.searchengine.DemoApplicationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.fernuni.searchengine.html">com.fernuni.searchengine</a> &gt; DemoApplicationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.010s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contextLoads</td>
+<td>0.010s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.5.RELEASE)
+
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>INFO  Could not detect default resource locations for test class [com.fernuni.searchengine.DemoApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+INFO  Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+INFO  Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+INFO  Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+INFO  Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4ae3eeec, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@342b18a0, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7ceaeaa0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@574dbfcc]
+INFO  Starting DemoApplicationTests on knpc111.fernuni-hagen.de with PID 55671 (started by Nut in /Users/Nut/Google Drive/internship/IdeaProj/Searchengine)
+INFO  No active profile set, falling back to default profiles: default
+INFO  Refreshing org.springframework.web.context.support.GenericWebApplicationContext@5300bc06: startup date [Fri Jun 10 14:45:45 CEST 2016]; root of context hierarchy
+INFO  HV000001: Hibernate Validator 5.2.4.Final
+INFO  Mapped &quot;{[/index]}&quot; onto public java.lang.String com.fernuni.searchengine.RESTController.index()
+INFO  Mapped &quot;{[]}&quot; onto public org.springframework.http.ResponseEntity com.fernuni.searchengine.RESTController.handle(org.springframework.http.HttpHeaders,javax.servlet.http.HttpServletRequest)
+INFO  Mapped &quot;{[/deleteOldIndex],methods=[DELETE]}&quot; onto public boolean com.fernuni.searchengine.RESTController.deleteOldIndex()
+INFO  Mapped &quot;{[/deleteDataDir],methods=[DELETE],params=[path]}&quot; onto public boolean com.fernuni.searchengine.RESTController.deleteDataDir(java.lang.String)
+INFO  Mapped &quot;{[/setIndexDir],methods=[POST],params=[path]}&quot; onto public boolean com.fernuni.searchengine.RESTController.setIndexDir(java.lang.String)
+INFO  Mapped &quot;{[/addDataDir],methods=[POST],params=[path]}&quot; onto public java.lang.String com.fernuni.searchengine.RESTController.addDataDir(java.lang.String)
+INFO  Mapped &quot;{[/status],methods=[GET]}&quot; onto public java.lang.String com.fernuni.searchengine.RESTController.statusReport()
+INFO  Mapped &quot;{[/status/dataDir],methods=[GET]}&quot; onto public java.lang.String com.fernuni.searchengine.RESTController.statusDataDir()
+INFO  Mapped &quot;{[/status/indexDir],methods=[GET]}&quot; onto public java.lang.String com.fernuni.searchengine.RESTController.statusIndexDir()
+INFO  Mapped &quot;{[/useContent],methods=[PUT]}&quot; onto public boolean com.fernuni.searchengine.RESTController.setContentStoreTrue()
+INFO  Mapped &quot;{[/notUseContent],methods=[PUT]}&quot; onto public boolean com.fernuni.searchengine.RESTController.setContentStoreFalse()
+INFO  Mapped &quot;{[/usePreContent],methods=[PUT]}&quot; onto public boolean com.fernuni.searchengine.RESTController.setPreContentStoreTrue()
+INFO  Mapped &quot;{[/notUsePreContent],methods=[PUT]}&quot; onto public boolean com.fernuni.searchengine.RESTController.setPreContentStoreFalse()
+INFO  Mapped &quot;{[/search],methods=[GET],params=[searchString]}&quot; onto public java.util.ArrayList&lt;com.fernuni.searchengine.SearchEngine.Result&gt; com.fernuni.searchengine.RESTController.searchString(java.lang.String)
+INFO  Mapped &quot;{[/]}&quot; onto public java.lang.String com.fernuni.searchengine.RESTController.isRunning()
+INFO  Mapped &quot;{[/error]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.Map&lt;java.lang.String, java.lang.Object&gt;&gt; org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+INFO  Mapped &quot;{[/error],produces=[text/html]}&quot; onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+INFO  Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@5300bc06: startup date [Fri Jun 10 14:45:45 CEST 2016]; root of context hierarchy
+INFO  Mapped &quot;{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped &quot;{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped &quot;{[/trace || /trace.json],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped &quot;{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+INFO  Mapped &quot;{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped &quot;{[/env/{name:.*}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+INFO  Mapped &quot;{[/env || /env.json],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped &quot;{[/dump || /dump.json],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped &quot;{[/info || /info.json],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped &quot;{[/health || /health.json],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+INFO  Mapped &quot;{[/beans || /beans.json],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Mapped &quot;{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+INFO  Started DemoApplicationTests in 5.596 seconds (JVM running for 7.44)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.13</a> at Jun 10, 2016 2:45:50 PM</p>
+</div>
+</div>
+</body>
+</html>
