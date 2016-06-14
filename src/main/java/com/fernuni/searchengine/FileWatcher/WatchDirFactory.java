@@ -19,6 +19,7 @@ import java.util.logging.Logger;
  * Use this class to create an instance to create a watcher thread.
  */
 public class WatchDirFactory implements Runnable{
+    //Log related instances.
     private static Logger logger = Logger.getLogger("com.fernuni.searchengine.FileWatcher.WatchDirFactory");
     private static FileHandler fh = RESTController.fh;
     static {

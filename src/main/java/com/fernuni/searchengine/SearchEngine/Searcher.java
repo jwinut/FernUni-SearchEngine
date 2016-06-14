@@ -27,12 +27,14 @@ import org.apache.lucene.store.FSDirectory;
  * This is a search module, it searches through the index and return results as a Result instance.
  */
 public class Searcher {
+    //Log related instances.
     private static Logger logger = Logger.getLogger("com.fernuni.searchengine.SearchEngine.Searcher");
     private static FileHandler fh = RESTController.fh;
     static {
         logger.addHandler(fh);
         logger.setLevel(Level.ALL);
     }
+
     private IndexSearcher indexSearcher = null;
     private QueryParser parser = null;
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");

@@ -47,9 +47,9 @@ import java.util.logging.Logger;
  * Example to watch a directory (or tree) for changes to files.
  * Modified from the original to use with TheSearchEngine.
  */
-
 public class WatchDir implements Runnable{
 
+    //Log related instances.
     private static SimpleDateFormat sdf_file_log = new SimpleDateFormat("yyyy-MM-dd");
     private static String logfile_str = "log" + File.separatorChar + "files_changes" + File.separatorChar + "file_changes_log_" + sdf_file_log.format(Calendar.getInstance().getTime());
     private static Logger logger = Logger.getLogger("com.fernuni.searchengine.FileWatcher.WatchDir");

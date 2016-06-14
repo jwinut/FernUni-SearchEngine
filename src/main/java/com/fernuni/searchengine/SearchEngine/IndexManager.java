@@ -20,16 +20,18 @@ import java.util.logging.Logger;
  * IndexManager meant to be the manager of index.
  */
 public class IndexManager {
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    private DirectoryHandler directoryHandler;
-    public static final int PRE_CONTENT_SIZE = 100;
-
+    //Log related instances.
     private static Logger logger = Logger.getLogger("com.fernuni.searchengine.SearchEngine.DirectoryHandler");
     private static FileHandler fh = RESTController.fh;
     static {
         logger.addHandler(fh);
         logger.setLevel(Level.ALL);
     }
+
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    private DirectoryHandler directoryHandler;
+    public static final int PRE_CONTENT_SIZE = 100;
+
     /**
      * Default constructor.
      */
@@ -69,14 +71,4 @@ public class IndexManager {
         }
     }
 
-    public static FileHandler getFileHandler(String logfile_str, int count){
-        try{
-            FileHandler fileHandler = new FileHandler(logfile_str, true);
-            return fileHandler;
-        }
-        catch (IOException e){
-            logger.warning("Cannot log to file " + logfile_str);
-            return null;
-        }
-    }
 }

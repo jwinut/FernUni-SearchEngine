@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,12 +28,14 @@ import org.xml.sax.SAXException;
  */
 
 public class Indexer implements Runnable {
+    //Log related instances.
     private static Logger logger = Logger.getLogger("com.fernuni.searchengine.SearchEngine.Indexer");
     private static FileHandler fh = RESTController.fh;
     static {
         logger.addHandler(fh);
         logger.setLevel(Level.ALL);
     }
+
     private static Indexer indexer;
     private File indexDir;
     private ArrayList<File> dataDirs;
@@ -322,7 +323,7 @@ public class Indexer implements Runnable {
 
     /**
      * Setter of numOfFilesIndexed.
-     * @param numOfFilesIndexed
+     * @param numOfFilesIndexed New value.
      */
     public void setNumOfFilesIndexed(int numOfFilesIndexed) {
         this.numOfFilesIndexed = numOfFilesIndexed;

@@ -1,0 +1,4 @@
+2016-06-14 15:03:25.065 INFO com.fernuni.searchengine.RESTController : Sent ResponseEntity with CORS header from 	IP: 0:0:0:0:0:0:0:1
+2016-06-14 15:03:25.177 INFO com.fernuni.searchengine.RESTController : Sent ResponseEntity with CORS header from 	IP: 0:0:0:0:0:0:0:1
+2016-06-14 15:03:25.198 INFO com.fernuni.searchengine.RESTController : Sent ResponseEntity with CORS header from 	IP: 0:0:0:0:0:0:0:1
+2016-06-14 15:10:10.092 INFO com.fernuni.searchengine.RESTController : text.txt

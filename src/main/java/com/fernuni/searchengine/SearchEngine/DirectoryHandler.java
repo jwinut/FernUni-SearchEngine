@@ -20,6 +20,7 @@ import java.util.logging.Logger;
  * This class has all the information about where to get files and where to store other files including the index location.
  */
 public class DirectoryHandler {
+    //Log related instances.
     private static Logger logger = Logger.getLogger("com.fernuni.searchengine.SearchEngine.DirectoryHandler");
     private static FileHandler fh = RESTController.fh;
     static {
@@ -107,11 +108,12 @@ public class DirectoryHandler {
     /**
      * Set a index directory path.
      * @param path  Path to the index directory.
-     * @return
+     * @return  True when new index directory has been set, otherwise false.
      */
     public boolean setIndexDirectory(String path) {
         if(path != null && path.length() != 0) {
             File indexDir = new File(path);
+            if(indexDir == null) return false;
             this.indexDirectory = indexDir;
             return true;
         }
@@ -280,8 +282,8 @@ public class DirectoryHandler {
 
     /**
      * Unwatch a directory, kill the given runnable and stop the given thread.
-     * @param watcher
-     * @param runnable
+     * @param watcher   Exists watcher's thread to be stopped.
+     * @param runnable  Exists runnable's object to be kill.
      */
     private void unWatchDir(Thread watcher, WatchDir runnable){
         logger.info("Stopping thread: " + watcher.getName());
