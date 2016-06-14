@@ -5,7 +5,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import com.fernuni.searchengine.RESTController;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -17,7 +21,6 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.tika.Tika;
 import org.apache.tika.exception.TikaException;
-import org.jetbrains.annotations.NotNull;
 import org.xml.sax.SAXException;
 
 /**
@@ -25,7 +28,13 @@ import org.xml.sax.SAXException;
  * Indexer is a singleton class, it provides methods to index files and a little management about the index.
  */
 
-public class Indexer implements Runnable{
+public class Indexer implements Runnable {
+    private static Logger logger = Logger.getLogger("com.fernuni.searchengine.SearchEngine.Indexer");
+    private static FileHandler fh = RESTController.fh;
+    static {
+        logger.addHandler(fh);
+        logger.setLevel(Level.ALL);
+    }
     private static Indexer indexer;
     private File indexDir;
     private ArrayList<File> dataDirs;
@@ -89,12 +98,10 @@ public class Indexer implements Runnable{
             //Open index directory for assign with IndexWriter.
             directory = FSDirectory.open(indexDir.toPath());
         } catch (IOException e) {
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-            "\t " + "Index directory incorrect.");
+            logger.warning("Index directory incorrect.");
             return;
         } catch (NullPointerException e) {
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t " + "Cannot open index directory.");
+            logger.severe("Cannot open index directory.");
             return;
         }
         IndexWriter iwriter = getIndexWriter(directory);
@@ -104,8 +111,7 @@ public class Indexer implements Runnable{
 
         //Get everything checked.
         if(files.size() == 0){
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t There's no data to be indexed.");
+            logger.severe("There's no data to be indexed.");
             System.exit(1);
         }
 
@@ -116,12 +122,10 @@ public class Indexer implements Runnable{
         try {
             iwriter.close();
             directory.close();
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t " + "Total files indexed: " + numOfFilesIndexed);
+            logger.info("Total files indexed: " + numOfFilesIndexed);
             indexer.setNumOfFilesIndexed(numOfFilesIndexed);
         } catch (IOException e) {
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t IndexWriter or Directory is null.");
+            logger.severe("IndexWriter or Directory is null.");
         }
     }
 
@@ -164,23 +168,19 @@ public class Indexer implements Runnable{
      * @param iwriter   A indexer obj with StandardAnalyzer.
      */
     private int indexfile(File file, IndexWriter iwriter){
-        System.out.print(sdf.format(Calendar.getInstance().getTime()) +
-                "\t " + "Indexing..." + file.getAbsolutePath());
+        logger.info("Indexing..." + file.getAbsolutePath());
         String contents;
         Document doc;
         try {
             String file_type = tika.detect(file);
             if(!SUPPORT_TYPE.contains(file_type)) {
-                System.out.println("[File not support]");
+                logger.info("file: " + file.getName() + " file type: " + file_type + " is not supported.");
                 return 0;
             }
             else{
                 contents = parser.parseToString(file);
-                System.out.println("[File support]");
 
-                /**
-                 * Create new document add to index.
-                 */
+                //Create new document add to index.
                 doc = new Document();
                 doc.add(new Field("path", file.getAbsolutePath(), TextField.TYPE_STORED));
                 doc.add(new Field("file_name", file.getName(), TextField.TYPE_STORED));
@@ -194,7 +194,7 @@ public class Indexer implements Runnable{
             }
         }
         catch (IOException | TikaException | SAXException e){
-            System.out.println("[File not support]");
+            logger.info("file: " + file.getName() + " is not supported.");
             return 0;
         }
 
@@ -230,8 +230,7 @@ public class Indexer implements Runnable{
         try {
             iwriter = new IndexWriter(directory, config);
         } catch (IOException e) {
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t Cannot access to index directory, Please enter the correct full path...");
+            logger.severe("Cannot access to index directory, Please enter the correct full path...");
             System.exit(1);
         }
         return iwriter;
@@ -298,7 +297,7 @@ public class Indexer implements Runnable{
      * @param contents  Contents of each file as String.
      * @return  first N words extract from String contents.
      */
-    private @NotNull String getNWords(String contents){
+    private String getNWords(String contents){
         if (contents == null) return "";    //If there's nothing inside or can't read contents, then return nothing.
         //Split words by a space to array with size of PRE_CONTENT_SIZE (100 by default).
         String[] pre_contents = contents.split(" ", IndexManager.PRE_CONTENT_SIZE);
@@ -335,13 +334,11 @@ public class Indexer implements Runnable{
      */
     public static String statusReport(){
         String status = "Indexer is null";
-        System.out.print(sdf.format(Calendar.getInstance().getTime()) +
-                "\t Status report was called.\n");
+        logger.info("Status report was called.");
 
         //If indexer is null then call getIndexer to instantiate indexer.
         if(indexer == null){
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t " + status);
+            logger.info(status);
             getIndexer();
         }
         //If indexer is not null, it will pass this line.
@@ -385,8 +382,7 @@ public class Indexer implements Runnable{
         //Assemble String.
         status += "\tIndex directory:" + indexDir + "\n" + "\tData directory(s):" + dataDir + contentsStoreStatus_str +
                 preContentsStoreStatus_str + fileContentsStatus;
-        System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                "\t " + "Reporting status...\n" + "======================\n" +
+        logger.info("Reporting status...\n" + "======================\n" +
                 status + "======================");
         return status;
     }

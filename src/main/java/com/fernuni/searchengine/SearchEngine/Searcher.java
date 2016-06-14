@@ -5,7 +5,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import com.fernuni.searchengine.RESTController;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
@@ -23,7 +27,12 @@ import org.apache.lucene.store.FSDirectory;
  * This is a search module, it searches through the index and return results as a Result instance.
  */
 public class Searcher {
-
+    private static Logger logger = Logger.getLogger("com.fernuni.searchengine.SearchEngine.Searcher");
+    private static FileHandler fh = RESTController.fh;
+    static {
+        logger.addHandler(fh);
+        logger.setLevel(Level.ALL);
+    }
     private IndexSearcher indexSearcher = null;
     private QueryParser parser = null;
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -47,13 +56,11 @@ public class Searcher {
             parser = new QueryParser("contents", new StandardAnalyzer());
         }
         catch (IOException e){
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t " + "Index does not exist.");
+            logger.severe("Index does not exist.");
             return;
         }
         catch (NullPointerException e){
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t " + "Index directory is incorrect, Cannot search without setup the indexer.");
+            logger.severe("Index directory is incorrect, Cannot search without setup the indexer.");
             return;
         }
     }
@@ -78,7 +85,7 @@ public class Searcher {
      */
     public ArrayList<Result> run(String searchStr){
         ArrayList<Result> results = new ArrayList<>();
-        System.out.println("======================\n" +
+        logger.info("======================\n" +
                 "\tSearching...\n");
 
         if(!isCorrupted()) {
@@ -88,7 +95,7 @@ public class Searcher {
                 //get top 'numOfResult' matching documents list for the query 'searchString'
                 TopDocs topDocs = performSearch(searchString, numOfResult); //This is a kind of result report that contains a list of files.
                 ScoreDoc[] hits = topDocs.scoreDocs;    //Get files from the list and store in array.
-                System.out.println("\tNumber of file(s) matched: [" + hits.length + "]");
+                logger.info("Number of file(s) matched: [" + hits.length + "]");
 
                 //Get detail out of ScoreDoc which is a document user is looking for.
                 int counter = 1;
@@ -100,7 +107,7 @@ public class Searcher {
                     String filetype = doc.get("type");
                     //If user hasn't saved pre_contents then use contents instead.
                     if(filecontent != null){
-                        System.out.println("\t" + "Using file contents as a pre content.");
+                        logger.info("Using file contents as a pre content.");
                         //Get 100 words around matched word.
                         filecontent = getNWordsMatched(filecontent, searchStr);
                         if(filecontent.length() == 0) filecontent = "[No matched exact word from content]";
@@ -110,25 +117,22 @@ public class Searcher {
                         if(filecontent == null) filecontent = "[No content]";
                     }
                     //Report to a terminal.
-                    System.out.println("\t[" + counter++ + "]\n" + "\tFound: " + filename + "\n\t@[" + filepath +
+                    logger.info("\t[" + counter++ + "]\n" + "\tFound: " + filename + "\n\t@[" + filepath +
                         "]\n\t-----CONTENT-----\n\t" + filecontent + "\n");
                     results.add(new Result(filename, filepath, filecontent, filetype));    //add Result obj to a list for output.
                 }
             }
             catch (IOException e){
-                System.out.print(sdf.format(Calendar.getInstance().getTime()) +
-                        "\t " + "QueryParser or IndexSearcher instance error.\n");
+                logger.severe("QueryParser or IndexSearcher instance error.\n");
             }
             catch (ParseException e) {
-                System.out.print(sdf.format(Calendar.getInstance().getTime()) +
-                        "\t " + "Parser cannot complete the task.\n");
+                logger.severe("Parser cannot complete the task.\n");
             }
         }
         else{
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t " + "Searcher object is corrupted.");
+            logger.severe("Searcher object is corrupted.");
         }
-        System.out.println("======================");
+        logger.info("======================");
         return results;
     }
 

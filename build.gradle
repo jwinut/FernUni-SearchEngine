@@ -29,11 +29,12 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	testCompile('org.springframework.boot:spring-boot-starter-test') 
-	compile files('lucene-analyzers-common-6.0.1.jar')
-	compile files('lucene-core-6.0.1.jar')
-	compile files('lucene-queryparser-6.0.1.jar')
-	compile files('tika-app-1.13.jar')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile group: 'org.apache.lucene', name: 'lucene-core', version: '6.0.1'
+	compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '6.0.1'
+	compile group: 'org.apache.lucene', name: 'lucene-queryparser', version: '6.0.1'
+	compile ('org.apache.tika:tika-parsers:1.13')
+	compile ('org.apache.tika:tika-core:1.13')
 
 }
 
@@ -43,7 +44,4 @@ eclipse {
 		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
 		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
 	}
-}
-configurations {
-	all*.exclude module : 'spring-boot-starter-logging'
 }

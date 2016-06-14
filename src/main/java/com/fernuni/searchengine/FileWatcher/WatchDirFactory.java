@@ -1,18 +1,31 @@
 package com.fernuni.searchengine.FileWatcher;
 
+import com.fernuni.searchengine.RESTController;
 import com.fernuni.searchengine.SearchEngine.DirectoryHandler;
+import com.fernuni.searchengine.SearchEngine.IndexManager;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 6/10/2016 AD.
  * Use this class to create an instance to create a watcher thread.
  */
 public class WatchDirFactory implements Runnable{
+    private static Logger logger = Logger.getLogger("com.fernuni.searchengine.FileWatcher.WatchDirFactory");
+    private static FileHandler fh = RESTController.fh;
+    static {
+        logger.addHandler(fh);
+        logger.setLevel(Level.ALL);
+    }
+
     private boolean recursive;
     private Path path;
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -42,8 +55,7 @@ public class WatchDirFactory implements Runnable{
             watchDir = new WatchDir(dir, recursive);
             watch_dir = new Thread(watchDir);
         } catch (IOException e) {
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t " + "Watcher thread error: " + e.toString());
+            logger.severe("Watcher thread error: " + e.toString());
         }
         if(watchDir != null && watch_dir != null) {
             watch_dir.setName(path.toString()); //Set a thread name as same as watched directory.
@@ -51,7 +63,6 @@ public class WatchDirFactory implements Runnable{
             watchers.add(watch_dir);    //Add a new watcher to the list, so it is possible to stop thread in the future.
             runnables.add(watchDir);    //Add a new runnable to the list, so it is possible to kill a running thread in the future.
         }
-        else System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " +
-                "No watcher has been assign to " + path);
+        else logger.info("No watcher has been assign to " + path);
     }
 }

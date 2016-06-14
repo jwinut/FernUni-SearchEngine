@@ -5,7 +5,6 @@ import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.AutoDetectParser;
 import org.apache.tika.sax.BodyContentHandler;
 import org.xml.sax.SAXException;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

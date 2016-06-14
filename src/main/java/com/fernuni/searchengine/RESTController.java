@@ -9,9 +9,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.logging.*;
 
 @SpringBootApplication
 @RestController
@@ -21,8 +27,38 @@ import java.util.Calendar;
  * for more information, visit spring.io or just Google it.
  */
 public class RESTController {
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+	private static SimpleDateFormat sdf_file_log = new SimpleDateFormat("yyyy-MM-dd");
+	private static String logfile_str = "log" + File.separatorChar + "info_log_" + sdf_file_log.format(Calendar.getInstance().getTime()) + ".log";
+	private static Logger logger = Logger.getLogger("com.fernuni.searchengine.RESTController");
+	public static FileHandler fh;
+	static {
+		try {
+			Path path = Paths.get("./log/files_changes");
+			Files.createDirectories(path);
+			fh = new FileHandler(logfile_str, true);
+		} catch (IOException e) {
+			logger.severe("Cannot log to file: " + logfile_str);
+		}
+		fh.setFormatter(new Formatter() {
+			public String format(LogRecord rec) {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+				StringBuffer buf = new StringBuffer(1000);
+				buf.append(sdf.format(Calendar.getInstance().getTime()).toString());
+				buf.append(' ');
+				buf.append(rec.getLevel());
+				buf.append(' ');
+				buf.append(rec.getLoggerName());
+				buf.append(" : ");
+				buf.append(formatMessage(rec));
+				buf.append('\n');
+				return buf.toString();
+			}
+		});
+	}
+
 	public static void main(String[] args) {
+		logger.addHandler(fh);
+		logger.setLevel(Level.ALL);
 		SpringApplication.run(RESTController.class, args);
 	}
 
@@ -32,9 +68,7 @@ public class RESTController {
 		HttpHeaders headers = new HttpHeaders();
 		//headers.add("Access-Control-Allow-Origin", "*");
 		headers.setAccessControlAllowOrigin("/**");
-		System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-				"\t " +
-				"Sent ResponseEntity with CORS header from " +
+		logger.info("Sent ResponseEntity with CORS header from " +
 				"\tIP: " + request.getRemoteHost());
 		return new ResponseEntity(headers, HttpStatus.NO_CONTENT);
 	}
@@ -46,13 +80,10 @@ public class RESTController {
 
 	@RequestMapping(value = "/index")
 	public @ResponseBody String index(){
-		System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-				"\t " +
-				"[/index] was called.");
+		logger.info("[/index] was called.");
 		Indexer indexer = Indexer.getIndexer();
 		if(indexer == null){
-			System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " +
-					"Indexer is NULL, it is not possible to index.");
+			logger.severe("Indexer is NULL, it is not possible to index.");
 			return "Indexer is NULL, it is not possible to index.";
 		}
 		Thread t_index = new Thread(indexer);
@@ -61,26 +92,21 @@ public class RESTController {
 			t_index.join();
 		}
 		catch (InterruptedException e){
-			System.out.print(sdf.format(Calendar.getInstance().getTime()) +
-					"\t " + "Thread error: " + e.toString());
+			logger.severe("Thread error: " + e.toString());
 		}
 		return "Total files indexed: " + indexer.getNumOfFilesIndexed();
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteOldIndex")
 	public @ResponseBody boolean deleteOldIndex(){
-		System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-				"\t " +
-				"[/deleteOldIndex] was called.");
+		logger.info("[/deleteOldIndex] was called.");
 		IndexManager manager = new IndexManager();
 		return manager.deleteIndex();
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteDataDir", params = "path")
 	public @ResponseBody boolean deleteDataDir(@RequestParam String path){
-		System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-				"\t " +
-				"[/deleteDataDir] was called with parameters\t[path:" +
+		logger.info("[/deleteDataDir] was called with parameters\t[path:" +
 				path + "]");
 		DirectoryHandler directoryHandler = DirectoryHandler.getDirectoryHandler();
 		return directoryHandler.clearDataDir(path);
@@ -88,9 +114,7 @@ public class RESTController {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/setIndexDir", params = "path")
 	public @ResponseBody boolean setIndexDir(@RequestParam String path){
-		System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-				"\t " +
-				"[/setIndexDir] was called with parameters\t[path:" +
+		logger.info("[/setIndexDir] was called with parameters\t[path:" +
 				path + "]");
 		DirectoryHandler directoryHandler = DirectoryHandler.getDirectoryHandler();
 		return directoryHandler.setIndexDirectory(path);
@@ -98,9 +122,7 @@ public class RESTController {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/addDataDir", params = "path")
 	public @ResponseBody String addDataDir(@RequestParam String path){
-		System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-				"\t " +
-				"[/addDataDir] was called with parameters\t[path:" +
+		logger.info("[/addDataDir] was called with parameters\t[path:" +
 				path + "]");
 		DirectoryHandler directoryHandler = DirectoryHandler.getDirectoryHandler();
 		return directoryHandler.addDataDir(path);
@@ -108,27 +130,21 @@ public class RESTController {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/status")
 	public @ResponseBody String statusReport() {
-		System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-				"\t " +
-				"[/status] was called.");
+		logger.info("[/status] was called.");
 		return Indexer.statusReport();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/status/dataDir")
 	public @ResponseBody String statusDataDir(){
-		System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-				"\t " +
-				"[/status/dataDir] was called.");
-			String dataDir_str = DirectoryHandler.getDirectoryHandler().getDataDirectoriesString();
-			if(dataDir_str == null|| dataDir_str.length() == 0 || dataDir_str.equals("") ) return "No data directory has been entered.";
-			else return dataDir_str;
+		logger.info("[/status/dataDir] was called.");
+		String dataDir_str = DirectoryHandler.getDirectoryHandler().getDataDirectoriesString();
+		if(dataDir_str == null|| dataDir_str.length() == 0 || dataDir_str.equals("") ) return "No data directory has been entered.";
+		else return dataDir_str;
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/status/indexDir")
 	public @ResponseBody String statusIndexDir(){
-		System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-				"\t " +
-				"[/status/indexDir] was called.");
+		logger.info("[/status/indexDir] was called.");
 		String indexDir_str = DirectoryHandler.getDirectoryHandler().getIndexDirectoryString();
 		if(indexDir_str == null|| indexDir_str.length() == 0 || indexDir_str.equals("") ) return "No index directory has been entered.";
 		else return indexDir_str;
@@ -136,9 +152,7 @@ public class RESTController {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/search", params = "searchString")
 	public @ResponseBody ArrayList<Result> searchString(@RequestParam String searchString){
-		System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-				"\t " +
-				"[/search] was called with parameters\t[searchString:" +
+		logger.info("[/search] was called with parameters\t[searchString:" +
 				searchString + "]");
 		Searcher searcher = new Searcher();
 		return searcher.run(searchString);

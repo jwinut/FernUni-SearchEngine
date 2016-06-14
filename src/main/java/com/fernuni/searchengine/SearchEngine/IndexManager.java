@@ -1,5 +1,6 @@
 package com.fernuni.searchengine.SearchEngine;
 
+import com.fernuni.searchengine.RESTController;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
@@ -10,6 +11,9 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 6/2/2016 AD.
@@ -20,6 +24,12 @@ public class IndexManager {
     private DirectoryHandler directoryHandler;
     public static final int PRE_CONTENT_SIZE = 100;
 
+    private static Logger logger = Logger.getLogger("com.fernuni.searchengine.SearchEngine.DirectoryHandler");
+    private static FileHandler fh = RESTController.fh;
+    static {
+        logger.addHandler(fh);
+        logger.setLevel(Level.ALL);
+    }
     /**
      * Default constructor.
      */
@@ -40,30 +50,33 @@ public class IndexManager {
              */
             IndexWriterConfig config = new IndexWriterConfig(new StandardAnalyzer());
             try {
-                IndexWriter iwriter = new IndexWriter(
-                        directory,
-                        config);
-                System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " +
-                                    "Deleting the index at: " + indexDir.getAbsolutePath());
+                IndexWriter iwriter = new IndexWriter(directory, config);
+                logger.info("Deleting the index at: " + indexDir.getAbsolutePath());
                 iwriter.deleteAll();
                 iwriter.close();
                 Indexer.getIndexer().setNumOfFilesIndexed(0);
                 return true;
             } catch (IOException e) {
-                System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                        "\t Cannot access to index directory.\n" +
-                        sdf.format(Calendar.getInstance().getTime()) +
-                        "\t Please enter the correct full path...");
+                logger.severe("Cannot access to index directory, Please enter the correct full path...");
                 return false;
             }
         } catch (IOException e) {
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t No index founded, Cannot delete old index files.");
+            logger.warning("No index founded, Cannot delete old index files.");
             return false;
         } catch (NullPointerException e) {
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t No index has been registered, Cannot delete old index files.");
+            logger.warning("No index has been registered, Cannot delete old index files.");
             return false;
+        }
+    }
+
+    public static FileHandler getFileHandler(String logfile_str, int count){
+        try{
+            FileHandler fileHandler = new FileHandler(logfile_str, true);
+            return fileHandler;
+        }
+        catch (IOException e){
+            logger.warning("Cannot log to file " + logfile_str);
+            return null;
         }
     }
 }

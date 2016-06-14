@@ -2,6 +2,7 @@ package com.fernuni.searchengine.SearchEngine;
 
 import com.fernuni.searchengine.FileWatcher.WatchDir;
 import com.fernuni.searchengine.FileWatcher.WatchDirFactory;
+import com.fernuni.searchengine.RESTController;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,12 +11,21 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 5/30/2016 AD.
  * This class has all the information about where to get files and where to store other files including the index location.
  */
 public class DirectoryHandler {
+    private static Logger logger = Logger.getLogger("com.fernuni.searchengine.SearchEngine.DirectoryHandler");
+    private static FileHandler fh = RESTController.fh;
+    static {
+        logger.addHandler(fh);
+        logger.setLevel(Level.ALL);
+    }
     private File indexDirectory;
     private ArrayList<File> dataDirectories;
     private static DirectoryHandler directoryHandler;
@@ -37,10 +47,8 @@ public class DirectoryHandler {
      * @return  True if success, otherwise, false.
      */
     public boolean clearDataDir(String path){
-        System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                "\t clearDataDir is called, and processing.");
-        System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                "\t Status report before remove data directory.");
+        logger.info("clearDataDir is called, and processing.");
+        logger.info("Status report before remove data directory.");
         Indexer.statusReport();
         ArrayList<File> dataDirs = getDataDirectories();
         if (path.equals("*")) {
@@ -51,31 +59,26 @@ public class DirectoryHandler {
             }
             if(dataDirs.size() == 0) return true;
             else {
-                System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " +
-                "Remove all data directory error. Cannot clear all directory.");
+                logger.warning("Remove all data directory error. Cannot clear all directory.");
                 return false;
             }
         } else {
             Iterator<File> fileIterator = dataDirs.iterator();
             Path dir_path;
             Path file_path = Paths.get(path);
-            /**
-             * Iterate through a list of paths, If matched, remove.
-             */
+            //terate through a list of paths, If matched, remove.
             while(fileIterator.hasNext()){
                 dir_path = Paths.get(fileIterator.next().getAbsolutePath());
                 if(dir_path.equals(file_path)){  //If it is matched.
                     fileIterator.remove();  //remove the path that is matched.
                     //Report to a terminal.
-                    System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                            "\t Following path has been removed: " + dir_path);
+                    logger.fine("Following path has been removed: " + dir_path);
                     Indexer.statusReport(); //Log
                     unWatchDir(file_path);
                     return true;
                 }
             }
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t No directory match.");
+            logger.info("No directory match.");
             Indexer.statusReport();
             return false;
         }
@@ -113,7 +116,7 @@ public class DirectoryHandler {
             return true;
         }
         else {
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " + "No new path has been set for index directory.");
+            logger.info("No new path has been set for index directory.");
             return false;
         }
     }
@@ -182,14 +185,12 @@ public class DirectoryHandler {
                 }
                 else {
                     tmp += dir + " is already added.\n";
-                    System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                            "\t " + dir + " is a duplicated path.");
+                    logger.info(dir + " is a duplicated path.");
                 }
             }
             else {
                 tmp += dir + " is an incorrect path, Please enter an exist path.\n";
-                System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " + dir +
-                        " is an incorrect path, Please enter an exist path.");
+                logger.warning(dir + " is an incorrect path, Please enter an exist path.");
             }
         }
         return tmp; //Report back what path had been added.
@@ -217,15 +218,13 @@ public class DirectoryHandler {
                 //If path (newly added directory) is a sub-directory inside a registered directory,
                 //Then no need to add new Watcher service.
                 if(path_str.contains(watcher_dir)){
-                    System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " +
-                    path + " is a sub-directory of " + watcher_dir + ", No watcher service has been added.");
+                    logger.info(path + " is a sub-directory of " + watcher_dir + ", No watcher service has been added.");
                     return;
                 }
                 //If registered path is a sub-directory of a newly added path, then unwatch the old sub-directory,
                 //and watch the directory instead.
                 else if(watcher_dir.contains(path_str)){
-                    System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " +
-                            watcher_dir + " is a sub-directory of " + path + ", Unwatch thread " +
+                    logger.info(watcher_dir + " is a sub-directory of " + path + ", Unwatch thread " +
                             watcher.getName());
                     unWatchDir(watcher, runnables.remove(index));
                     watchersIterator.remove();
@@ -234,8 +233,7 @@ public class DirectoryHandler {
             }
         }
         else{
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " +
-                    path + " is already registered and watching.");
+            logger.info(path + " is already registered and watching.");
             return;
         }
         //Create a new factory thread, the new thread will create a new watcher to watch a directory.
@@ -250,18 +248,15 @@ public class DirectoryHandler {
         if(index >= 0 && index < watchers.size() && index < runnables.size()) { //Check input
             Thread watch_dir = watchers.remove(index);  //remove target from watcher's list.
             WatchDir runnable = runnables.remove(index);    //remove runnable target from the list.
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t " + "Stopping thread: " + watch_dir.getName());
+            logger.info("Stopping thread: " + watch_dir.getName());
             runnable.kill();    //Stop watching, cause runnable to stop.
             try {
                 watch_dir.join();   //Stop thread.
             } catch (InterruptedException e) {
-                System.out.println("Stop thread " + watch_dir.getName() +
-                        "error: " + e.toString());
+                logger.severe("Stop thread " + watch_dir.getName() + "error: " + e.toString());
             }
         }
-        else System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " +
-        "Cannot unWatchDir at index [" + index + "]");
+        else logger.severe("Cannot unWatchDir at index [" + index + "]");
     }
 
     /**
@@ -280,8 +275,7 @@ public class DirectoryHandler {
         }
 
         //If program reach this line, it didn't unwatch anything.
-        System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " +
-        "No watcher is watching " + path.toString());
+        logger.info("No watcher is watching " + path.toString());
     }
 
     /**
@@ -290,14 +284,12 @@ public class DirectoryHandler {
      * @param runnable
      */
     private void unWatchDir(Thread watcher, WatchDir runnable){
-        System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                "\t " + "Stopping thread: " + watcher.getName());
+        logger.info("Stopping thread: " + watcher.getName());
         runnable.kill();
         try {
             watcher.join();
         } catch (InterruptedException e) {
-            System.out.println("Stop thread " + watcher.getName() +
-                    "error: " + e.toString());
+            logger.severe("Stop thread " + watcher.getName() + "error: " + e.toString());
         }
     }
 
@@ -328,8 +320,7 @@ public class DirectoryHandler {
             try {
                 if(Files.isSameFile(path_dir.toPath(), dir.toPath())) return true;
             } catch (IOException e) {
-                System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " +
-                        "Cannot check isSameFile with " + path_dir.toPath() + ", " +
+                logger.warning("Cannot check isSameFile with " + path_dir.toPath() + ", " +
                 dir.toPath());
             }
         }
