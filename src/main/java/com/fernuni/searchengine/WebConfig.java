@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 /**
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 6/1/2016 AD.
+ * This is some modified configuration, in case of CORs.
  */
 @Configuration
 @EnableWebMvc

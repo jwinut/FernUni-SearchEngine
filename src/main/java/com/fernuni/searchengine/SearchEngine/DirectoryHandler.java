@@ -13,6 +13,7 @@ import java.util.*;
 
 /**
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 5/30/2016 AD.
+ * This class has all the information about where to get files and where to store other files including the index location.
  */
 public class DirectoryHandler {
     private File indexDirectory;
@@ -30,6 +31,8 @@ public class DirectoryHandler {
 
     /**
      * Remove a data directory from the list, if input is '*' then remove all data directory.
+     * Bug!!! when clear bigger directory, no more watcher for sub-directory.
+     * I had an idea to re-check every sometime for every directory or every time this method is called.
      * @param path  Data directory path to be remove.
      * @return  True if success, otherwise, false.
      */
@@ -41,10 +44,10 @@ public class DirectoryHandler {
         Indexer.statusReport();
         ArrayList<File> dataDirs = getDataDirectories();
         if (path.equals("*")) {
-            Iterator<File> fileIterator = dataDirs.iterator();
-            while(fileIterator.hasNext()){
-                fileIterator.remove();
-                unWatchDir(0);
+            int size = dataDirs.size();
+            for(int i = size - 1; i >= 0; i--){
+                unWatchDir(i);
+                this.dataDirectories.remove(i);
             }
             if(dataDirs.size() == 0) return true;
             else {
@@ -128,6 +131,31 @@ public class DirectoryHandler {
     }
 
     /**
+     * Get all data directory as a String.
+     * @return  A String contain all data directory.
+     */
+    public String getDataDirectoriesString() {
+        ArrayList dataDirs = this.getDataDirectories();
+        String dataDirs_str = "";
+
+        File dir;
+        for(Iterator var3 = dataDirs.iterator(); var3.hasNext(); dataDirs_str = dataDirs_str + dir.getAbsolutePath() + "\n") {
+            dir = (File)var3.next();
+        }
+
+        return dataDirs_str;
+    }
+
+    /**
+     * Get an index directory as a String.
+     * @return  A String of index directory path.
+     */
+    public String getIndexDirectoryString() {
+        File indexDir = this.getIndexDirectory();
+        return indexDir != null?indexDir.getAbsolutePath():null;
+    }
+
+    /**
      * Add a data directory path to the system.
      * @param path  A new data directory path.
      * @return  String report of successfully added path.
@@ -147,8 +175,8 @@ public class DirectoryHandler {
             Path dir_path = Paths.get(dir);
             if(Files.exists(dir_path)) {
                 if (!contains(dataDir, dir_path)) {    //If path hasn't been added.
-                    //dataDir.add(new File(dir));    //Add a path into a list of directory to be indexed.
-                    dataDir.add(dir_path.toFile());
+                    //dataDir.add(new File(dir));
+                    dataDir.add(dir_path.toFile()); //Add a path into a list of directory to be indexed.
                     watchDir(dir_path);
                     tmp += dir_path.toString() + "\n";
                 }
@@ -169,7 +197,7 @@ public class DirectoryHandler {
 
     /**
      * Assign a new thread to watch a data directory.
-     * @param path  Path
+     * @param path  Path to be watched.
      */
     private void watchDir(Path path){
         ArrayList<Thread> watchers = this.watchers;
@@ -210,43 +238,23 @@ public class DirectoryHandler {
                     path + " is already registered and watching.");
             return;
         }
-        /*
-        WatchDir watchDir = null;
-        Path dir = Paths.get(path);
-        Thread watch_dir = null;
-        try {
-            watchDir = new WatchDir(dir, true);
-            watch_dir = new Thread(watchDir);
-        } catch (IOException e) {
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t " + "Watcher thread error: " + e.toString());
-        }
-        if(watchDir != null && watch_dir != null) {
-            watch_dir.setName(path);
-            watch_dir.start();
-            watchers.add(watch_dir);
-            runnables.add(watchDir);
-        }
-        else System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " +
-        "No watcher has been assign to " + path);
-        */
         //Create a new factory thread, the new thread will create a new watcher to watch a directory.
         new Thread(new WatchDirFactory(path, true)).start();
     }
 
     /**
-     * Fix with 2 params, Thread and Runnable
-     * @param index
+     * Unwatch a directory, automatically kill the thread and remove objects from Thread list and Runnable list.
+     * @param index Index of the thread to be unwatched, newly added thread will be the last.
      */
     private void unWatchDir(int index){
-        if(index >= 0 && index < watchers.size() && index < runnables.size()) {
-            Thread watch_dir = watchers.remove(index);
-            WatchDir runnable = runnables.remove(index);
+        if(index >= 0 && index < watchers.size() && index < runnables.size()) { //Check input
+            Thread watch_dir = watchers.remove(index);  //remove target from watcher's list.
+            WatchDir runnable = runnables.remove(index);    //remove runnable target from the list.
             System.out.println(sdf.format(Calendar.getInstance().getTime()) +
                     "\t " + "Stopping thread: " + watch_dir.getName());
-            runnable.kill();
+            runnable.kill();    //Stop watching, cause runnable to stop.
             try {
-                watch_dir.join();
+                watch_dir.join();   //Stop thread.
             } catch (InterruptedException e) {
                 System.out.println("Stop thread " + watch_dir.getName() +
                         "error: " + e.toString());
@@ -256,10 +264,15 @@ public class DirectoryHandler {
         "Cannot unWatchDir at index [" + index + "]");
     }
 
+    /**
+     * Unwatch a directory, automatically kill the thread and remove objects from Thread list and Runnable list.
+     * @param path  Path of directory to be unwatch.
+     */
     private void unWatchDir(Path path){
         int index = 0;
+        //Find the watcher which is watching a directory.
         for(Thread thread : watchers){
-            if(thread.getName().equals(path.toString())) {
+            if(thread.getName().equals(path.toString())) {  //Use the assigned name to find the correct thread.
                 unWatchDir(index);  //unwatch a watcher and stop this method.
                 return;
             }
@@ -271,6 +284,11 @@ public class DirectoryHandler {
         "No watcher is watching " + path.toString());
     }
 
+    /**
+     * Unwatch a directory, kill the given runnable and stop the given thread.
+     * @param watcher
+     * @param runnable
+     */
     private void unWatchDir(Thread watcher, WatchDir runnable){
         System.out.println(sdf.format(Calendar.getInstance().getTime()) +
                 "\t " + "Stopping thread: " + watcher.getName());
@@ -283,16 +301,11 @@ public class DirectoryHandler {
         }
     }
 
-    /*
-    private boolean isWatching(String path){
-        ArrayList<Thread> watchers = this.watchers;
-        for(Thread watcher : watchers){
-            String watcher_name = watcher.getName();
-            if(path.equals(watcher_name)) return true;
-        }
-        return false;
-    }*/
-
+    /**
+     * Check a directory, If it is being watched then return true, otherwise false.
+     * @param path  Path to a directory that will be check.
+     * @return  True when the given path is being watched, otherwise false.
+     */
     private boolean isWatching(Path path){
         ArrayList<Thread> watchers = this.watchers;
         for(Thread watcher : watchers){
@@ -302,6 +315,12 @@ public class DirectoryHandler {
         return false;
     }
 
+    /**
+     * Use this to check if data directory list already has the path or not.
+     * @param dataDir   ArrayList of data directory.
+     * @param path      Path to be checked.
+     * @return          True, if path already in the ArrayList, otherwise false.
+     */
     private boolean contains(ArrayList<File> dataDir, Path path){
         //File path_dir = new File(path.toString());
         File path_dir = path.toFile();
@@ -317,19 +336,20 @@ public class DirectoryHandler {
         return false;
     }
 
+    /**
+     * Getter of watchers list.
+     * @return  ArrayList of watchers.
+     */
     public ArrayList<Thread> getWatchers() {
         return watchers;
     }
 
-    public void setWatchers(ArrayList<Thread> watchers) {
-        this.watchers = watchers;
-    }
-
+    /**
+     * Getter of runnable list.
+     * @return  ArrayList of runnable objects.
+     */
     public ArrayList<WatchDir> getRunnables() {
         return runnables;
     }
 
-    public void setRunnables(ArrayList<WatchDir> runnables) {
-        this.runnables = runnables;
-    }
 }

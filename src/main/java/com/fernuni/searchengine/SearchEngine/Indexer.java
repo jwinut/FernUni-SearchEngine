@@ -22,6 +22,7 @@ import org.xml.sax.SAXException;
 
 /**
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 5/24/2016 AD.
+ * Indexer is a singleton class, it provides methods to index files and a little management about the index.
  */
 
 public class Indexer implements Runnable{

@@ -20,6 +20,7 @@ import org.apache.lucene.store.FSDirectory;
 
 /**
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 6/1/2016 AD.
+ * This is a search module, it searches through the index and return results as a Result instance.
  */
 public class Searcher {
 
@@ -28,17 +29,16 @@ public class Searcher {
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
     private static int numOfWordsBeforeMatchedWord = 3;
 
+    /**
+     * When initialize, automatically ready up for search, use isCorrupt to check readily.
+     */
     public Searcher(){
-        /**
-         * Get a same directory as Indexer.
-         */
+        //Get a same directory as Indexer.
         DirectoryHandler directoryHandler = DirectoryHandler.getDirectoryHandler();
         File indexDir = directoryHandler.getIndexDirectory();
         try {
             Directory directory = FSDirectory.open(indexDir.toPath());
-            /**
-             * Assign a index directory to IndexSearcher.
-             */
+            //Assign a index directory to IndexSearcher.
             indexSearcher = new IndexSearcher(DirectoryReader.open(directory));
             /**
              * @param   content     This specify a field that going to be searched.
@@ -58,6 +58,10 @@ public class Searcher {
         }
     }
 
+    /**
+     * Check readily of the Searcher.
+     * @return  True when ready to use.
+     */
     private boolean isCorrupted(){
         if(indexSearcher != null){
             if(parser != null){
@@ -67,6 +71,11 @@ public class Searcher {
         return true;
     }
 
+    /**
+     * Search through index.
+     * @param searchStr Keywords to use for search.
+     * @return  Result instances of results.
+     */
     public ArrayList<Result> run(String searchStr){
         ArrayList<Result> results = new ArrayList<>();
         System.out.println("======================\n" +
@@ -76,16 +85,12 @@ public class Searcher {
             String searchString = searchStr;    //Input string to be search for.
             int numOfResult = 100;              //Number of top results limit.
             try {
-                /**
-                 * get top 'numOfResult' matching documents list for the query 'searchString'
-                 */
+                //get top 'numOfResult' matching documents list for the query 'searchString'
                 TopDocs topDocs = performSearch(searchString, numOfResult); //This is a kind of result report that contains a list of files.
                 ScoreDoc[] hits = topDocs.scoreDocs;    //Get files from the list and store in array.
                 System.out.println("\tNumber of file(s) matched: [" + hits.length + "]");
 
-                /**
-                 * Get detail out of ScoreDoc which is a document user is looking for.
-                 */
+                //Get detail out of ScoreDoc which is a document user is looking for.
                 int counter = 1;
                 for(ScoreDoc hit : hits){
                     Document doc = getDocument(hit.doc);
@@ -93,9 +98,7 @@ public class Searcher {
                     String filepath = doc.get("path");
                     String filecontent = doc.get("contents");
                     String filetype = doc.get("type");
-                    /**
-                     * If user hasn't saved pre_contents then use contents instead.
-                     */
+                    //If user hasn't saved pre_contents then use contents instead.
                     if(filecontent != null){
                         System.out.println("\t" + "Using file contents as a pre content.");
                         //Get 100 words around matched word.
@@ -129,31 +132,51 @@ public class Searcher {
         return results;
     }
 
+    /**
+     * Get Document's instance from IndexSearcher.
+     * @param docId Id
+     * @return  Document from index.
+     * @throws IOException
+     */
     public Document getDocument(int docId) throws IOException {
-        return indexSearcher.doc(docId);
+        return getIndexSearcher().doc(docId);
     }
 
+    /**
+     * Do search with keywords.
+     * @param queryString   Keywords use for search.
+     * @param n             Number of results returned.
+     * @return              A list of result documents.
+     * @throws IOException
+     * @throws ParseException
+     */
     public TopDocs performSearch(String queryString, int n) throws IOException, ParseException {
         Query query = getParser().parse(queryString);
         return getIndexSearcher().search(query, n);
     }
 
+    /**
+     * Getter of IndexSearcher.
+     * @return  The instance of IndexSearcher.
+     */
     private IndexSearcher getIndexSearcher() {
         return indexSearcher;
     }
 
-    private void setIndexSearcher(IndexSearcher indexSearcher) {
-        this.indexSearcher = indexSearcher;
-    }
-
+    /**
+     * Getter of QueryParser.
+     * @return  The instance of QueryParser.
+     */
     private QueryParser getParser() {
         return parser;
     }
 
-    private void setParser(QueryParser parser) {
-        this.parser = parser;
-    }
-
+    /**
+     * This method will find the keyword and get some of contents around that keyword.
+     * @param filecontent   File contents.
+     * @param searchStr     Keyword.
+     * @return  Number of words according to IndexManager.PRE_SIZE_CONTENT and numOfWordsBeforeMatchedWord around the first found keyword.
+     */
     private String getNWordsMatched(String filecontent, String searchStr){
         String searchString = searchStr;
         ArrayList<String> arr_str = new ArrayList<>();

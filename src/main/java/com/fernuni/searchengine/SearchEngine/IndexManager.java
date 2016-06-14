@@ -13,6 +13,7 @@ import java.util.Calendar;
 
 /**
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 6/2/2016 AD.
+ * IndexManager meant to be the manager of index.
  */
 public class IndexManager {
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");

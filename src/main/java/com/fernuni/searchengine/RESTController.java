@@ -16,6 +16,10 @@ import java.util.Calendar;
 @SpringBootApplication
 @RestController
 @CrossOrigin
+/**
+ * This is a REST Controller, by Spring.
+ * for more information, visit spring.io or just Google it.
+ */
 public class RESTController {
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 	public static void main(String[] args) {

@@ -2,6 +2,8 @@ package com.fernuni.searchengine.SearchEngine;
 
 /**
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 6/2/2016 AD.
+ * This class is a template of results to be returned to front-end.
+ * It is meant to parse into a JSON format.
  */
 public class Result {
     public String file_name;

@@ -10,6 +10,7 @@ import java.util.Calendar;
 
 /**
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 6/10/2016 AD.
+ * Use this class to create an instance to create a watcher thread.
  */
 public class WatchDirFactory implements Runnable{
     private boolean recursive;

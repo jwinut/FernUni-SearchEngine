@@ -40,6 +40,7 @@ import java.util.*;
 
 /**
  * Example to watch a directory (or tree) for changes to files.
+ * Modified from the original to use with TheSearchEngine.
  */
 
 public class WatchDir implements Runnable{
@@ -126,17 +127,12 @@ public class WatchDir implements Runnable{
 
     /**
      * Process all events for keys queued to the watcher
+     * If it is possible to watch only visible files, it will be more practical for use.
      */
     public void run() {
         SimpleDateFormat sdf_file_log = new SimpleDateFormat("yyyy-MM-dd");
-        String file_log_name = "file_log_" + sdf_file_log.format(Calendar.getInstance().getTime());
-        File file_log = new File(file_log_name);
-        try {
-            FileWriter writer = new FileWriter(file_log, true);
-        } catch (IOException e) {
-            System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " + "Cannot create: " +
-            file_log_name);
-        }
+        String logfile_str = "file_changes_log_" + sdf_file_log.format(Calendar.getInstance().getTime());
+        FileWriter writer;
         while(!isStop) {
 
             // wait for key to be signalled
@@ -158,6 +154,7 @@ public class WatchDir implements Runnable{
             }
 
             for (WatchEvent<?> event: key.pollEvents()) {
+                writer = getFileLogWriter(logfile_str, 1);
                 WatchEvent.Kind kind = event.kind();
 
                 // TBD - provide example of how OVERFLOW event is handled
@@ -173,6 +170,18 @@ public class WatchDir implements Runnable{
                 // print out event
                 System.out.format(sdf.format(Calendar.getInstance().getTime()) +
                         "\t " + "%s: %s\n", event.kind().name(), child);
+                //Log into a file.
+                try {
+                    writer.write(sdf.format(Calendar.getInstance().getTime()) + "\t " +
+                    event.kind().name() + ": " + child + '\n');
+                } catch (IOException e) {
+                    System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t Cannot write log.");
+                }
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t Cannot close log's file writer.");
+                }
 
                 // if directory is created, and watching recursively, then
                 // register it and its sub-directories
@@ -203,10 +212,13 @@ public class WatchDir implements Runnable{
         }
     }
 
+    /**
+     *  Stop the watcher when called.
+     */
     public void kill(){
         try {
             System.out.println(sdf.format(Calendar.getInstance().getTime()) +
-                    "\t " + "Stopping WachService...");
+                    "\t " + "Stopping WatchService...");
             watcher.close();
         } catch (IOException e) {
             System.out.println(sdf.format(Calendar.getInstance().getTime()) +
@@ -214,5 +226,24 @@ public class WatchDir implements Runnable{
             e.printStackTrace();
         }
         isStop = true;
+    }
+
+    /**
+     * Create a FileWriter to write a log file.
+     * @param filename  Log file's name.
+     * @param count     Log file's number.
+     * @return  FileWriter instance.
+     */
+    private FileWriter getFileLogWriter(String filename, int count){
+        File logfile = new File(filename);
+        try {
+            FileWriter writer = new FileWriter(logfile, true);
+            return writer;
+        } catch (IOException e) {
+            System.out.println(sdf.format(Calendar.getInstance().getTime()) + "\t " + "Cannot create: " +
+                    filename);
+            filename += "(" + count +")";
+            return getFileLogWriter(filename, ++count);
+        }
     }
 }
