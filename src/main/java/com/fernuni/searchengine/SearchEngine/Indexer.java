@@ -2,7 +2,6 @@ package com.fernuni.searchengine.SearchEngine;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -40,9 +39,6 @@ public class Indexer implements Runnable {
     private File indexDir;
     private ArrayList<File> dataDirs;
     private DirectoryHandler directoryHandler;
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    private FieldType contents_store = TextField.TYPE_NOT_STORED;
-    private FieldType pre_contents_store = TextField.TYPE_STORED;
     private FilesParser parser = new FilesParser();
     private Tika tika = new Tika();
     private final String SUPPORT_TYPE = "text/html\n" + //File MIME type support list.
@@ -57,7 +53,7 @@ public class Indexer implements Runnable {
                                     "application/vnd.openxmlformats-officedocument.wordprocessingml.document\n" +
                                     "application/vnd.openxmlformats-officedocument.presentationml.slideshow\n" +
                                     "application/pdf";
-    public int numOfFilesIndexed = 0;
+    private int numOfFilesIndexed = 0;
 
     /**
      * Normal constructor.
@@ -94,7 +90,7 @@ public class Indexer implements Runnable {
         File indexDir = getIndexDir();
 
         //Create IndexWriter.
-        Directory directory = null;
+        Directory directory;
         try {
             //Open index directory for assign with IndexWriter.
             directory = FSDirectory.open(indexDir.toPath());
@@ -113,7 +109,7 @@ public class Indexer implements Runnable {
         //Get everything checked.
         if(files.size() == 0){
             logger.severe("There's no data to be indexed.");
-            System.exit(1);
+            return;
         }
 
         //Index every files in directory and within subdirectory.
@@ -185,8 +181,8 @@ public class Indexer implements Runnable {
                 doc = new Document();
                 doc.add(new Field("path", file.getAbsolutePath(), TextField.TYPE_STORED));
                 doc.add(new Field("file_name", file.getName(), TextField.TYPE_STORED));
-                doc.add(new Field("pre_contents", getNWords(contents), pre_contents_store));
-                doc.add(new Field("contents", contents, contents_store));
+                doc.add(new Field("pre_contents", getNWords(contents), IndexManager.getPre_contents_store()));
+                doc.add(new Field("contents", contents, IndexManager.getContents_store()));
                 doc.add(new Field("type", file_type, TextField.TYPE_STORED));
 
                 //use Indexwriter to add a document and index it.
@@ -238,59 +234,19 @@ public class Indexer implements Runnable {
     }
 
     /**
-     * Set value of contents_store to TextField.TYPE_STORE to store contents of files in index.
-     * @return  true, but if something bad happens, it returns false.
-     */
-    public boolean setContentStoreTrue() {
-        contents_store = TextField.TYPE_STORED;
-        if(contents_store == TextField.TYPE_STORED) return true;
-        else return false;
-    }
-
-    /**
-     * Set value of contents_store to TextField.TYPE_NOT_STORE to NOT store contents of files in index.
-     * @return  true, but if something bad happens, it returns false.
-     */
-    public boolean setContentStoreFalse(){
-        contents_store = TextField.TYPE_NOT_STORED;
-        if(contents_store == TextField.TYPE_NOT_STORED) return true;
-        else return false;
-    }
-
-    /**
-     * Set value of pre_contents_store to TextField.TYPE_STORE to store contents of files in index.
-     * @return  true, but if something bad happens, it returns false.
-     */
-    public boolean setPreContentStoreTrue() {
-        pre_contents_store = TextField.TYPE_STORED;
-        if(pre_contents_store == TextField.TYPE_STORED) return true;
-        else return false;
-    }
-
-    /**
-     * Set value of pre_contents_store to TextField.TYPE_NOT_STORE to NOT store contents of files in index.
-     * @return  true, but if something bad happens, it returns false.
-     */
-    public boolean setPreContentStoreFalse(){
-        pre_contents_store = TextField.TYPE_NOT_STORED;
-        if(pre_contents_store == TextField.TYPE_NOT_STORED) return true;
-        else return false;
-    }
-
-    /**
      * Getter of contents_store field.
      * @return  (FieldType) contents_store.
      */
-    public FieldType getContents_store() {
-        return contents_store;
+    private FieldType getContents_store() {
+        return IndexManager.getContents_store();
     }
 
     /**
      * Getter of pre_contents_store field.
      * @return  (FieldType) pre_contents_store.
      */
-    public FieldType getPre_contents_store() {
-        return pre_contents_store;
+    private FieldType getPre_contents_store() {
+        return IndexManager.getPre_contents_store();
     }
 
     /**
@@ -325,66 +281,8 @@ public class Indexer implements Runnable {
      * Setter of numOfFilesIndexed.
      * @param numOfFilesIndexed New value.
      */
-    public void setNumOfFilesIndexed(int numOfFilesIndexed) {
+    void setNumOfFilesIndexed(int numOfFilesIndexed) {
         this.numOfFilesIndexed = numOfFilesIndexed;
     }
 
-    /**
-     * Report status of the system.
-     * @return  System report.
-     */
-    public static String statusReport(){
-        String status = "Indexer is null";
-        logger.info("Status report was called.");
-
-        //If indexer is null then call getIndexer to instantiate indexer.
-        if(indexer == null){
-            logger.info(status);
-            getIndexer();
-        }
-        //If indexer is not null, it will pass this line.
-        status = "\tIndexer is not NULL\n";
-
-        //Get index directory and contents_store for return, display.
-        String indexDir = (indexer.getIndexDir() != null) ? "\n\t\t" + indexer.getIndexDir().getAbsolutePath() : "\tnot found";
-
-        //Get data directory and contents_store for return, display.
-        String dataDir;
-        ArrayList<File> dataDirs = indexer.getDataDirs();
-        /**
-         * List all directory on the system.
-         */
-        if (dataDirs == null) dataDir = "\tnot found.\n";
-        else if (dataDirs.size() > 0) {
-            String tmp = "\n";
-            for (File dir : dataDirs) {
-                tmp += "\t\t" + dir.getAbsolutePath() + "\n";
-            }
-            dataDir = tmp;
-        }
-        else if (dataDirs.size() == 0) {
-            dataDir = "\tNo directory entered yet.\n";
-        }
-        else dataDir = "Directory error.\n";
-
-        //Get status of pre contents, contents.
-        boolean contentsStoreStatus = (indexer.getContents_store() == TextField.TYPE_STORED) ? true : false;
-        boolean preContentsStoreStatus = (indexer.getPre_contents_store() == TextField.TYPE_STORED) ? true : false;
-        String contentsStoreStatus_str = contentsStoreStatus ? "\tContent is stored.\n" : "\tContent is not stored.\n";
-        String preContentsStoreStatus_str = preContentsStoreStatus ? "\tPre content is stored.\n" : "\tPre content is not stored.\n";
-        String fileContentsStatus = "\tPreview content using ";
-        if(indexer.getContents_store() == TextField.TYPE_STORED)
-            fileContentsStatus += "100 matched content words.\n";
-        else if(indexer.getPre_contents_store() == TextField.TYPE_STORED)
-            fileContentsStatus += "100 first words from the file\n";
-        else
-            fileContentsStatus += "[White Space], (No preview)\n";
-
-        //Assemble String.
-        status += "\tIndex directory:" + indexDir + "\n" + "\tData directory(s):" + dataDir + contentsStoreStatus_str +
-                preContentsStoreStatus_str + fileContentsStatus;
-        logger.info("Reporting status...\n" + "======================\n" +
-                status + "======================");
-        return status;
-    }
 }

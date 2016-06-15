@@ -6,10 +6,10 @@ package com.fernuni.searchengine.SearchEngine;
  * It is meant to parse into a JSON format.
  */
 public class Result {
-    public String file_name;
-    public String file_path;
-    public String file_pre_contents;
-    public String file_type;
+    private String file_name;
+    private String file_path;
+    private String file_pre_contents;
+    private String file_type;
 
     public String getFile_type() {
         return file_type;

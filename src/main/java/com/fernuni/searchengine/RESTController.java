@@ -8,9 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -44,7 +43,7 @@ public class RESTController {
 		fh.setFormatter(new Formatter() {
 			public String format(LogRecord rec) {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-				StringBuffer buf = new StringBuffer(1000);
+				StringBuilder buf = new StringBuilder(1000);
 				buf.append(sdf.format(Calendar.getInstance().getTime()).toString());
 				buf.append(' ');
 				buf.append(rec.getLevel());
@@ -66,7 +65,7 @@ public class RESTController {
 
 	@RequestMapping()
 	@SuppressWarnings("unchecked")
-	public ResponseEntity handle(@RequestHeader HttpHeaders httpHeaders, HttpServletRequest request) {
+	public ResponseEntity handle(HttpServletRequest request) {
 		HttpHeaders headers = new HttpHeaders();
 		//headers.add("Access-Control-Allow-Origin", "*");
 		headers.setAccessControlAllowOrigin("/**");
@@ -133,7 +132,7 @@ public class RESTController {
 	@RequestMapping(method = RequestMethod.GET, value = "/status")
 	public @ResponseBody String statusReport() {
 		logger.info("[/status] was called.");
-		return Indexer.statusReport();
+		return IndexManager.statusReport();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/status/dataDir")
@@ -162,26 +161,26 @@ public class RESTController {
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/useContent")
 	public @ResponseBody boolean setContentStoreTrue(){
-		Indexer indexer = Indexer.getIndexer();
-		return indexer.setContentStoreTrue();
+		return IndexManager.setContentStoreTrue();
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/notUseContent")
 	public @ResponseBody boolean setContentStoreFalse(){
-		Indexer indexer = Indexer.getIndexer();
-		return indexer.setContentStoreFalse();
+		return IndexManager.setContentStoreFalse();
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/usePreContent")
 	public @ResponseBody boolean setPreContentStoreTrue(){
-		Indexer indexer = Indexer.getIndexer();
-		return indexer.setPreContentStoreTrue();
+		return IndexManager.setPreContentStoreTrue();
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/notUsePreContent")
 	public @ResponseBody boolean setPreContentStoreFalse(){
-		Indexer indexer = Indexer.getIndexer();
-		return indexer.setPreContentStoreFalse();
+		return IndexManager.setPreContentStoreFalse();
 	}
 
+	@RequestMapping(value = "/stop")
+	public @ResponseBody void stopWatchService(){
+		System.exit(0);
+	}
 }

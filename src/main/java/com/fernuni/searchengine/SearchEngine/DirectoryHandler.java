@@ -1,7 +1,6 @@
 package com.fernuni.searchengine.SearchEngine;
 
-import com.fernuni.searchengine.FileWatcher.WatchDir;
-import com.fernuni.searchengine.FileWatcher.WatchDirFactory;
+import com.fernuni.searchengine.FileWatcher.WatchService;
 import com.fernuni.searchengine.RESTController;
 
 import java.io.File;
@@ -9,7 +8,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -30,9 +28,8 @@ public class DirectoryHandler {
     private File indexDirectory;
     private ArrayList<File> dataDirectories;
     private static DirectoryHandler directoryHandler;
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    private ArrayList<Thread> watchers = new ArrayList<>();
-    private ArrayList<WatchDir> runnables = new ArrayList<>();
+    private Thread watcher_thread = null;
+    private WatchService watcher_service = null;
 
     /**
      * Singleton pattern constructor.
@@ -50,15 +47,17 @@ public class DirectoryHandler {
     public boolean clearDataDir(String path){
         logger.info("clearDataDir is called, and processing.");
         logger.info("Status report before remove data directory.");
-        Indexer.statusReport();
+        IndexManager.statusReport();
         ArrayList<File> dataDirs = getDataDirectories();
         if (path.equals("*")) {
             int size = dataDirs.size();
             for(int i = size - 1; i >= 0; i--){
-                unWatchDir(i);
-                this.dataDirectories.remove(i);
+                Path removed_path = this.dataDirectories.remove(i).toPath();
+                unWatchDir(removed_path);
             }
-            if(dataDirs.size() == 0) return true;
+            if(dataDirs.size() == 0){
+                return true;
+            }
             else {
                 logger.warning("Remove all data directory error. Cannot clear all directory.");
                 return false;
@@ -67,20 +66,20 @@ public class DirectoryHandler {
             Iterator<File> fileIterator = dataDirs.iterator();
             Path dir_path;
             Path file_path = Paths.get(path);
-            //terate through a list of paths, If matched, remove.
+            //Iterate through a list of paths, If matched, remove.
             while(fileIterator.hasNext()){
                 dir_path = Paths.get(fileIterator.next().getAbsolutePath());
                 if(dir_path.equals(file_path)){  //If it is matched.
                     fileIterator.remove();  //remove the path that is matched.
                     //Report to a terminal.
                     logger.fine("Following path has been removed: " + dir_path);
-                    Indexer.statusReport(); //Log
+                    IndexManager.statusReport(); //Log
                     unWatchDir(file_path);
                     return true;
                 }
             }
             logger.info("No directory match.");
-            Indexer.statusReport();
+            IndexManager.statusReport();
             return false;
         }
     }
@@ -101,7 +100,7 @@ public class DirectoryHandler {
      * Getter of indexDirectory.
      * @return  indexDirectory field.
      */
-    public File getIndexDirectory() {
+    File getIndexDirectory() {
         return indexDirectory;
     }
 
@@ -112,9 +111,7 @@ public class DirectoryHandler {
      */
     public boolean setIndexDirectory(String path) {
         if(path != null && path.length() != 0) {
-            File indexDir = new File(path);
-            if(indexDir == null) return false;
-            this.indexDirectory = indexDir;
+            this.indexDirectory = new File(path);
             return true;
         }
         else {
@@ -127,7 +124,7 @@ public class DirectoryHandler {
      * Getter of dataDirectories.
      * @return  dataDirectories.
      */
-    public ArrayList<File> getDataDirectories() {
+    ArrayList<File> getDataDirectories() {
         if(dataDirectories == null){
             dataDirectories = new ArrayList<>();
             return dataDirectories;
@@ -180,7 +177,6 @@ public class DirectoryHandler {
             Path dir_path = Paths.get(dir);
             if(Files.exists(dir_path)) {
                 if (!contains(dataDir, dir_path)) {    //If path hasn't been added.
-                    //dataDir.add(new File(dir));
                     dataDir.add(dir_path.toFile()); //Add a path into a list of directory to be indexed.
                     watchDir(dir_path);
                     tmp += dir_path.toString() + "\n";
@@ -203,110 +199,31 @@ public class DirectoryHandler {
      * @param path  Path to be watched.
      */
     private void watchDir(Path path){
-        ArrayList<Thread> watchers = this.watchers;
-        int index = 0;
-
-        String path_str = path.toString();  //Get path as String.
-        //If there is a watcher already running inside a new directory, remove it and assign a new one.
-        if(!isWatching(path)){   //If the path is already in the system, just end this method.
-
-            Iterator<Thread> watchersIterator = watchers.listIterator();   //Create an iterator through a data directory list.
-
-            //Find a possible sub-directory inside a directory.
-            while (watchersIterator.hasNext()){
-
-                Thread watcher = watchersIterator.next();
-                String watcher_dir = watcher.getName(); //Get the path of the registered directory, this directory is being watched.
-                //If path (newly added directory) is a sub-directory inside a registered directory,
-                //Then no need to add new Watcher service.
-                if(path_str.contains(watcher_dir)){
-                    logger.info(path + " is a sub-directory of " + watcher_dir + ", No watcher service has been added.");
-                    return;
-                }
-                //If registered path is a sub-directory of a newly added path, then unwatch the old sub-directory,
-                //and watch the directory instead.
-                else if(watcher_dir.contains(path_str)){
-                    logger.info(watcher_dir + " is a sub-directory of " + path + ", Unwatch thread " +
-                            watcher.getName());
-                    unWatchDir(watcher, runnables.remove(index));
-                    watchersIterator.remove();
-                }
-                index++;
-            }
+        if(watcher_service != null && watcher_thread != null) {
+            watcher_service.registerAll(path);
         }
         else{
-            logger.info(path + " is already registered and watching.");
-            return;
-        }
-        //Create a new factory thread, the new thread will create a new watcher to watch a directory.
-        new Thread(new WatchDirFactory(path, true)).start();
-    }
-
-    /**
-     * Unwatch a directory, automatically kill the thread and remove objects from Thread list and Runnable list.
-     * @param index Index of the thread to be unwatched, newly added thread will be the last.
-     */
-    private void unWatchDir(int index){
-        if(index >= 0 && index < watchers.size() && index < runnables.size()) { //Check input
-            Thread watch_dir = watchers.remove(index);  //remove target from watcher's list.
-            WatchDir runnable = runnables.remove(index);    //remove runnable target from the list.
-            logger.info("Stopping thread: " + watch_dir.getName());
-            runnable.kill();    //Stop watching, cause runnable to stop.
             try {
-                watch_dir.join();   //Stop thread.
-            } catch (InterruptedException e) {
-                logger.severe("Stop thread " + watch_dir.getName() + "error: " + e.toString());
+                watcher_service = new WatchService(path, true);
+                watcher_thread = new Thread(watcher_service);
+                watcher_thread.setName("WatchService");
+                watcher_thread.start();
+            } catch (IOException e) {
+                logger.severe("Watch service malfunction, failed to start the service, no changes will be recorded.");
             }
         }
-        else logger.severe("Cannot unWatchDir at index [" + index + "]");
     }
 
     /**
-     * Unwatch a directory, automatically kill the thread and remove objects from Thread list and Runnable list.
+     * Unwatch a directory from the watch service.
      * @param path  Path of directory to be unwatch.
      */
     private void unWatchDir(Path path){
-        int index = 0;
-        //Find the watcher which is watching a directory.
-        for(Thread thread : watchers){
-            if(thread.getName().equals(path.toString())) {  //Use the assigned name to find the correct thread.
-                unWatchDir(index);  //unwatch a watcher and stop this method.
-                return;
-            }
-            else index++;
-        }
-
-        //If program reach this line, it didn't unwatch anything.
-        logger.info("No watcher is watching " + path.toString());
-    }
-
-    /**
-     * Unwatch a directory, kill the given runnable and stop the given thread.
-     * @param watcher   Exists watcher's thread to be stopped.
-     * @param runnable  Exists runnable's object to be kill.
-     */
-    private void unWatchDir(Thread watcher, WatchDir runnable){
-        logger.info("Stopping thread: " + watcher.getName());
-        runnable.kill();
         try {
-            watcher.join();
-        } catch (InterruptedException e) {
-            logger.severe("Stop thread " + watcher.getName() + "error: " + e.toString());
+            watcher_service.deRegister(path);
+        } catch (IOException e) {
+            logger.warning("Cannot deregister the path: " + path.toString());
         }
-    }
-
-    /**
-     * Check a directory, If it is being watched then return true, otherwise false.
-     * @param path  Path to a directory that will be check.
-     * @return  True when the given path is being watched, otherwise false.
-     */
-    private boolean isWatching(Path path){
-        ArrayList<Thread> watchers = this.watchers;
-        for(Thread watcher : watchers){
-            String watcher_name = watcher.getName();
-            if(path.toString().equals(watcher_name)) return true;
-        }
-        return false;
     }
 
     /**
@@ -329,20 +246,7 @@ public class DirectoryHandler {
         return false;
     }
 
-    /**
-     * Getter of watchers list.
-     * @return  ArrayList of watchers.
-     */
-    public ArrayList<Thread> getWatchers() {
-        return watchers;
+    public void stopWatchService(){
+        if(watcher_service != null) watcher_service.kill();
     }
-
-    /**
-     * Getter of runnable list.
-     * @return  ArrayList of runnable objects.
-     */
-    public ArrayList<WatchDir> getRunnables() {
-        return runnables;
-    }
-
 }

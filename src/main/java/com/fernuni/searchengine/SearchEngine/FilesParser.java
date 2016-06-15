@@ -14,7 +14,7 @@ import java.io.InputStream;
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 6/4/2016 AD.
  * FilesParser's instance can parse supported file types into a String.
  */
-public class FilesParser {
+class FilesParser {
 
     /**
      * Parse a supported file contents into a String.
@@ -24,7 +24,7 @@ public class FilesParser {
      * @throws SAXException
      * @throws TikaException    Unsupported file type? cannot parse the file.
      */
-    public String parseToString(File file) throws IOException, SAXException, TikaException {
+    String parseToString(File file) throws IOException, SAXException, TikaException {
         AutoDetectParser parser = new AutoDetectParser();
         BodyContentHandler handler = new BodyContentHandler();
         Metadata metadata = new Metadata();

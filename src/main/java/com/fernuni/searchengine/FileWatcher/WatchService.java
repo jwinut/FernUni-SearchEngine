@@ -30,8 +30,7 @@
  */
 package com.fernuni.searchengine.FileWatcher;
 
-import com.fernuni.searchengine.SearchEngine.IndexManager;
-
+import javax.annotation.PreDestroy;
 import java.nio.file.*;
 import static java.nio.file.StandardWatchEventKinds.*;
 import static java.nio.file.LinkOption.*;
@@ -47,7 +46,7 @@ import java.util.logging.Logger;
  * Example to watch a directory (or tree) for changes to files.
  * Modified from the original to use with TheSearchEngine.
  */
-public class WatchDir implements Runnable{
+public class WatchService implements Runnable{
 
     //Log related instances.
     private static SimpleDateFormat sdf_file_log = new SimpleDateFormat("yyyy-MM-dd");
@@ -64,22 +63,21 @@ public class WatchDir implements Runnable{
         logger.setLevel(Level.ALL);
     }
 
-    private final WatchService watcher;
+    private final java.nio.file.WatchService watcher;
     private final Map<WatchKey,Path> keys;
     private final boolean recursive;
     private boolean trace = false;
     private volatile boolean isStop = false;
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
     @SuppressWarnings("unchecked")
-    static <T> WatchEvent<T> cast(WatchEvent<?> event) {
+    private static <T> WatchEvent<T> cast(WatchEvent<?> event) {
         return (WatchEvent<T>)event;
     }
 
     /**
      * Register the given directory with the WatchService
      */
-    private void register(Path dir) {
+    public void register(Path dir) {
         try {
             WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
             if (trace) {
@@ -103,7 +101,7 @@ public class WatchDir implements Runnable{
      * Register the given directory, and all its sub-directories, with the
      * WatchService.
      */
-    private void registerAll(final Path start) {
+    public void registerAll(final Path start) {
         try {
             // register directory and sub-directories
             Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
@@ -120,12 +118,23 @@ public class WatchDir implements Runnable{
         }
     }
 
+    public Path deRegister(Path path) throws IOException {
+        WatchKey key = path.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
+        Path dir = keys.get(key);
+        if(dir.equals(path)) key.cancel();
+        return dir;
+    }
+/*
+    public ArrayList<Path> deRegisterAll(Path start){
+
+    }*/
+
     /**
      * Creates a WatchService and registers the given directory
      */
-    public WatchDir(Path dir, boolean recursive) throws IOException {
+    public WatchService(Path dir, boolean recursive) throws IOException {
         this.watcher = FileSystems.getDefault().newWatchService();
-        this.keys = new HashMap<WatchKey,Path>();
+        this.keys = new HashMap<>();
         this.recursive = recursive;
 
         if (recursive) {
@@ -213,10 +222,12 @@ public class WatchDir implements Runnable{
     /**
      *  Stop the watcher when called.
      */
+    @PreDestroy
     public void kill(){
         try {
             logger.info("Stopping WatchService...");
             watcher.close();
+            fh.close();
         } catch (IOException e) {
             logger.warning("Cannot kill thread watch service. WatchService hasn't been initialize. ");
             logger.warning(e.toString());

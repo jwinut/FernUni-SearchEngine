@@ -2,6 +2,8 @@ package com.fernuni.searchengine.SearchEngine;
 
 import com.fernuni.searchengine.RESTController;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.document.FieldType;
+import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
@@ -9,8 +11,7 @@ import org.apache.lucene.store.FSDirectory;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,10 +28,9 @@ public class IndexManager {
         logger.addHandler(fh);
         logger.setLevel(Level.ALL);
     }
-
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    private DirectoryHandler directoryHandler;
-    public static final int PRE_CONTENT_SIZE = 100;
+    static final int PRE_CONTENT_SIZE = 100;
+    private static FieldType contents_store = TextField.TYPE_NOT_STORED;
+    private static FieldType pre_contents_store = TextField.TYPE_STORED;
 
     /**
      * Default constructor.
@@ -43,7 +43,7 @@ public class IndexManager {
      * @return  successful, or not
      */
     public boolean deleteIndex(){
-        directoryHandler = DirectoryHandler.getDirectoryHandler();
+        DirectoryHandler directoryHandler = DirectoryHandler.getDirectoryHandler();
         try {
             File indexDir = directoryHandler.getIndexDirectory();
             Directory directory = FSDirectory.open(indexDir.toPath());
@@ -69,6 +69,114 @@ public class IndexManager {
             logger.warning("No index has been registered, Cannot delete old index files.");
             return false;
         }
+    }
+
+    /**
+     * Report status of the system.
+     * @return  System report.
+     */
+    public static String statusReport(){
+        Indexer indexer = Indexer.getIndexer();
+        String status;
+        logger.info("Status report was called.");
+
+        //If indexer is not null, it will pass this line.
+        status = "\tIndexer is not NULL\n";
+
+        //Get index directory and contents_store for return, display.
+        File indexDir = DirectoryHandler.getDirectoryHandler().getIndexDirectory();
+        String indexDir_str = (indexDir != null) ? "\n\t\t" + indexDir.getAbsolutePath() : "\tnot found";
+
+        //Get data directory and contents_store for return, display.
+        String dataDir;
+        ArrayList<File> dataDirs = DirectoryHandler.getDirectoryHandler().getDataDirectories();
+        /**
+         * List all directory on the system.
+         */
+        if (dataDirs == null) dataDir = "\tnot found.\n";
+        else if (dataDirs.size() > 0) {
+            String tmp = "\n";
+            for (File dir : dataDirs) {
+                tmp += "\t\t" + dir.getAbsolutePath() + "\n";
+            }
+            dataDir = tmp;
+        }
+        else if (dataDirs.size() == 0) {
+            dataDir = "\tNo directory entered yet.\n";
+        }
+        else dataDir = "Directory error.\n";
+
+        //Get status of pre contents, contents.
+        boolean contentsStoreStatus = (getContents_store() == TextField.TYPE_STORED);
+        boolean preContentsStoreStatus = (getPre_contents_store() == TextField.TYPE_STORED);
+        String contentsStoreStatus_str = contentsStoreStatus ? "\tContent is stored.\n" : "\tContent is not stored.\n";
+        String preContentsStoreStatus_str = preContentsStoreStatus ? "\tPre content is stored.\n" : "\tPre content is not stored.\n";
+        String fileContentsStatus = "\tPreview content using ";
+        if(getContents_store() == TextField.TYPE_STORED)
+            fileContentsStatus += "100 matched content words.\n";
+        else if(getPre_contents_store() == TextField.TYPE_STORED)
+            fileContentsStatus += "100 first words from the file\n";
+        else
+            fileContentsStatus += "[White Space], (No preview)\n";
+
+        //Assemble String.
+        status += "\tIndex directory:" + indexDir + "\n" + "\tData directory(s):" + dataDir + contentsStoreStatus_str +
+                preContentsStoreStatus_str + fileContentsStatus;
+        logger.info("Reporting status...\n" + "======================\n" +
+                status + "======================");
+        return status;
+    }
+
+    /**
+     * Set value of contents_store to TextField.TYPE_STORE to store contents of files in index.
+     * @return  true, but if something bad happens, it returns false.
+     */
+    public static boolean setContentStoreTrue() {
+        contents_store = TextField.TYPE_STORED;
+        return contents_store == TextField.TYPE_STORED;
+    }
+
+    /**
+     * Set value of contents_store to TextField.TYPE_NOT_STORE to NOT store contents of files in index.
+     * @return  true, but if something bad happens, it returns false.
+     */
+    public static boolean setContentStoreFalse(){
+        contents_store = TextField.TYPE_NOT_STORED;
+        return contents_store == TextField.TYPE_NOT_STORED;
+    }
+
+    /**
+     * Set value of pre_contents_store to TextField.TYPE_STORE to store contents of files in index.
+     * @return  true, but if something bad happens, it returns false.
+     */
+    public static boolean setPreContentStoreTrue() {
+        pre_contents_store = TextField.TYPE_STORED;
+        return pre_contents_store == TextField.TYPE_STORED;
+    }
+
+    /**
+     * Set value of pre_contents_store to TextField.TYPE_NOT_STORE to NOT store contents of files in index.
+     * @return  true, but if something bad happens, it returns false.
+     */
+    public static boolean setPreContentStoreFalse(){
+        pre_contents_store = TextField.TYPE_NOT_STORED;
+        return pre_contents_store == TextField.TYPE_NOT_STORED;
+    }
+
+    /**
+     * Getter of contents_store field.
+     * @return  (FieldType) contents_store.
+     */
+    public static FieldType getContents_store() {
+        return contents_store;
+    }
+
+    /**
+     * Getter of pre_contents_store field.
+     * @return  (FieldType) pre_contents_store.
+     */
+    public static FieldType getPre_contents_store() {
+        return pre_contents_store;
     }
 
 }

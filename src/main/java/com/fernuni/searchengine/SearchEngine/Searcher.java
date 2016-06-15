@@ -2,9 +2,7 @@ package com.fernuni.searchengine.SearchEngine;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,7 +35,6 @@ public class Searcher {
 
     private IndexSearcher indexSearcher = null;
     private QueryParser parser = null;
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
     private static int numOfWordsBeforeMatchedWord = 3;
 
     /**
@@ -59,11 +56,9 @@ public class Searcher {
         }
         catch (IOException e){
             logger.severe("Index does not exist.");
-            return;
         }
         catch (NullPointerException e){
             logger.severe("Index directory is incorrect, Cannot search without setup the indexer.");
-            return;
         }
     }
 
@@ -91,11 +86,10 @@ public class Searcher {
                 "\tSearching...\n");
 
         if(!isCorrupted()) {
-            String searchString = searchStr;    //Input string to be search for.
             int numOfResult = 100;              //Number of top results limit.
             try {
                 //get top 'numOfResult' matching documents list for the query 'searchString'
-                TopDocs topDocs = performSearch(searchString, numOfResult); //This is a kind of result report that contains a list of files.
+                TopDocs topDocs = performSearch(searchStr, numOfResult); //This is a kind of result report that contains a list of files.
                 ScoreDoc[] hits = topDocs.scoreDocs;    //Get files from the list and store in array.
                 logger.info("Number of file(s) matched: [" + hits.length + "]");
 
@@ -144,7 +138,7 @@ public class Searcher {
      * @return  Document from index.
      * @throws IOException
      */
-    public Document getDocument(int docId) throws IOException {
+    private Document getDocument(int docId) throws IOException {
         return getIndexSearcher().doc(docId);
     }
 
@@ -156,7 +150,7 @@ public class Searcher {
      * @throws IOException
      * @throws ParseException
      */
-    public TopDocs performSearch(String queryString, int n) throws IOException, ParseException {
+    private TopDocs performSearch(String queryString, int n) throws IOException, ParseException {
         Query query = getParser().parse(queryString);
         return getIndexSearcher().search(query, n);
     }
@@ -184,7 +178,6 @@ public class Searcher {
      * @return  Number of words according to IndexManager.PRE_SIZE_CONTENT and numOfWordsBeforeMatchedWord around the first found keyword.
      */
     private String getNWordsMatched(String filecontent, String searchStr){
-        String searchString = searchStr;
         ArrayList<String> arr_str = new ArrayList<>();
         int matched_index = -1;
 
@@ -194,7 +187,7 @@ public class Searcher {
         for(String str : strs) {
             if(str.length() > 0){
                 arr_str.add(str);
-                if(str.equals(searchString)) matched_index = arr_str.indexOf(str);
+                if(str.equals(searchStr)) matched_index = arr_str.indexOf(str);
             }
         }
 
@@ -207,7 +200,7 @@ public class Searcher {
 
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0; i < IndexManager.PRE_CONTENT_SIZE && i < arr_str.size(); i++) {
-            stringBuilder.append(arr_str.get(matched_index + i) + " ");
+            stringBuilder.append(arr_str.get(matched_index + i)).append(" ");
         }
         if(arr_str.size() > matched_index + IndexManager.PRE_CONTENT_SIZE) stringBuilder.append("...");
         return stringBuilder.toString();
