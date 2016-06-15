@@ -60,6 +60,7 @@ public class RESTController {
 	public static void main(String[] args) {
 		logger.addHandler(fh);
 		logger.setLevel(Level.ALL);
+		logger.finest("TheSearchEngine is starting...");
 		SpringApplication.run(RESTController.class, args);
 	}
 
@@ -180,7 +181,11 @@ public class RESTController {
 	}
 
 	@RequestMapping(value = "/stop")
-	public @ResponseBody void stopWatchService(){
+	public @ResponseBody void exit(){
+		logger.info("Closing the program...");
+		fh.close();
+		DirectoryHandler.getDirectoryHandler().stopWatchService();
 		System.exit(0);
 	}
+
 }

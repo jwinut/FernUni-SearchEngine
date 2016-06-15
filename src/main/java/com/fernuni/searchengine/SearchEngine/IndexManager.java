@@ -120,7 +120,7 @@ public class IndexManager {
             fileContentsStatus += "[White Space], (No preview)\n";
 
         //Assemble String.
-        status += "\tIndex directory:" + indexDir + "\n" + "\tData directory(s):" + dataDir + contentsStoreStatus_str +
+        status += "\tIndex directory:" + indexDir_str + "\n" + "\tData directory(s):" + dataDir + contentsStoreStatus_str +
                 preContentsStoreStatus_str + fileContentsStatus;
         logger.info("Reporting status...\n" + "======================\n" +
                 status + "======================");

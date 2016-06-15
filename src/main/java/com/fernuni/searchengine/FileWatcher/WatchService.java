@@ -30,7 +30,9 @@
  */
 package com.fernuni.searchengine.FileWatcher;
 
-import javax.annotation.PreDestroy;
+import com.fernuni.searchengine.RESTController;
+import com.fernuni.searchengine.SearchEngine.DirectoryHandler;
+
 import java.nio.file.*;
 import static java.nio.file.StandardWatchEventKinds.*;
 import static java.nio.file.LinkOption.*;
@@ -50,7 +52,7 @@ public class WatchService implements Runnable{
 
     //Log related instances.
     private static SimpleDateFormat sdf_file_log = new SimpleDateFormat("yyyy-MM-dd");
-    private static String logfile_str = "log" + File.separatorChar + "files_changes" + File.separatorChar + "file_changes_log_" + sdf_file_log.format(Calendar.getInstance().getTime());
+    private static String logfile_str = "log" + File.separatorChar + "files_changes" + File.separatorChar + "file_changes_log_" + sdf_file_log.format(Calendar.getInstance().getTime()) + ".log";
     private static Logger logger = Logger.getLogger("com.fernuni.searchengine.FileWatcher.WatchDir");
     private static FileHandler fh;
     static {
@@ -60,6 +62,7 @@ public class WatchService implements Runnable{
             logger.severe("Cannot log to file: " + logfile_str);
         }
         logger.addHandler(fh);
+        logger.addHandler(RESTController.fh);
         logger.setLevel(Level.ALL);
     }
 
@@ -121,13 +124,34 @@ public class WatchService implements Runnable{
     public Path deRegister(Path path) throws IOException {
         WatchKey key = path.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
         Path dir = keys.get(key);
-        if(dir.equals(path)) key.cancel();
-        return dir;
+        if(dir.equals(path)){
+            logger.info("de-register: " + dir.toString());
+            key.cancel();
+            return dir;
+        }
+        else{
+            logger.warning("de-register failed: " + dir.toString());
+            return null;
+        }
     }
-/*
-    public ArrayList<Path> deRegisterAll(Path start){
 
-    }*/
+    public void deRegisterAll(Path start){
+        try {
+            // register directory and sub-directories
+            Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
+                @Override
+                public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs)
+                        throws IOException {
+                    if(!DirectoryHandler.hasPath(dir))
+                        deRegister(dir);
+                    return FileVisitResult.CONTINUE;
+                }
+            });
+        }
+        catch (IOException e){
+            logger.severe("Error de-register all: " + e.toString());
+        }
+    }
 
     /**
      * Creates a WatchService and registers the given directory
@@ -169,7 +193,7 @@ public class WatchService implements Runnable{
 
             Path dir = keys.get(key);
             if (dir == null) {
-                System.err.println("WatchKey not recognized!!");
+                logger.warning("WatchKey not recognized!!");
                 continue;
             }
 
@@ -222,14 +246,14 @@ public class WatchService implements Runnable{
     /**
      *  Stop the watcher when called.
      */
-    @PreDestroy
     public void kill(){
+        System.out.println("kill");
         try {
             logger.info("Stopping WatchService...");
             watcher.close();
             fh.close();
         } catch (IOException e) {
-            logger.warning("Cannot kill thread watch service. WatchService hasn't been initialize. ");
+            logger.warning("Cannot kill thread watch service. WatchService hasn't been initialize.");
             logger.warning(e.toString());
         }
         isStop = true;

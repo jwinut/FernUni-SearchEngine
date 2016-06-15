@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-15T13:25:25</date>
+  <millis>1465989925007</millis>
+  <sequence>5</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>21</thread>
+  <message>Scanning /Users/Nut/Documents/internship ...</message>
+</record>
+<record>
+  <date>2016-06-15T13:25:25</date>
+  <millis>1465989925414</millis>
+  <sequence>6</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>21</thread>
+  <message>Done.</message>
+</record>
+</log>

@@ -219,11 +219,7 @@ public class DirectoryHandler {
      * @param path  Path of directory to be unwatch.
      */
     private void unWatchDir(Path path){
-        try {
-            watcher_service.deRegister(path);
-        } catch (IOException e) {
-            logger.warning("Cannot deregister the path: " + path.toString());
-        }
+        watcher_service.deRegisterAll(path);
     }
 
     /**
@@ -246,6 +242,10 @@ public class DirectoryHandler {
         return false;
     }
 
+    public static boolean hasPath(Path path){
+        DirectoryHandler directoryHandler = DirectoryHandler.getDirectoryHandler();
+        return directoryHandler.contains(directoryHandler.getDataDirectories(), path);
+    }
     public void stopWatchService(){
         if(watcher_service != null) watcher_service.kill();
     }
