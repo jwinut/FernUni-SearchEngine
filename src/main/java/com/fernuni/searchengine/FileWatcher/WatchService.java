@@ -32,6 +32,7 @@ package com.fernuni.searchengine.FileWatcher;
 
 import com.fernuni.searchengine.RESTController;
 import com.fernuni.searchengine.SearchEngine.DirectoryHandler;
+import com.fernuni.searchengine.SearchEngine.IndexManager;
 
 import java.nio.file.*;
 import static java.nio.file.StandardWatchEventKinds.*;
@@ -71,6 +72,7 @@ public class WatchService implements Runnable{
     private final boolean recursive;
     private boolean trace = false;
     private volatile boolean isStop = false;
+    private IndexManager indexManager;
 
     @SuppressWarnings("unchecked")
     private static <T> WatchEvent<T> cast(WatchEvent<?> event) {
@@ -121,6 +123,12 @@ public class WatchService implements Runnable{
         }
     }
 
+    /**
+     * De-Register a given path from a watch service, stop watching a directory with a given path.
+     * @param path  Path to a directory.
+     * @return  De-registered path.
+     * @throws IOException
+     */
     public Path deRegister(Path path) throws IOException {
         WatchKey key = path.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
         Path dir = keys.get(key);
@@ -135,6 +143,10 @@ public class WatchService implements Runnable{
         }
     }
 
+    /**
+     * De-Register a given path and sub-directory inside a directory according to this path.
+     * @param start A path to be de-registered.
+     */
     public void deRegisterAll(Path start){
         try {
             // register directory and sub-directories
@@ -142,7 +154,7 @@ public class WatchService implements Runnable{
                 @Override
                 public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs)
                         throws IOException {
-                    if(!DirectoryHandler.hasPath(dir))
+                    if(!DirectoryHandler.hasPath(dir))  //Don't de-register path on the list.
                         deRegister(dir);
                     return FileVisitResult.CONTINUE;
                 }
@@ -171,6 +183,8 @@ public class WatchService implements Runnable{
 
         // enable trace after initial registration
         this.trace = true;
+
+        indexManager = new IndexManager();
     }
 
     /**
@@ -216,6 +230,11 @@ public class WatchService implements Runnable{
                 // if directory is created, and watching recursively, then
                 // register it and its sub-directories
                 if (recursive && (kind == ENTRY_CREATE)) {
+                    try {
+                        indexManager.addFileToIndex(child.toFile());
+                    } catch (IOException e) {
+                        logger.severe("Failed to add file: " + child.toString() + " to index, Please re-index to update index.");
+                    }
                     /*try {
                         if (Files.isDirectory(child, NOFOLLOW_LINKS)) {
                             registerAll(child);

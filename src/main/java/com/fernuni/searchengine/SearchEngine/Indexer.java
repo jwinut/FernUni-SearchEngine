@@ -36,6 +36,7 @@ public class Indexer implements Runnable {
     }
 
     private static Indexer indexer;
+    private IndexWriter iwriter;
     private File indexDir;
     private ArrayList<File> dataDirs;
     private DirectoryHandler directoryHandler;
@@ -101,7 +102,7 @@ public class Indexer implements Runnable {
             logger.severe("Cannot open index directory.");
             return;
         }
-        IndexWriter iwriter = getIndexWriter(directory);
+        iwriter = getIndexWriter(directory);
 
         //Get all data directory.
         ArrayList<File> files = getDataDirs();
@@ -131,7 +132,7 @@ public class Indexer implements Runnable {
      * @param directory File obj that is a directory.
      * @param iwriter   IndexWriter obj with StandardAnalyzer.
      */
-    private int index(File directory, IndexWriter iwriter){
+    public int index(File directory, IndexWriter iwriter){
         /**
          * numOfFile for keep tracking the number of file indexed.
          */
@@ -220,7 +221,7 @@ public class Indexer implements Runnable {
      * @param directory An instance of directory that should be close, So I pass it anyway.
      * @return  IndexWriter instance.
      */
-    private IndexWriter getIndexWriter(Directory directory){
+    public IndexWriter getIndexWriter(Directory directory){
         //Create IndexWriter config and create IndexWriter.
         IndexWriterConfig config = new IndexWriterConfig(new StandardAnalyzer());
         IndexWriter iwriter = null;

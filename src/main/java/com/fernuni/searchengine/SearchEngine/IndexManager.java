@@ -31,11 +31,13 @@ public class IndexManager {
     static final int PRE_CONTENT_SIZE = 100;
     private static FieldType contents_store = TextField.TYPE_NOT_STORED;
     private static FieldType pre_contents_store = TextField.TYPE_STORED;
+    private Indexer indexer;
 
     /**
      * Default constructor.
      */
     public IndexManager() {
+        indexer = Indexer.getIndexer();
     }
 
     /**
@@ -179,4 +181,15 @@ public class IndexManager {
         return pre_contents_store;
     }
 
+    /**
+     * Add a file to index, if it is a directory, all file will be added.
+     * @param file  File to be added into the index.
+     * @throws IOException
+     */
+    public void addFileToIndex(File file) throws IOException{
+        IndexWriter indexWriter = indexer.getIndexWriter(FSDirectory.open(DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath()));
+        int numOfFilesIndexed = indexer.index(file, indexWriter);
+        indexWriter.close();
+        logger.info("Total file just added to index: " + numOfFilesIndexed);
+    }
 }
