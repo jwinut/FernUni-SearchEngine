@@ -3,11 +3,13 @@ package com.fernuni.searchengine.SearchEngine;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.fernuni.searchengine.RESTController;
+import com.google.common.collect.Lists;
 import org.apache.catalina.Store;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.*;
@@ -103,7 +105,9 @@ public class Indexer implements Runnable {
         iwriter = getIndexWriter(directory);
 
         //Get all data directory.
-        ArrayList<File> files = getDataDirs();
+        List<File> files = getDataDirs();
+        int size = (int) Math.ceil(files.size()/2);
+        List<List<File>> listlists = Lists.partition(files, size);
 
         //Get everything checked.
         if(files.size() == 0){
