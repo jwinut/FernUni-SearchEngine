@@ -246,6 +246,10 @@ public class WatchService implements Runnable{
                         registerAll(child);
                     }
                 }
+
+                if (kind == ENTRY_DELETE) {
+                    indexManager.deleteDocumentFromIndexUsingPath(child);
+                }
             }
 
             // reset key and remove from set if directory no longer accessible

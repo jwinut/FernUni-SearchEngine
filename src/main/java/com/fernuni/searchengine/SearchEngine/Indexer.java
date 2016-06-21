@@ -8,11 +8,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.fernuni.searchengine.RESTController;
+import org.apache.catalina.Store;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.FieldType;
-import org.apache.lucene.document.TextField;
+import org.apache.lucene.document.*;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
@@ -180,11 +178,11 @@ public class Indexer implements Runnable {
 
                 //Create new document add to index.
                 doc = new Document();
-                doc.add(new Field("path", file.getAbsolutePath(), TextField.TYPE_STORED));
-                doc.add(new Field("file_name", file.getName(), TextField.TYPE_STORED));
-                doc.add(new Field("pre_contents", getNWords(contents), IndexManager.getPre_contents_store()));
+                doc.add(new StringField("path", file.getAbsolutePath(), Field.Store.YES));
+                doc.add(new StringField("file_name", file.getName(), Field.Store.YES));
+                doc.add(new StringField("pre_contents", getNWords(contents), IndexManager.getPre_contents_store()));
                 doc.add(new Field("contents", contents, IndexManager.getContents_store()));
-                doc.add(new Field("type", file_type, TextField.TYPE_STORED));
+                doc.add(new StringField("type", file_type, Field.Store.YES));
 
                 //use Indexwriter to add a document and index it.
                 iwriter.addDocument(doc);
@@ -246,7 +244,7 @@ public class Indexer implements Runnable {
      * Getter of pre_contents_store field.
      * @return  (FieldType) pre_contents_store.
      */
-    private FieldType getPre_contents_store() {
+    private Field.Store getPre_contents_store() {
         return IndexManager.getPre_contents_store();
     }
 

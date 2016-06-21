@@ -2,15 +2,18 @@ package com.fernuni.searchengine.SearchEngine;
 
 import com.fernuni.searchengine.RESTController;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.document.Field;
 import org.apache.lucene.document.FieldType;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.Term;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -30,7 +33,7 @@ public class IndexManager {
     }
     static final int PRE_CONTENT_SIZE = 100;
     private static FieldType contents_store = TextField.TYPE_NOT_STORED;
-    private static FieldType pre_contents_store = TextField.TYPE_STORED;
+    private static Field.Store pre_contents_store = Field.Store.YES;
     private Indexer indexer;
 
     /**
@@ -110,13 +113,13 @@ public class IndexManager {
 
         //Get status of pre contents, contents.
         boolean contentsStoreStatus = (getContents_store() == TextField.TYPE_STORED);
-        boolean preContentsStoreStatus = (getPre_contents_store() == TextField.TYPE_STORED);
+        boolean preContentsStoreStatus = (getPre_contents_store() == Field.Store.YES);
         String contentsStoreStatus_str = contentsStoreStatus ? "\tContent is stored.\n" : "\tContent is not stored.\n";
         String preContentsStoreStatus_str = preContentsStoreStatus ? "\tPre content is stored.\n" : "\tPre content is not stored.\n";
         String fileContentsStatus = "\tPreview content using ";
         if(getContents_store() == TextField.TYPE_STORED)
             fileContentsStatus += "100 matched content words.\n";
-        else if(getPre_contents_store() == TextField.TYPE_STORED)
+        else if(getPre_contents_store() == Field.Store.YES)
             fileContentsStatus += "100 first words from the file\n";
         else
             fileContentsStatus += "[White Space], (No preview)\n";
@@ -126,6 +129,13 @@ public class IndexManager {
                 preContentsStoreStatus_str + fileContentsStatus;
         logger.info("Reporting status...\n" + "======================\n" +
                 status + "======================");
+        try {
+            IndexWriter indexWriter = indexer.getIndexWriter(FSDirectory.open(DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath()));
+            indexWriter.close();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
         return status;
     }
 
@@ -152,8 +162,8 @@ public class IndexManager {
      * @return  true, but if something bad happens, it returns false.
      */
     public static boolean setPreContentStoreTrue() {
-        pre_contents_store = TextField.TYPE_STORED;
-        return pre_contents_store == TextField.TYPE_STORED;
+        pre_contents_store = Field.Store.YES;
+        return pre_contents_store == Field.Store.YES;
     }
 
     /**
@@ -161,8 +171,8 @@ public class IndexManager {
      * @return  true, but if something bad happens, it returns false.
      */
     public static boolean setPreContentStoreFalse(){
-        pre_contents_store = TextField.TYPE_NOT_STORED;
-        return pre_contents_store == TextField.TYPE_NOT_STORED;
+        pre_contents_store = Field.Store.NO;
+        return pre_contents_store == Field.Store.NO;
     }
 
     /**
@@ -177,7 +187,7 @@ public class IndexManager {
      * Getter of pre_contents_store field.
      * @return  (FieldType) pre_contents_store.
      */
-    public static FieldType getPre_contents_store() {
+    public static Field.Store getPre_contents_store() {
         return pre_contents_store;
     }
 
@@ -187,9 +197,32 @@ public class IndexManager {
      * @throws IOException
      */
     public void addFileToIndex(File file) throws IOException{
-        IndexWriter indexWriter = indexer.getIndexWriter(FSDirectory.open(DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath()));
+        Path indexDir_path = DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath();
+        Directory directory = FSDirectory.open(indexDir_path);
+        IndexWriter indexWriter = indexer.getIndexWriter(directory);
         int numOfFilesIndexed = indexer.index(file, indexWriter);
         indexWriter.close();
+        directory.close();
         logger.info("Total file just added to index: " + numOfFilesIndexed);
+    }
+
+    public void deleteDocumentFromIndexUsingPath(Path path){
+        Term term = new Term("path", path.toString());
+        try {
+            deleteDocumentFromIndexUsingTerm(term);
+        } catch (IOException | NullPointerException e) {
+            logger.warning("Failed to remove " + path.toString() + " from the index.");
+        }
+    }
+
+    public void deleteDocumentFromIndexUsingTerm(Term term) throws IOException{
+        Path indexDir_path = DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath();
+        Directory directory = FSDirectory.open(indexDir_path);
+        IndexWriter indexWriter = indexer.getIndexWriter(directory);
+        indexWriter.deleteDocuments(term);
+        indexWriter.commit();
+        indexWriter.close();
+        directory.close();
+        logger.info("This record has been remove from the index: " + term.field() + " " + term.text());
     }
 }

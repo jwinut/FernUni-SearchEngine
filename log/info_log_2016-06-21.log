@@ -306,3 +306,1290 @@
 	jiraruekmongkol  
 
 2016-06-21 14:26:28.478 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 14:48:17.544 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 14:49:23.361 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 14:49:25.444 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 14:49:25.456 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 14:49:25.467 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 14:49:29.130 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 14:49:29.363 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 14:49:29.363 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 14:49:29.382 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 14:49:29.509 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 14:49:29.510 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 14:49:30.347 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 14:49:31.248 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 14:49:31.568 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 14:49:31.612 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy 3.txt
+2016-06-21 14:49:31.644 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy 4.txt
+2016-06-21 14:49:31.672 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy 5.txt
+2016-06-21 14:49:31.705 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 14:49:31.734 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 14:49:31.765 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 14:49:32.959 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 14:49:34.634 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 14:49:35.343 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 14:49:35.525 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 14:49:35.559 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 14:49:35.595 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 14:49:35.615 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 14:49:36.184 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 17
+2016-06-21 14:49:38.198 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 14:49:38.255 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 14:49:38.273 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [8]
+2016-06-21 14:49:38.276 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut copy 2.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:49:38.277 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: j_winut copy 3.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 3.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:49:38.278 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: j_winut copy 4.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 4.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:49:38.278 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: j_winut copy 5.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 5.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:49:38.279 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[5]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:49:38.279 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[6]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:49:38.280 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[7]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:49:38.281 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[8]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:49:38.281 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 14:50:15.472 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 5.txt
+2016-06-21 14:50:15.499 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path/Users/Nut/Documents/internship/testsubjects/j_winut copy 5.txt
+2016-06-21 14:50:15.499 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path/Users/Nut/Documents/internship/testsubjects/j_winut copy 5.txt
+2016-06-21 14:50:21.987 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 14:50:21.999 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 14:50:22.002 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [8]
+2016-06-21 14:50:22.003 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut copy 2.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:50:22.004 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: j_winut copy 3.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 3.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:50:22.004 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: j_winut copy 4.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 4.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:50:22.005 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: j_winut copy 5.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 5.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:50:22.006 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[5]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:50:22.006 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[6]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:50:22.007 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[7]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:50:22.008 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[8]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:50:22.008 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 14:51:35.475 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 14:51:35.475 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 3.txt
+2016-06-21 14:51:35.492 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path/Users/Nut/Documents/internship/testsubjects/j_winut copy 3.txt
+2016-06-21 14:51:35.492 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path/Users/Nut/Documents/internship/testsubjects/j_winut copy 3.txt
+2016-06-21 14:51:35.493 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 4.txt
+2016-06-21 14:51:35.498 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path/Users/Nut/Documents/internship/testsubjects/j_winut copy 4.txt
+2016-06-21 14:51:35.499 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path/Users/Nut/Documents/internship/testsubjects/j_winut copy 4.txt
+2016-06-21 14:51:35.499 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 14:51:35.503 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path/Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 14:51:35.503 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path/Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 14:51:42.159 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 14:51:42.163 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 14:51:42.173 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [8]
+2016-06-21 14:51:42.173 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut copy 2.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:51:42.174 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: j_winut copy 3.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 3.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:51:42.174 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: j_winut copy 4.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 4.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:51:42.175 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: j_winut copy 5.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 5.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:51:42.175 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[5]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:51:42.178 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[6]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:51:42.179 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[7]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:51:42.180 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[8]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 14:51:42.180 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 14:56:25.449 INFO com.fernuni.searchengine.RESTController : Sent ResponseEntity with CORS header from 	IP: 0:0:0:0:0:0:0:1
+2016-06-21 14:56:25.485 INFO com.fernuni.searchengine.RESTController : Sent ResponseEntity with CORS header from 	IP: 0:0:0:0:0:0:0:1
+2016-06-21 14:56:25.495 INFO com.fernuni.searchengine.RESTController : Sent ResponseEntity with CORS header from 	IP: 0:0:0:0:0:0:0:1
+2016-06-21 14:56:25.522 INFO com.fernuni.searchengine.RESTController : Sent ResponseEntity with CORS header from 	IP: 0:0:0:0:0:0:0:1
+2016-06-21 14:56:25.541 INFO com.fernuni.searchengine.RESTController : Sent ResponseEntity with CORS header from 	IP: 0:0:0:0:0:0:0:1
+2016-06-21 14:56:26.726 INFO com.fernuni.searchengine.RESTController : Sent ResponseEntity with CORS header from 	IP: 0:0:0:0:0:0:0:1
+2016-06-21 15:37:23.008 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 15:37:50.182 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 15:37:52.407 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 15:37:52.418 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 15:37:52.427 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 15:37:58.107 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 15:37:58.375 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 15:37:58.376 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 15:37:58.399 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 15:37:58.511 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 15:37:58.512 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 15:37:59.365 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 15:38:00.662 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 15:38:00.974 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 15:38:01.010 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 15:38:01.031 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 15:38:02.237 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 15:38:03.653 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 15:38:04.363 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 15:38:04.560 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 15:38:04.601 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 15:38:04.626 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 15:38:04.646 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 15:38:05.332 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 13
+2016-06-21 15:38:12.261 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 15:38:12.333 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 15:38:12.359 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [4]
+2016-06-21 15:38:12.365 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:12.366 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:12.367 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:12.369 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:12.370 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 15:38:22.434 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 15:38:22.447 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 15:38:22.497 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 15:38:22.497 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 15:38:27.663 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 15:38:27.670 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 15:38:27.675 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [5]
+2016-06-21 15:38:27.679 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:27.679 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:27.680 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:27.681 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:27.681 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[5]
+	Found: j_winut copy 2.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:27.681 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 15:38:32.429 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 15:38:42.432 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 15:38:42.433 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 15:38:42.464 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 15:38:42.464 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 15:38:45.553 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 15:38:45.557 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 15:38:45.560 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [5]
+2016-06-21 15:38:45.562 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:45.562 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:45.563 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:45.565 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:45.566 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[5]
+	Found: j_winut copy 2.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 15:38:45.566 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 20:54:53.398 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 20:54:53.561 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 20:54:54.004 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 20:54:54.004 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 20:55:13.339 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 20:55:13.340 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 20:55:13.367 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 20:55:13.367 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 21:00:55.589 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 21:01:17.579 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 21:01:19.709 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 21:01:19.720 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 21:01:19.733 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 21:01:22.242 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 21:01:22.550 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 21:01:22.550 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 21:01:22.581 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:01:22.688 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 21:01:22.688 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 21:01:23.513 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 21:01:24.675 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 21:01:24.945 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:01:24.984 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 21:01:25.008 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 21:01:26.056 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 21:01:27.454 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 21:01:28.175 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 21:01:28.370 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 21:01:28.421 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 21:01:28.456 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 21:01:28.491 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 21:01:29.134 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 13
+2016-06-21 21:01:39.739 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 21:01:39.748 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 21:01:39.783 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 21:01:39.783 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 21:03:39.747 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 21:03:39.914 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 21:03:39.914 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 21:03:49.736 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:03:59.748 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:03:59.749 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 21:03:59.763 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 21:03:59.763 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 21:04:39.749 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 21:04:39.759 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 21:04:39.855 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 21:04:39.855 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 21:04:39.855 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:04:39.868 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:04:39.868 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:42:16.621 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 21:42:29.422 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 21:42:31.085 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 21:42:31.097 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 21:42:31.110 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 21:42:33.677 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 21:42:33.884 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 21:42:33.884 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 21:42:33.916 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:42:34.023 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 21:42:34.024 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 21:42:34.719 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 21:42:35.727 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 21:42:36.195 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 21:42:36.339 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 21:42:38.255 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 21:42:39.602 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 21:42:40.344 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 21:42:40.519 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 21:42:40.564 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 21:42:40.589 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 21:42:40.611 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 21:42:41.271 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 12
+2016-06-21 21:43:21.117 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:43:21.127 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:43:21.146 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:43:21.183 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 21:43:21.183 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 21:43:31.116 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:43:31.116 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:43:31.165 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: file_name j_winut copy.txt
+2016-06-21 21:43:31.166 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: file_name j_winut copy.txt
+2016-06-21 21:43:41.123 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:44:41.123 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:44:41.137 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:44:41.197 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 21:44:41.197 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 21:44:51.118 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:45:01.124 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:45:01.125 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:45:01.140 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: file_name j_winut copy.txt
+2016-06-21 21:45:01.141 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: file_name j_winut copy.txt
+2016-06-21 21:56:57.061 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 21:57:07.796 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 21:57:09.445 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 21:57:09.455 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 21:57:09.464 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 21:57:11.641 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 21:57:11.829 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 21:57:11.830 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 21:57:11.851 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:57:11.923 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 21:57:11.923 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 21:57:12.700 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 21:57:14.489 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 21:57:14.956 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 21:57:15.000 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 21:57:16.317 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 21:57:17.846 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 21:57:18.578 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 21:57:18.739 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 21:57:18.794 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 21:57:18.822 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 21:57:18.849 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 21:57:19.543 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 12
+2016-06-21 21:57:29.465 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:57:29.466 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:57:29.480 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:57:29.520 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 21:57:29.520 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 21:57:59.468 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 21:57:59.513 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: file_name j_winut copy.txt
+2016-06-21 21:57:59.513 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: file_name j_winut copy.txt
+2016-06-21 21:58:09.477 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 21:58:52.745 INFO com.fernuni.searchengine.RESTController : [/status] was called.
+2016-06-21 21:58:52.746 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Status report was called.
+2016-06-21 21:58:52.746 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Status report was called.
+2016-06-21 21:58:52.747 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Reporting status...
+======================
+	Indexer is not NULL
+	Index directory:
+		/Users/Nut/Documents/internship/index
+	Data directory(s):
+		/Users/Nut/Documents/internship/testsubjects
+	Content is not stored.
+	Pre content is stored.
+	Preview content using 100 first words from the file
+======================
+2016-06-21 21:58:52.748 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Reporting status...
+======================
+	Indexer is not NULL
+	Index directory:
+		/Users/Nut/Documents/internship/index
+	Data directory(s):
+		/Users/Nut/Documents/internship/testsubjects
+	Content is not stored.
+	Pre content is stored.
+	Preview content using 100 first words from the file
+======================
+2016-06-21 21:58:56.211 INFO com.fernuni.searchengine.RESTController : Closing the program...
+2016-06-21 22:03:07.924 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 22:03:21.994 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 22:03:23.955 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 22:03:23.970 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 22:03:23.977 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 22:03:25.970 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 22:03:26.160 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 22:03:26.160 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 22:03:26.178 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 22:03:26.271 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 22:03:26.272 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 22:03:27.002 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 22:03:28.144 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 22:03:28.574 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 22:03:28.629 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 22:03:30.154 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 22:03:31.541 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 22:03:32.267 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 22:03:32.440 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 22:03:32.477 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 22:03:32.503 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 22:03:32.525 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 22:03:33.116 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 12
+2016-06-21 22:03:47.982 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 22:03:47.992 SEVERE com.fernuni.searchengine.SearchEngine.Searcher : Index does not exist.
+2016-06-21 22:03:47.993 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 22:03:47.994 SEVERE com.fernuni.searchengine.SearchEngine.Searcher : Searcher object is corrupted.
+2016-06-21 22:03:47.994 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 22:06:06.957 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 22:06:27.297 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 22:06:29.438 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 22:06:29.445 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 22:06:29.455 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 22:06:31.327 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 22:06:31.483 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 22:06:31.483 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 22:06:31.496 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 22:06:31.556 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 22:06:31.556 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 22:06:32.213 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 22:06:33.407 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 22:06:33.822 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 22:06:33.855 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 22:06:35.028 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 22:06:36.542 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 22:06:37.248 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 22:06:37.401 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 22:06:37.437 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 22:06:37.464 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 22:06:37.487 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 22:06:38.186 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 12
+2016-06-21 22:07:02.298 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 22:07:02.361 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 22:07:02.390 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [3]
+2016-06-21 22:07:02.396 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:07:02.397 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:07:02.398 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:07:02.399 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 22:07:19.463 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:07:19.472 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:07:19.512 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 22:07:19.512 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 22:07:21.203 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 22:07:21.209 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 22:07:21.213 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [4]
+2016-06-21 22:07:21.214 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:07:21.215 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:07:21.215 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:07:21.216 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:07:21.216 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 22:07:29.460 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 22:07:29.461 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:07:29.468 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Number of documents: 13
+2016-06-21 22:07:29.468 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Number of documents: 13
+2016-06-21 22:07:29.480 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: file_name j_winut copy.txt
+2016-06-21 22:07:29.480 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: file_name j_winut copy.txt
+2016-06-21 22:07:39.460 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 22:07:42.649 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 22:07:42.655 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 22:07:42.660 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [4]
+2016-06-21 22:07:42.661 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:07:42.662 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:07:42.662 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:07:42.663 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:07:42.663 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 22:10:27.493 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 22:10:39.118 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 22:10:41.476 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 22:10:41.487 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 22:10:41.497 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 22:10:45.166 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 22:10:45.377 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 22:10:45.378 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 22:10:45.420 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 22:10:45.488 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 22:10:45.489 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 22:10:46.252 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 22:10:47.160 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 22:10:47.718 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 22:10:47.768 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 22:10:48.674 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 22:10:50.229 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 22:10:50.842 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 22:10:50.997 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 22:10:51.029 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 22:10:51.047 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 22:10:51.073 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 22:10:51.703 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 12
+2016-06-21 22:11:01.503 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 22:11:01.504 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:11:01.509 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:11:01.552 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 22:11:01.552 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 22:11:10.077 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 22:11:10.138 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 22:11:10.169 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [4]
+2016-06-21 22:11:10.176 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:10.181 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:10.184 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:10.186 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:10.187 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 22:11:21.502 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 22:11:21.503 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:11:21.510 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting document: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:11:21.510 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting document: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:11:27.482 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 22:11:27.496 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 22:11:27.498 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [4]
+2016-06-21 22:11:27.499 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:27.500 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:27.501 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:27.502 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:27.502 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 22:11:29.994 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 22:11:29.999 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 22:11:30.001 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [4]
+2016-06-21 22:11:30.002 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:30.003 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:30.003 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:30.004 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 22:11:30.004 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 22:54:02.868 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 22:54:13.968 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 22:54:15.862 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 22:54:15.868 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 22:54:15.874 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 22:54:18.616 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 22:54:18.832 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 22:54:18.833 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 22:54:18.855 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 22:54:18.919 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 22:54:18.919 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 22:54:19.539 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 22:54:20.432 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 22:54:20.931 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 22:54:20.998 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 22:54:22.308 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 22:54:23.780 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 22:54:24.422 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 22:54:24.582 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 22:54:24.614 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 22:54:24.639 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 22:54:24.664 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 22:54:25.256 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 12
+2016-06-21 22:54:45.881 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:54:45.897 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:54:45.936 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 22:54:45.937 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 22:54:55.877 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 22:54:55.877 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:54:55.993 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path:/users/ path:nut path:/documents/ path:internship path:/testsubjects/ path:j_winut path:copy.txt
+2016-06-21 22:54:55.993 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path:/users/ path:nut path:/documents/ path:internship path:/testsubjects/ path:j_winut path:copy.txt
+2016-06-21 22:56:15.889 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 22:56:15.890 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:56:15.893 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 22:56:15.944 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 22:56:15.945 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 22:56:25.879 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:03:08.674 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 23:03:36.100 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 23:03:37.998 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 23:03:38.006 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 23:03:38.013 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 23:03:40.459 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 23:03:40.697 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:03:40.697 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:03:40.714 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:03:40.802 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 23:03:40.803 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 23:03:41.519 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 23:03:42.394 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 23:03:42.723 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:03:42.774 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:03:42.807 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 23:03:44.760 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:03:46.443 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 23:03:47.143 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 23:03:47.333 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 23:03:47.371 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 23:03:47.392 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 23:03:47.420 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 23:03:48.033 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 13
+2016-06-21 23:03:58.020 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:03:58.021 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:03:58.064 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:03:58.064 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:04:22.498 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 23:04:22.540 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 23:04:22.564 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [4]
+2016-06-21 23:04:22.569 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:04:22.570 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:04:22.571 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:04:22.571 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:04:22.572 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 23:05:14.720 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 23:05:25.311 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 23:05:27.081 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 23:05:27.088 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 23:05:27.092 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 23:05:30.041 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 23:05:30.228 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:05:30.228 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:05:30.242 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:05:30.299 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 23:05:30.300 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 23:05:31.003 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 23:05:32.627 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 23:05:32.861 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:05:32.899 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 23:05:33.958 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:05:35.479 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 23:05:36.175 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 23:05:36.352 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 23:05:36.389 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 23:05:36.412 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 23:05:36.443 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 23:05:37.072 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 12
+2016-06-21 23:05:47.096 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:05:47.096 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:05:47.101 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:05:47.143 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:05:47.143 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:06:07.095 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:06:07.104 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:06:07.157 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: type text
+2016-06-21 23:06:07.157 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: type text
+2016-06-21 23:11:20.406 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 23:11:35.794 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 23:11:37.785 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 23:11:37.793 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 23:11:37.800 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 23:11:40.463 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 23:11:40.666 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:11:40.666 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:11:40.685 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:11:40.761 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 23:11:40.762 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 23:11:41.393 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 23:11:42.203 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 23:11:42.459 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:11:42.494 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:11:42.519 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 23:11:43.507 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:11:44.912 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 23:11:45.624 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 23:11:45.778 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 23:11:45.814 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 23:11:45.848 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 23:11:45.879 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 23:11:46.455 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 13
+2016-06-21 23:14:31.259 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 23:14:39.564 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 23:14:41.716 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 23:14:41.733 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 23:14:41.743 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 23:14:43.539 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 23:14:43.701 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:14:43.701 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:14:43.716 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:14:43.800 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 23:14:43.800 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 23:14:44.369 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 23:14:45.321 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 23:14:45.690 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:14:45.977 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:14:46.023 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 23:14:47.176 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:14:48.437 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 23:14:49.060 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 23:14:49.224 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 23:14:49.261 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 23:14:49.290 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 23:14:49.309 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 23:14:49.923 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 13
+2016-06-21 23:15:01.746 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:15:01.747 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:15:01.782 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path j_winut copy.txt
+2016-06-21 23:15:01.782 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path j_winut copy.txt
+2016-06-21 23:15:31.747 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:15:31.748 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:15:31.755 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:15:31.798 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:15:31.798 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:15:40.135 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 23:15:40.194 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 23:15:40.209 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [5]
+2016-06-21 23:15:40.214 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:15:40.214 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:15:40.215 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:15:40.216 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[4]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:15:40.217 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[5]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:15:40.217 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 23:16:01.755 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:16:01.756 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:16:01.779 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path j_winut.txt
+2016-06-21 23:16:01.780 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path j_winut.txt
+2016-06-21 23:16:01.780 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:16:01.795 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path j_winut copy.txt
+2016-06-21 23:16:01.795 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path j_winut copy.txt
+2016-06-21 23:16:51.755 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:17:01.759 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut 11.15.58 PM.txt
+2016-06-21 23:17:01.771 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut 11.15.58 PM.txt
+2016-06-21 23:17:01.850 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:17:01.850 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:17:11.746 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:17:11.747 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:17:11.762 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:17:11.803 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:17:11.803 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:17:11.806 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut 11.15.58 PM.txt
+2016-06-21 23:17:11.822 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path j_winut 11.15.58 PM.txt
+2016-06-21 23:17:11.822 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path j_winut 11.15.58 PM.txt
+2016-06-21 23:24:19.699 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 23:24:28.682 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 23:24:30.199 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 23:24:30.208 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 23:24:30.216 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 23:24:32.298 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 23:24:32.472 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:24:32.472 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:24:32.502 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:24:32.594 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 23:24:32.594 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 23:24:33.165 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 23:24:34.133 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 23:24:34.511 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:24:34.559 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 23:24:36.468 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:24:38.102 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 23:24:38.847 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 23:24:39.018 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 23:24:39.059 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 23:24:39.086 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 23:24:39.113 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 23:24:39.746 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 12
+2016-06-21 23:25:10.218 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:25:10.227 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:25:10.234 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:25:10.270 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:25:10.271 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:25:20.217 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:25:20.272 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:25:20.272 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:25:30.217 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:26:52.431 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 23:27:03.878 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 23:27:05.417 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 23:27:05.425 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 23:27:05.432 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 23:27:07.843 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 23:27:08.034 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:27:08.034 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:27:08.047 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:27:08.140 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 23:27:08.141 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 23:27:08.980 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 23:27:09.800 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 23:27:10.082 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:27:10.125 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:27:10.147 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 23:27:11.246 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:27:12.668 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 23:27:13.354 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 23:27:13.574 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 23:27:13.613 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 23:27:13.634 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 23:27:13.652 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 23:27:14.263 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 13
+2016-06-21 23:27:35.437 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:27:35.446 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 23:27:35.451 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 23:27:35.488 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:27:35.488 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:27:55.436 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/pdf copy.pdf
+2016-06-21 23:27:55.443 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf copy.pdf
+2016-06-21 23:27:55.965 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:27:55.965 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:28:05.443 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:28:05.445 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:28:05.487 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:28:05.487 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:28:15.436 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:28:15.460 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:28:15.460 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:28:15.461 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 23:28:15.478 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 23:28:15.478 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy 2.txt
+2016-06-21 23:28:25.446 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:29:05.443 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:29:05.452 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:29:05.691 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:29:05.691 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:29:05.692 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/pdf copy.pdf
+2016-06-21 23:29:05.711 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/pdf copy.pdf
+2016-06-21 23:29:05.712 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/pdf copy.pdf
+2016-06-21 23:33:23.654 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 23:33:34.204 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 23:33:36.318 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 23:33:36.331 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 23:33:36.339 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 23:33:38.733 INFO com.fernuni.searchengine.RESTController : [/index] was called.
+2016-06-21 23:33:38.950 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:33:38.951 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Deleting the index at: /Users/Nut/Documents/internship/index
+2016-06-21 23:33:38.971 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:33:39.032 INFO com.fernuni.searchengine.SearchEngine.Indexer : file: .DS_Store file type: application/octet-stream is not supported.
+2016-06-21 23:33:39.033 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Chapter 4 Solutions V4.doc
+2016-06-21 23:33:39.633 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Class 4-6 slides.ppt
+2016-06-21 23:33:40.520 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/cust_req_instructions.xls
+2016-06-21 23:33:40.936 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:33:40.988 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/list_of_live_hp_account_numbers_on_tungsten_network.xlsx
+2016-06-21 23:33:42.251 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/pdf.pdf
+2016-06-21 23:33:43.522 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/Present tense.pptx
+2016-06-21 23:33:44.226 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test copy.docx
+2016-06-21 23:33:44.383 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/test.docx
+2016-06-21 23:33:44.412 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest.txt
+2016-06-21 23:33:44.436 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/txttest_copy.txt
+2016-06-21 23:33:44.457 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/untitled text 4.html
+2016-06-21 23:33:45.308 INFO com.fernuni.searchengine.SearchEngine.Indexer : Total files indexed: 12
+2016-06-21 23:33:56.342 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:33:56.351 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:33:56.356 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:33:56.386 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:33:56.386 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:35:16.346 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:35:16.408 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:35:16.408 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:35:26.342 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:35:37.291 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 23:35:37.342 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 23:35:37.359 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [3]
+2016-06-21 23:35:37.366 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:37.367 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:37.367 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:37.368 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 23:35:56.344 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:35:56.354 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 23:35:56.358 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut.txt
+2016-06-21 23:35:56.362 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 23:35:56.365 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [3]
+2016-06-21 23:35:56.366 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:56.367 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:56.367 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: j_winut copy.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut copy.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:56.367 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 23:35:56.404 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:35:56.404 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:35:56.405 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:35:56.421 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:35:56.421 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:35:58.009 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 23:35:58.013 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 23:35:58.015 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [3]
+2016-06-21 23:35:58.015 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:58.016 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:58.017 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:58.017 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 23:35:59.839 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 23:35:59.844 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 23:35:59.845 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [3]
+2016-06-21 23:35:59.846 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:59.847 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:59.848 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:35:59.848 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 23:36:53.192 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 23:37:00.900 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 23:37:03.214 INFO com.fernuni.searchengine.RESTController : [/addDataDir] was called with parameters	[path:/Users/Nut/Documents/internship/testsubjects]
+2016-06-21 23:37:03.221 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Scanning /Users/Nut/Documents/internship/testsubjects ...
+2016-06-21 23:37:03.227 INFO com.fernuni.searchengine.FileWatcher.WatchDir : Done.
+2016-06-21 23:37:06.888 INFO com.fernuni.searchengine.RESTController : [/search] was called with parameters	[searchString:jiraruekmongkol]
+2016-06-21 23:37:07.127 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+	Searching...
+
+2016-06-21 23:37:07.163 INFO com.fernuni.searchengine.SearchEngine.Searcher : Number of file(s) matched: [3]
+2016-06-21 23:37:07.177 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[1]
+	Found: test copy.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test copy.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:37:07.178 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[2]
+	Found: test.docx
+	@[/Users/Nut/Documents/internship/testsubjects/test.docx]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:37:07.179 INFO com.fernuni.searchengine.SearchEngine.Searcher : 	[3]
+	Found: j_winut.txt
+	@[/Users/Nut/Documents/internship/testsubjects/j_winut.txt]
+	-----CONTENT-----
+	jiraruekmongkol  
+
+2016-06-21 23:37:07.179 INFO com.fernuni.searchengine.SearchEngine.Searcher : ======================
+2016-06-21 23:37:23.232 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:37:23.233 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:37:23.318 INFO com.fernuni.searchengine.SearchEngine.Indexer : Indexing.../Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:37:23.496 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:37:23.497 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Total file just added to index: 1
+2016-06-21 23:37:43.229 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:37:43.252 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:37:43.253 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : This record has been remove from the index: path /Users/Nut/Documents/internship/testsubjects/j_winut copy.txt
+2016-06-21 23:37:53.231 INFO com.fernuni.searchengine.FileWatcher.WatchDir : ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store
+2016-06-21 23:38:00.083 INFO com.fernuni.searchengine.RESTController : Closing the program...
+2016-06-21 23:48:42.868 FINEST com.fernuni.searchengine.RESTController : TheSearchEngine is starting...
+2016-06-21 23:48:55.412 INFO com.fernuni.searchengine.RESTController : [/setIndexDir] was called with parameters	[path:/Users/Nut/Documents/internship/index]
+2016-06-21 23:48:57.290 INFO com.fernuni.searchengine.RESTController : [/status] was called.
+2016-06-21 23:48:57.993 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Status report was called.
+2016-06-21 23:48:57.993 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Status report was called.
+2016-06-21 23:48:57.994 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Reporting status...
+======================
+	Indexer is not NULL
+	Index directory:
+		/Users/Nut/Documents/internship/index
+	Data directory(s):	No directory entered yet.
+	Content is not stored.
+	Pre content is stored.
+	Preview content using 100 first words from the file
+======================
+2016-06-21 23:48:57.995 INFO com.fernuni.searchengine.SearchEngine.DirectoryHandler : Reporting status...
+======================
+	Indexer is not NULL
+	Index directory:
+		/Users/Nut/Documents/internship/index
+	Data directory(s):	No directory entered yet.
+	Content is not stored.
+	Pre content is stored.
+	Preview content using 100 first words from the file
+======================
