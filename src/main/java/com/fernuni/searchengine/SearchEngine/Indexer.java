@@ -106,8 +106,9 @@ public class Indexer implements Runnable {
 
         //Get all data directory.
         List<File> files = getDataDirs();
+        /* Try to use multi-thread to index...
         int size = (int) Math.ceil(files.size()/2);
-        List<List<File>> listlists = Lists.partition(files, size);
+        List<List<File>> listlists = Lists.partition(files, size);*/
 
         //Get everything checked.
         if(files.size() == 0){

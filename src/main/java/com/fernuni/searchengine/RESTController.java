@@ -1,5 +1,6 @@
 package com.fernuni.searchengine;
 
+import com.fernuni.searchengine.FileWatcher.WatchService;
 import com.fernuni.searchengine.SearchEngine.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -161,22 +162,42 @@ public class RESTController {
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/useContent")
 	public @ResponseBody boolean setContentStoreTrue(){
+		logger.info("[/useContent] was called.");
 		return IndexManager.setContentStoreTrue();
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/notUseContent")
 	public @ResponseBody boolean setContentStoreFalse(){
+		logger.info("[/notUseContent] was called.");
 		return IndexManager.setContentStoreFalse();
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/usePreContent")
 	public @ResponseBody boolean setPreContentStoreTrue(){
+		logger.info("[/usePreContent] was called.");
 		return IndexManager.setPreContentStoreTrue();
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/notUsePreContent")
 	public @ResponseBody boolean setPreContentStoreFalse(){
+		logger.info("[/notUsePreContent] was called.");
 		return IndexManager.setPreContentStoreFalse();
+	}
+
+	@RequestMapping(method = RequestMethod.PUT, value = "/autoIndex")
+	public @ResponseBody boolean setAutoIndexOn(){
+		logger.info("[/autoIndex] was called.");
+		WatchService.setAuto(true);
+		if(WatchService.isAuto()) return true;
+		else return false;
+	}
+
+	@RequestMapping(method = RequestMethod.PUT, value = "/noAutoIndex")
+	public @ResponseBody boolean setAutoIndexOff(){
+		logger.info("[/noAutoIndex] was called.");
+		WatchService.setAuto(false);
+		if(WatchService.isAuto()) return true;
+		else return false;
 	}
 
 	@RequestMapping(value = "/stop")

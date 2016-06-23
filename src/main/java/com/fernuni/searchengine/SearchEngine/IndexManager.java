@@ -8,11 +8,17 @@ import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.lucene.queryparser.classic.QueryParser;
+import org.apache.lucene.search.PhraseQuery;
+import org.apache.lucene.search.Query;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.logging.FileHandler;
@@ -206,23 +212,46 @@ public class IndexManager {
         logger.info("Total file just added to index: " + numOfFilesIndexed);
     }
 
+    /**
+     * This method will remove a document with the same path as given from the index.
+     * @param path  Path to a desire file.
+     */
     public void deleteDocumentFromIndexUsingPath(Path path){
         Term term = new Term("path", path.toString());
         try {
-            deleteDocumentFromIndexUsingTerm(term);
+            Path indexDir_path = DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath();
+            Directory directory = FSDirectory.open(indexDir_path);
+            IndexWriter indexWriter = indexer.getIndexWriter(directory);
+            indexWriter.deleteDocuments(term);
+            indexWriter.commit();
+            indexWriter.close();
+            directory.close();
+            logger.info("This record has been remove from the index: " + term.field() + " " + term.text());
         } catch (IOException | NullPointerException e) {
             logger.warning("Failed to remove " + path.toString() + " from the index.");
         }
     }
 
-    public void deleteDocumentFromIndexUsingTerm(Term term) throws IOException{
-        Path indexDir_path = DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath();
-        Directory directory = FSDirectory.open(indexDir_path);
-        IndexWriter indexWriter = indexer.getIndexWriter(directory);
-        indexWriter.deleteDocuments(term);
-        indexWriter.commit();
-        indexWriter.close();
-        directory.close();
-        logger.info("This record has been remove from the index: " + term.field() + " " + term.text());
+    /**
+     * This method will remove a document with the same path as given from the index.
+     * @param path  Path to a desire file.
+     */
+    /*
+    public void deleteDocumentsFromIndexUsingQuery(Path path){
+        try {
+            Query query = new PhraseQuery("path", path.toString());
+            Path indexDir_path = DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath();
+            Directory directory = FSDirectory.open(indexDir_path);
+            IndexWriter indexWriter = indexer.getIndexWriter(directory);
+            indexWriter.deleteDocuments(query);
+            indexWriter.commit();
+            indexWriter.close();
+            directory.close();
+            logger.info("This record has been remove from the index: " + query.toString());
+        } catch (IOException e){
+            logger.severe("Couldn't open index directory.");
+        }
     }
+    */
+
 }

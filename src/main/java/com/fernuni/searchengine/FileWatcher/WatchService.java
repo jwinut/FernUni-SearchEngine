@@ -73,6 +73,7 @@ public class WatchService implements Runnable{
     private boolean trace = false;
     private volatile boolean isStop = false;
     private IndexManager indexManager;
+    private static boolean auto = true;
 
     @SuppressWarnings("unchecked")
     private static <T> WatchEvent<T> cast(WatchEvent<?> event) {
@@ -230,10 +231,12 @@ public class WatchService implements Runnable{
                 // if directory is created, and watching recursively, then
                 // register it and its sub-directories
                 if (recursive && (kind == ENTRY_CREATE)) {
-                    try {
-                        indexManager.addFileToIndex(child.toFile());
-                    } catch (IOException e) {
-                        logger.severe("Failed to add file: " + child.toString() + " to index, Please re-index to update index.");
+                    if(isAuto()) {
+                        try {
+                            indexManager.addFileToIndex(child.toFile());
+                        } catch (IOException e) {
+                            logger.severe("Failed to add file: " + child.toString() + " to index, Please re-index to update index.");
+                        }
                     }
                     /*try {
                         if (Files.isDirectory(child, NOFOLLOW_LINKS)) {
@@ -247,8 +250,9 @@ public class WatchService implements Runnable{
                     }
                 }
 
-                if (kind == ENTRY_DELETE) {
+                if (kind == ENTRY_DELETE && isAuto()) {
                     indexManager.deleteDocumentFromIndexUsingPath(child);
+                    //indexManager.deleteDocumentsFromIndexUsingQuery(child);
                 }
             }
 
@@ -282,4 +286,19 @@ public class WatchService implements Runnable{
         isStop = true;
     }
 
+    /**
+     * Indicator of auto indexing.
+     * @return  True, if auto indexing is ON.
+     */
+    public static boolean isAuto() {
+        return auto;
+    }
+
+    /**
+     * Set auto indexing ON or OFF
+     * @param auto  True if you want auto indexing to be on.
+     */
+    public static void setAuto(boolean auto) {
+        WatchService.auto = auto;
+    }
 }

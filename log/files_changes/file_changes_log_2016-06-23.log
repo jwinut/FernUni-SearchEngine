@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-23T12:25:19</date>
+  <millis>1466677519669</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-23T12:25:19</date>
+  <millis>1466677519679</millis>
+  <sequence>8</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-23T12:25:39</date>
+  <millis>1466677539680</millis>
+  <sequence>9</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:25:40</date>
+  <millis>1466677540131</millis>
+  <sequence>11</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>register</method>
+  <thread>24</thread>
+  <message>register: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:25:49</date>
+  <millis>1466677549680</millis>
+  <sequence>12</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:25:49</date>
+  <millis>1466677549690</millis>
+  <sequence>13</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:25:50</date>
+  <millis>1466677550132</millis>
+  <sequence>14</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:25:50</date>
+  <millis>1466677550257</millis>
+  <sequence>18</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut 2 copy.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:25:50</date>
+  <millis>1466677550528</millis>
+  <sequence>21</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut 2.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:25:50</date>
+  <millis>1466677550574</millis>
+  <sequence>24</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut copy.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:25:50</date>
+  <millis>1466677550628</millis>
+  <sequence>27</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:26:29</date>
+  <millis>1466677589683</millis>
+  <sequence>41</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:26:39</date>
+  <millis>1466677599685</millis>
+  <sequence>54</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-23T12:35:00</date>
+  <millis>1466678100583</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-23T12:35:00</date>
+  <millis>1466678100596</millis>
+  <sequence>8</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Done.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-23T12:36:42</date>
+  <millis>1466678202930</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-23T12:36:42</date>
+  <millis>1466678202939</millis>
+  <sequence>8</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:12</date>
+  <millis>1466678232943</millis>
+  <sequence>33</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:12</date>
+  <millis>1466678232953</millis>
+  <sequence>34</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:13</date>
+  <millis>1466678233036</millis>
+  <sequence>37</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>register</method>
+  <thread>24</thread>
+  <message>register: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:22</date>
+  <millis>1466678242942</millis>
+  <sequence>62</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:23</date>
+  <millis>1466678243040</millis>
+  <sequence>63</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:23</date>
+  <millis>1466678243062</millis>
+  <sequence>67</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut copy 2.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:23</date>
+  <millis>1466678243104</millis>
+  <sequence>70</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut copy 3.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:23</date>
+  <millis>1466678243171</millis>
+  <sequence>73</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut copy 4.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:23</date>
+  <millis>1466678243234</millis>
+  <sequence>76</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut copy 5.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:23</date>
+  <millis>1466678243281</millis>
+  <sequence>79</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut copy.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:32</date>
+  <millis>1466678252944</millis>
+  <sequence>108</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:37:42</date>
+  <millis>1466678262943</millis>
+  <sequence>149</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-23T12:42:27</date>
+  <millis>1466678547941</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-23T12:42:27</date>
+  <millis>1466678547950</millis>
+  <sequence>8</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-23T12:42:37</date>
+  <millis>1466678557954</millis>
+  <sequence>9</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:42:37</date>
+  <millis>1466678557956</millis>
+  <sequence>10</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:42:38</date>
+  <millis>1466678558163</millis>
+  <sequence>12</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>register</method>
+  <thread>24</thread>
+  <message>register: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:42:47</date>
+  <millis>1466678567952</millis>
+  <sequence>26</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:42:47</date>
+  <millis>1466678567953</millis>
+  <sequence>27</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:42:48</date>
+  <millis>1466678568168</millis>
+  <sequence>28</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:42:48</date>
+  <millis>1466678568265</millis>
+  <sequence>32</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut 2.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:42:48</date>
+  <millis>1466678568420</millis>
+  <sequence>35</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut 3.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:42:48</date>
+  <millis>1466678568483</millis>
+  <sequence>38</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:43:17</date>
+  <millis>1466678597954</millis>
+  <sequence>89</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:43:17</date>
+  <millis>1466678597955</millis>
+  <sequence>90</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-23T12:45:34</date>
+  <millis>1466678734983</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-23T12:45:34</date>
+  <millis>1466678734989</millis>
+  <sequence>8</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-23T12:46:24</date>
+  <millis>1466678784994</millis>
+  <sequence>31</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:46:25</date>
+  <millis>1466678785004</millis>
+  <sequence>32</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test 12.43.08 PM</message>
+</record>
+<record>
+  <date>2016-06-23T12:47:24</date>
+  <millis>1466678844997</millis>
+  <sequence>34</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:47:25</date>
+  <millis>1466678845005</millis>
+  <sequence>35</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:47:25</date>
+  <millis>1466678845014</millis>
+  <sequence>37</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>register</method>
+  <thread>24</thread>
+  <message>register: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:47:34</date>
+  <millis>1466678854994</millis>
+  <sequence>38</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:47:35</date>
+  <millis>1466678855003</millis>
+  <sequence>39</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:47:35</date>
+  <millis>1466678855019</millis>
+  <sequence>40</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:47:35</date>
+  <millis>1466678855029</millis>
+  <sequence>44</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder/j_winut.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:47:44</date>
+  <millis>1466678864994</millis>
+  <sequence>47</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:47:54</date>
+  <millis>1466678874996</millis>
+  <sequence>49</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-23T12:51:06</date>
+  <millis>1466679066755</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-23T12:51:06</date>
+  <millis>1466679066764</millis>
+  <sequence>8</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-23T12:51:16</date>
+  <millis>1466679076767</millis>
+  <sequence>9</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:51:16</date>
+  <millis>1466679076769</millis>
+  <sequence>10</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:51:16</date>
+  <millis>1466679076961</millis>
+  <sequence>12</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>register</method>
+  <thread>24</thread>
+  <message>register: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:51:26</date>
+  <millis>1466679086768</millis>
+  <sequence>13</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:51:26</date>
+  <millis>1466679086769</millis>
+  <sequence>14</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:51:26</date>
+  <millis>1466679086966</millis>
+  <sequence>15</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder/j_winut.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:51:36</date>
+  <millis>1466679096765</millis>
+  <sequence>18</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:51:36</date>
+  <millis>1466679096965</millis>
+  <sequence>19</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:51:46</date>
+  <millis>1466679106766</millis>
+  <sequence>23</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:51:46</date>
+  <millis>1466679106775</millis>
+  <sequence>24</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:52:56</date>
+  <millis>1466679176767</millis>
+  <sequence>43</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:52:56</date>
+  <millis>1466679176776</millis>
+  <sequence>44</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:52:56</date>
+  <millis>1466679176782</millis>
+  <sequence>46</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>register</method>
+  <thread>24</thread>
+  <message>register: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:06</date>
+  <millis>1466679186767</millis>
+  <sequence>47</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:06</date>
+  <millis>1466679186778</millis>
+  <sequence>48</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:06</date>
+  <millis>1466679186783</millis>
+  <sequence>49</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder/j_winut.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:26</date>
+  <millis>1466679206768</millis>
+  <sequence>52</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:26</date>
+  <millis>1466679206787</millis>
+  <sequence>53</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:26</date>
+  <millis>1466679206806</millis>
+  <sequence>57</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/untitled folder/j_winut.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:36</date>
+  <millis>1466679216770</millis>
+  <sequence>59</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:36</date>
+  <millis>1466679216784</millis>
+  <sequence>60</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/untitled folder/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:36</date>
+  <millis>1466679216785</millis>
+  <sequence>61</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder/j_winut copy.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:36</date>
+  <millis>1466679216843</millis>
+  <sequence>64</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder/j_winut.txt</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:46</date>
+  <millis>1466679226768</millis>
+  <sequence>67</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:53:56</date>
+  <millis>1466679236768</millis>
+  <sequence>69</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-23T12:59:15</date>
+  <millis>1466679555658</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-23T12:59:15</date>
+  <millis>1466679555672</millis>
+  <sequence>8</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-23T12:59:25</date>
+  <millis>1466679565680</millis>
+  <sequence>9</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T12:59:35</date>
+  <millis>1466679575673</millis>
+  <sequence>11</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:59:55</date>
+  <millis>1466679595678</millis>
+  <sequence>12</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T12:59:55</date>
+  <millis>1466679595682</millis>
+  <sequence>13</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+<record>
+  <date>2016-06-23T12:59:55</date>
+  <millis>1466679595704</millis>
+  <sequence>15</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>register</method>
+  <thread>24</thread>
+  <message>register: /Users/Nut/Documents/internship/testsubjects/untitled folder</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-23T13:00:12</date>
+  <millis>1466679612692</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-23T13:00:12</date>
+  <millis>1466679612700</millis>
+  <sequence>8</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-23T13:00:42</date>
+  <millis>1466679642706</millis>
+  <sequence>27</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T13:00:42</date>
+  <millis>1466679642707</millis>
+  <sequence>28</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-23T13:53:11</date>
+  <millis>1466682791527</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-23T13:53:11</date>
+  <millis>1466682791540</millis>
+  <sequence>8</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-23T13:53:41</date>
+  <millis>1466682821540</millis>
+  <sequence>45</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T13:53:51</date>
+  <millis>1466682831543</millis>
+  <sequence>60</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-23T13:57:21</date>
+  <millis>1466683041623</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-23T13:57:21</date>
+  <millis>1466683041632</millis>
+  <sequence>8</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-23T13:57:31</date>
+  <millis>1466683051635</millis>
+  <sequence>9</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T13:57:31</date>
+  <millis>1466683051640</millis>
+  <sequence>10</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T13:57:31</date>
+  <millis>1466683051852</millis>
+  <sequence>12</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>register</method>
+  <thread>24</thread>
+  <message>register: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T13:57:41</date>
+  <millis>1466683061634</millis>
+  <sequence>23</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T13:57:41</date>
+  <millis>1466683061643</millis>
+  <sequence>24</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T13:57:41</date>
+  <millis>1466683061855</millis>
+  <sequence>25</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/.DS_Store</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-23T13:58:05</date>
+  <millis>1466683085286</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:05</date>
+  <millis>1466683085296</millis>
+  <sequence>8</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>22</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:15</date>
+  <millis>1466683095299</millis>
+  <sequence>9</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:15</date>
+  <millis>1466683095301</millis>
+  <sequence>10</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:15</date>
+  <millis>1466683095302</millis>
+  <sequence>11</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test/j_winut.txt</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:15</date>
+  <millis>1466683095492</millis>
+  <sequence>14</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:15</date>
+  <millis>1466683095498</millis>
+  <sequence>17</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test/j_winut copy 3.txt</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:15</date>
+  <millis>1466683095505</millis>
+  <sequence>20</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test/j_winut copy.txt</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:15</date>
+  <millis>1466683095516</millis>
+  <sequence>23</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test/j_winut copy 2.txt</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:25</date>
+  <millis>1466683105300</millis>
+  <sequence>26</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:25</date>
+  <millis>1466683105301</millis>
+  <sequence>27</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:25</date>
+  <millis>1466683105301</millis>
+  <sequence>28</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/.DS_Store</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:25</date>
+  <millis>1466683105371</millis>
+  <sequence>32</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut copy 2.txt</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:25</date>
+  <millis>1466683105586</millis>
+  <sequence>35</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut copy.txt</message>
+</record>
+<record>
+  <date>2016-06-23T13:58:25</date>
+  <millis>1466683105639</millis>
+  <sequence>38</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_CREATE: /Users/Nut/Documents/internship/testsubjects/test/j_winut.txt</message>
+</record>
+<record>
+  <date>2016-06-23T13:59:05</date>
+  <millis>1466683145298</millis>
+  <sequence>73</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_DELETE: /Users/Nut/Documents/internship/testsubjects/test</message>
+</record>
+<record>
+  <date>2016-06-23T13:59:15</date>
+  <millis>1466683155300</millis>
+  <sequence>86</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>ENTRY_MODIFY: /Users/Nut/Documents/internship/testsubjects/.DS_Store</message>
+</record>
+</log>
