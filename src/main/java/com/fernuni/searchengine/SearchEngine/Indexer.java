@@ -184,6 +184,7 @@ public class Indexer implements Runnable {
                 //Create new document add to index.
                 doc = new Document();
                 doc.add(new StringField("path", file.getAbsolutePath(), Field.Store.YES));
+                doc.add(new StringField("parent", file.getParent(), Field.Store.YES));
                 doc.add(new StringField("file_name", file.getName(), Field.Store.YES));
                 doc.add(new StringField("pre_contents", getNWords(contents), IndexManager.getPre_contents_store()));
                 doc.add(new Field("contents", contents, IndexManager.getContents_store()));

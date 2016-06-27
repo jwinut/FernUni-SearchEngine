@@ -1,0 +1,626 @@
+	
+ <!DOCTYPE html>
+ 
+<script> var i = 0</script>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  <title>Local Search Engine</title>
+
+		
+		
+		<link rel="shortcut icon" href="img/searchcon.png">
+    </head>
+
+    <body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	  <script src="addinput.js" language="Javascript" type="text/javascript"></script>
+
+
+<nav>
+    <div class="nav-wrapper">
+      <a href="search.html" class="brand-logo">Local Search</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="search.html"><i class="material-icons">search</i></a></li>
+        <li><a href="setting.html"><i class="material-icons">settings</i></a></li>
+        
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+  <div class ="row">
+
+  <div class="col s6">
+      
+<br> </br>
+<h2>SETTING </h2>
+<br> </br>
+<h5>Indexing </h5>
+
+<blockquote>
+<h6>In order to Index your Documents.</h6><br>
+First,   Please choose your Method to Index your Document. <br>
+Second,   Enter Folder Path for Storing your Indexed Files.
+
+</blockquote>
+<br>
+
+</div>
+
+<div class="status">
+<br><br><br><br><br><br><br><br><br>
+
+
+
+</div>
+</div>
+  
+        
+
+  <div class="row">
+      <div class="col s5 push-s7">
+
+
+
+
+      </div>
+
+</div>
+
+      <div class="col s7 pull-s5" id = "setting">
+  <div class="input-field col s12">
+   
+
+
+
+
+
+
+	
+
+
+<ul class="collapsible" data-collapsible="accordion">
+    
+    <li>
+      <div class="collapsible-header"><i class="material-icons">place</i>Custom Indexing</div>
+      <div class="collapsible-body">    <p>Please Fill the Storage Location, File path that you want to Index.</p>            
+	  
+	 <div class="container">
+        <div class="row">
+        <div class="input-field col s12">
+          <input id="storage" type="text" class="validate" method >
+          <label for="storage">Storage Location</label>
+
+
+
+        </div>
+
+
+	<div class="row">
+
+		<input type="hidden" name="count" value="1" />
+        <div class="control-group" id="fields">
+            
+            <div class="input-field col s12" id="profs"> 
+                <form class="input-append">
+                    <div id="field"><input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Type Path" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
+                </form>
+            <br>
+            <small>Press + to add another form field</small>
+            </div>
+        </div>
+	</div>
+
+	<br>
+<br>
+<button class="btn waves-effect waves-light" type="button" button id = "btn">Submit
+    <i class="material-icons right">send</i>
+  </button>
+
+      </div>
+        </div>
+	  
+	  
+	  </div>
+    </li>
+    
+  </ul>
+
+  </div>
+  
+
+</div>
+<script>
+// check precontent 
+pre = "";
+auto = "";
+content = "";
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    auto = this.responseText;
+	if (auto == "Auto index is on.")
+	{
+		$( "#setting" ).append('<p>Auto Indexing</p><div class="switch" id = "sw1"><label>Off<input type="checkbox" id ="sw1" checked = "on"><span class="lever"></span>On</label></div>' );
+
+
+
+	}
+	else{
+	
+		$( "#setting" ).append('<p>Auto Indexing</p><div class="switch" id = "sw1"><label>Off<input type="checkbox" id ="sw1"><span class="lever"></span>On</label></div>' );
+	}
+
+	
+$('#sw1').on('click',function(){
+		
+		t = $('#sw1:checked').val();
+		if (t == "on")
+		{
+			var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("PUT", "http://localhost:8080/autoIndex");
+
+
+xhr.send(data);
+		}
+		else{
+		
+			var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("PUT", "http://localhost:8080/noAutoIndex");
+
+
+xhr.send(data);
+		}
+		
+    });
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/isAutoIndex");
+
+
+xhr.send(data);
+
+
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    pre = this.responseText;
+	if (pre == "PreContent is on.")
+	{
+		$( "#setting" ).append('<p>Pre Content </p><div class="switch" id = "sw2"><label>Off<input type="checkbox" id ="sw2" checked = "on"><span class="lever"></span>On</label></div>' );
+
+	}
+	else{
+	
+		$( "#setting" ).append('<p>Pre Content </p><div class="switch" id = "sw2"><label>Off<input type="checkbox" id ="sw2"><span class="lever"></span>On</label></div>' );
+	}
+
+
+	$('#sw2').on('click',function(){
+		t = $('#sw2:checked').val();
+		if (t == "on")
+		{
+						var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("PUT", "http://localhost:8080/usePreContent");
+
+
+xhr.send(data);
+		}
+		else{
+		
+						var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("PUT", "http://localhost:8080/notUsePreContent");
+
+
+xhr.send(data);
+		}
+		
+    });
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/isPrecontent");
+
+
+xhr.send(data);
+
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    content = this.responseText;
+	if (content == "PreContent is on.")
+	{
+		$( "#setting" ).append('<p>Content</p><div class="switch" id = "sw3"><label>Off<input type="checkbox" id ="sw3" checked = "on"><span class="lever"></span>On</label></div>' );
+
+	}
+	else{
+	
+		$( "#setting" ).append('<p>Content</p><div class="switch" id = "sw3"><label>Off<input type="checkbox" id ="sw3"><span class="lever"></span>On</label></div>' );
+	}
+
+	
+	$('#sw3').on('click',function(){
+		t = $('#sw3:checked').val();
+		if (t == "on")
+		{
+						var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("PUT", "http://localhost:8080/useContent");
+
+
+xhr.send(data);
+		}
+		else{
+		
+						var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("PUT", "http://localhost:8080/notUseContent");
+
+
+xhr.send(data);
+		}
+		
+    });
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/isContent");
+
+
+xhr.send(data);
+
+
+
+
+
+</script>
+
+  
+  
+  </div>
+
+
+
+    </div>
+
+
+
+
+      </div>
+   
+
+<br><br>
+
+<div class="divider"></div>
+<div class="container">
+
+<br> </br>
+<h5>Delete Index</h5>
+
+<blockquote>
+<h6>Please click Delete Button</h6><br>
+Caution, You need Re-Indexing after this Operation <br>
+in order to  Make this Search Engine Live again!
+
+</blockquote>
+
+<br>
+
+
+<button class="btn waves-effect waves-light" type="button" button id = "btn2">Delete Indexed Path
+    <i class="material-icons right">send</i>
+  </button>
+
+
+</div>
+    </body>
+  </html>
+
+<script>
+// index file and storage location
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState == 4) {
+	$(".status").append('<div class="chip"><img src="img/index.png" alt="Contact Person">Current Indexed File Location : ' + this.responseText + '</div><br><br>');
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/status/dataDir");
+xhr.send(data);
+
+
+
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState == 4) {
+	$(".status").append('<div class="chip"><img src="img/storage.png" alt="Contact Person">Current Storage Location : ' + this.responseText + '</div><br><br>');
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/status/indexDir");
+xhr.send(data);
+
+
+
+
+
+ $(document).ready(function() {
+    $('select').material_select();
+  });
+
+</script>
+
+
+
+
+
+</html>
+
+
+
+
+<p id="demo"></p>
+
+
+
+	
+<script>
+
+
+//add storage path
+function loadXMLDoc(str){
+	
+	if(!str){
+		alert("Please Enter Storage Location Path")
+	}
+	else{
+	
+	var data = new FormData();
+data.append("path", str);
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("POST", "http://localhost:8080/setIndexDir");
+xhr.setRequestHeader("cache-control", "no-cache");
+xhr.setRequestHeader("postman-token", "34e2d9bf-371d-8b25-8a6e-cee52d82b3a0");
+
+xhr.send(data);
+	}
+
+
+}
+
+// add index file path
+function addDataDir(str){
+
+var data = new FormData();
+data.append("path", str);
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("POST", "http://localhost:8080/addDataDir");
+
+
+xhr.send(data);
+
+
+
+}
+
+// start index
+function index(){
+
+var data = null;
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+	window.location.href = 'search.html'
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/index");
+xhr.send(data);
+
+
+
+}
+// delete index file path
+function deleteIndex(){
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+	alert('Your index has been deleted')
+	window.location.href = 'setting.html'
+  }
+});
+
+xhr.open("DELETE", "http://localhost:8080/deleteOldIndex");
+
+xhr.send(data);
+
+}
+
+
+// function for add more form button
+$(document).ready(function(){
+    var next = 1;
+    $(".add-more").click(function(e){
+        e.preventDefault();
+        var addto = "#field" + next;
+        var addRemove = "#field" + (next);
+        next = next + 1;
+        var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="field' + next + '" type="text">';
+        var newInput = $(newIn);
+        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+        $("#count").val(next);		
+        
+            $('.remove-me').click(function(e){
+                e.preventDefault();
+                var fieldNum = this.id.charAt(this.id.length-1);
+                var fieldID = "#field" + fieldNum;
+                $(this).remove();
+                $(fieldID).remove();
+            });
+    });
+    
+
+    
+});
+// function for submit button
+    
+$('#btn').on('click',function(){
+		var storage = $('#storage').val();
+        var ele = $('input.input');
+        var str = '';
+
+		if(!storage){
+		
+		 $.each( ele, function( key, value ) {
+		   
+           str+= value.value;
+		   str += ';'
+        });
+		setTimeout(addDataDir(str),100);
+		setTimeout(index(),300);
+		}
+
+		else{
+        $.each( ele, function( key, value ) {
+		   
+           str+= value.value;
+		   str += ';'
+        });
+		setTimeout(loadXMLDoc(storage),100);
+		setTimeout(addDataDir(str),100);
+		setTimeout(index(),300);
+		
+		}
+    });
+
+	$('#btn2').on('click',function(){
+		deleteIndex();
+		alert("Your Indexs have been Deleted")
+    });
+
+
+
+	
+</script>

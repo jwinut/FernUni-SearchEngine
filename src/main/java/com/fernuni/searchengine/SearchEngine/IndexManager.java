@@ -8,17 +8,11 @@ import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
-import org.apache.lucene.queryparser.classic.ParseException;
-import org.apache.lucene.queryparser.classic.QueryParser;
-import org.apache.lucene.search.PhraseQuery;
-import org.apache.lucene.search.Query;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.logging.FileHandler;
@@ -118,8 +112,8 @@ public class IndexManager {
         else dataDir = "Directory error.\n";
 
         //Get status of pre contents, contents.
-        boolean contentsStoreStatus = (getContents_store() == TextField.TYPE_STORED);
-        boolean preContentsStoreStatus = (getPre_contents_store() == Field.Store.YES);
+        boolean contentsStoreStatus = isContent();
+        boolean preContentsStoreStatus = isPreContent();
         String contentsStoreStatus_str = contentsStoreStatus ? "\tContent is stored.\n" : "\tContent is not stored.\n";
         String preContentsStoreStatus_str = preContentsStoreStatus ? "\tPre content is stored.\n" : "\tPre content is not stored.\n";
         String fileContentsStatus = "\tPreview content using ";
@@ -130,18 +124,11 @@ public class IndexManager {
         else
             fileContentsStatus += "[White Space], (No preview)\n";
 
-        //Assemble String.
+        //Assemble Strings.
         status += "\tIndex directory:" + indexDir_str + "\n" + "\tData directory(s):" + dataDir + contentsStoreStatus_str +
                 preContentsStoreStatus_str + fileContentsStatus;
         logger.info("Reporting status...\n" + "======================\n" +
                 status + "======================");
-        try {
-            IndexWriter indexWriter = indexer.getIndexWriter(FSDirectory.open(DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath()));
-            indexWriter.close();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
         return status;
     }
 
@@ -217,41 +204,30 @@ public class IndexManager {
      * @param path  Path to a desire file.
      */
     public void deleteDocumentFromIndexUsingPath(Path path){
-        Term term = new Term("path", path.toString());
+        Term term1 = new Term("path", path.toString());
+        Term term2 = new Term("parent", path.toString());
         try {
             Path indexDir_path = DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath();
             Directory directory = FSDirectory.open(indexDir_path);
             IndexWriter indexWriter = indexer.getIndexWriter(directory);
-            indexWriter.deleteDocuments(term);
+            indexWriter.deleteDocuments(term1);
+            indexWriter.deleteDocuments(term2);
             indexWriter.commit();
             indexWriter.close();
             directory.close();
-            logger.info("This record has been remove from the index: " + term.field() + " " + term.text());
+            logger.info("This record has been remove from the index: " + term1.field() + " " + term1.text());
+            logger.info("This record has been remove from the index: " + term2.field() + " " + term2.text());
         } catch (IOException | NullPointerException e) {
             logger.warning("Failed to remove " + path.toString() + " from the index.");
         }
     }
 
-    /**
-     * This method will remove a document with the same path as given from the index.
-     * @param path  Path to a desire file.
-     */
-    /*
-    public void deleteDocumentsFromIndexUsingQuery(Path path){
-        try {
-            Query query = new PhraseQuery("path", path.toString());
-            Path indexDir_path = DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath();
-            Directory directory = FSDirectory.open(indexDir_path);
-            IndexWriter indexWriter = indexer.getIndexWriter(directory);
-            indexWriter.deleteDocuments(query);
-            indexWriter.commit();
-            indexWriter.close();
-            directory.close();
-            logger.info("This record has been remove from the index: " + query.toString());
-        } catch (IOException e){
-            logger.severe("Couldn't open index directory.");
-        }
+    public static boolean isPreContent(){
+        return (getPre_contents_store() == Field.Store.YES);
     }
-    */
+
+    public static boolean isContent(){
+        return (getContents_store() == TextField.TYPE_STORED);
+    }
 
 }

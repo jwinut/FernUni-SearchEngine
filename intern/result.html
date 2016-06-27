@@ -1,0 +1,380 @@
+&nbsp;	
+ <!DOCTYPE html>
+ 
+<script> var i = 0</script>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  <title>Local Search Engine</title>
+
+		
+		
+		<link rel="shortcut icon" href="img/searchcon.png">
+    </head>
+
+    <body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	  <script src="addinput.js" language="Javascript" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+<nav>
+    <div class="nav-wrapper">
+      <a href="search.html" class="brand-logo">Local Search</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="search.html"><i class="material-icons">search</i></a></li>
+        <li><a href="setting.html"><i class="material-icons">settings</i></a></li>
+        
+      </ul>
+    </div>
+  </nav>
+
+
+    <!-- Page Layout here -->
+    <div class="row">
+
+      <div class="col s12 m4 l3" id = "searchbar"> <!-- Note that "m4 l3" was added -->
+        <!-- Grey navigation panel
+
+              This content will be:
+          3-columns-wide on large screens,
+          4-columns-wide on medium screens,
+          12-columns-wide on small screens  -->
+
+
+		   <div class="row">
+    <form class="col s12" action = "result.html">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="search2" type="text" class="validate"	onkeypress='return submitOnEnter(this, event);' >
+          <label for="search2">Search For More :)</label>
+        </div>
+      </div>
+	  
+
+
+    </form>
+
+
+	
+  
+    
+
+
+  </div>
+
+
+    
+    
+    
+ 
+
+      </div>
+
+      <div class="col s12 m8 l9" id = "result"> <!-- Note that "m8 l9" was added -->
+        <!-- Teal page content
+
+              This content will be:
+          9-columns-wide on large screens,
+          8-columns-wide on medium screens,
+          12-columns-wide on small screens  -->
+
+
+
+		  <ul class="collection">
+    
+  </ul>
+
+      </div>
+
+    </div>
+
+
+	  </body>
+
+<script>
+
+
+$.urlParam = function(name){
+	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	return results[1] ;
+}
+function submitOnEnter(inputElement, event) {
+
+		// set filter parameter 
+        if (event.keyCode == 13) { // No need to do browser specific checks. It is always 13.
+			var filter = "";
+
+			if($('#docx').is(":checked"))
+				filter += "1";
+			else
+				filter += "0";	
+			if($('#xmlx').is(":checked"))
+				filter += "1";
+			else
+				filter += "0";
+			if($('#ppt').is(":checked"))
+				filter += "1";
+			else
+				filter += "0";
+			if($('#pdf').is(":checked"))
+				filter += "1";
+			else
+				filter += "0";
+			if($('#txt').is(":checked"))
+				filter += "1";
+			else
+				filter += "0";
+			if($('#html').is(":checked"))
+				filter += "1";
+			else
+				filter += "0";
+            inputElement.form.submit();
+			var searchkey = document.getElementById("search2").value
+			var link = "result.html?search=";
+			link += searchkey;
+			link +="&filter=";
+			link += filter;
+			link += "&start=10";
+			window.location.href = link;
+			// send search key and filter to result page(refresh)
+			return false;
+			
+        }
+    }
+var str  = $.urlParam('filter');
+	if(str.charAt(0) == "1")
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="docx"checked="checked"/><label for="docx">Document</label></p>');
+	else
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="docx"/><label for="docx">Document</label></p>');
+	if(str.charAt(1) == "1")
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="xmlx"checked="checked"/><label for="xmlx">Excel</label></p>');
+	else
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="xmlx"/><label for="xmlx">Excel</label></p>');
+	if(str.charAt(2) == "1")
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="ppt"checked="checked"/><label for="ppt">PowerPoint</label></p>');
+	else
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="ppt"/><label for="ppt">PowerPoint</label></p>');
+	if(str.charAt(3) == "1")
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="pdf"checked="checked"/><label for="pdf">PDF</label></p>');
+	else
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="pdf"/><label for="pdf">PDF</label></p>');
+	if(str.charAt(4) == "1")
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="txt"checked="checked"/><label for="txt">TEXT</label></p>');
+	else
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="txt"/><label for="txt">TEXT</label></p>');
+	if(str.charAt(5) == "1")
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="html"checked="checked"/><label for="html">HTML</label></p>');
+	else
+		$( "#searchbar" ).append('<p><input type="checkbox" id ="html"/><label for="html">HTML</label></p>');
+
+
+
+
+
+
+var searchkey = $.urlParam('search');
+
+
+var a = document.getElementById("search2");
+a.value = searchkey;
+
+var url = "http://localhost:8080/search?searchString=";
+
+url += searchkey;
+
+if(!searchkey){
+alert("Please Enter Search Key")
+
+}
+else{
+
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": url,
+  "method": "GET",
+}
+url2 = "result.html?search=";
+url2 += searchkey;
+url2 += "&filter=";
+url2 += str;
+url2 += "&";
+
+// create result elements
+$.ajax(settings).done(function (response) {
+  var jsonData = response;
+ var start = $.urlParam('start');
+ st = parseInt(start);
+ var result = [];
+
+ for (var i = 0; i < jsonData.length; i++) {
+    var counter = jsonData[i];
+	
+	if(counter.file_type == "text/html" && str.charAt(5) == "1"){
+		
+		result.push('<li class="collection-item avatar">    <img src="img/html.png" alt="" class="circle"><span class="title">'+ counter.file_name +'</span> <p>'+ counter.file_path +'<br>'+counter.file_pre_contents+'</p> <a href="#!" class="secondary-content">');
+		
+	}
+	else if(counter.file_type == "text/plain" && str.charAt(4) == "1"){
+		result.push('<li class="collection-item avatar">    <img src="img/txt.jpg" alt="" class="circle"><span class="title">'+ counter.file_name +'</span> <p>'+ counter.file_path +'<br>'+counter.file_pre_contents+'</p> <a href="#!" class="secondary-content">');
+	
+		
+	}
+	else if((counter.file_type == "text/plain" || counter.file_type == "application/rtf") && str.charAt(4) == "1"){
+		result.push('<li class="collection-item avatar">    <img src="img/txt.jpg" alt="" class="circle"><span class="title">'+ counter.file_name +'</span> <p>'+ counter.file_path +'<br>'+counter.file_pre_contents+'<br></p> <a href="#!" class="secondary-content">');
+		
+	}
+	else if(counter.file_type == "application/xml" && str.charAt(4) == "1"){
+		result.push('<li class="collection-item avatar">    <img src="img/xml.jpg" alt="" class="circle"><span class="title">'+ counter.file_name +'</span> <p>'+ counter.file_path +'<br>'+counter.file_pre_contents+'</p> <a href="#!" class="secondary-content">');
+		
+	}
+	else if((counter.file_type == "application/vnd.ms-excel" || counter.file_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") && str.charAt(1) == "1" ){
+		result.push('<li class="collection-item avatar">    <img src="img/excel.ico" alt="" class="circle"><span class="title">'+ counter.file_name +'</span> <p>'+ counter.file_path +'<br>'+counter.file_pre_contents+'</p> <a href="#!" class="secondary-content">');
+		
+	}
+	else if((counter.file_type == "application/vnd.ms-powerpoint" || counter.file_type == "application/vnd.openxmlformats-officedocument.presentationml.presentation" || counter.file_type == "application/vnd.openxmlformats-officedocument.presentationml.slideshow") && str.charAt(2) == "1"){
+
+		result.push('<li class="collection-item avatar">    <img src="img/powerpoint.ico" alt="" class="circle"><span class="title">'+ counter.file_name +'</span> <p>'+ counter.file_path +'<br>'+counter.file_pre_contents+'</p> <a href="#!" class="secondary-content">');
+		
+	}
+	else if((counter.file_type == "application/msword" || counter.file_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document") && str.charAt(0) == "1"){
+
+		result.push('<li class="collection-item avatar">    <img src="img/word.ico" alt="" class="circle"><span class="title">'+ counter.file_name +'</span> <p>'+ counter.file_path +'<br>'+counter.file_pre_contents+'</p> <a href="#!" class="secondary-content">');
+		
+	}
+	else if(counter.file_type == "application/pdf" && str.charAt(3) == "1"){
+
+		result.push('<li class="collection-item avatar">    <img src="img/pdf.ico" alt	="" class="circle"><span class="title">'+ counter.file_name +'</span> <p>'+ counter.file_path +'<br>'+counter.file_pre_contents+'<br></p> <a href="#!" class="secondary-content">');
+		
+	}
+	
+  }
+/*var str2 = "Visit Microsoft!";
+var res = str2.replace("Microsoft", "<b>W3Schools</b>");
+
+result.push(res);  
+
+BOLD TEXT
+
+*/
+
+
+ if(st <= result.length){	// multi page
+  for (var i = st-10; i < st; i++) {
+    $( ".collection" ).append(result[i]);
+	
+  }
+
+ }  // end of if
+
+ else{
+
+	 for (var i = st-10; i < result.length; i++) {
+    $( ".collection" ).append(result[i]);
+
+	
+  }
+
+
+
+
+ 
+ 
+ 
+ } // end of else
+
+// Page Selection (10 Datas for each Page)
+
+//$( ".collection" ).append('<br><br><ul class="pagination" id = page> </ul>');
+ if(st == 10){
+ $("#page").append('<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>');
+}
+else{
+	var st2 = st-10;
+$("#page").append('<li class="waves-effect"><a href="'+url2+ "start="+ st2 +'"><i class="material-icons">chevron_left</i></a></li>');
+}		//recent page arrow generating
+
+
+
+if(result.length <= 10){
+		$("#page").append('<li class="active"><a href="#!">1</a></li>');
+		$("#page").append('<li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>');
+	}	//case Data < 10 (1 Page only)
+
+else{   // Data > 10 (more than 1 page)
+	if(result.length % 10 == 0 ){		// (20,30,... Datas)
+		for (var i = 1; i <= result.length/10; i++)
+		{	
+			if(st/10 == i)
+				$("#page").append('<li class="active"><a href="#!">'+ i +'</a></li>');
+			else{
+				var st2 = i*10
+				$("#page").append('<li class="waves-effect"><a href="'+url2+ "start="+ st2+'">'+ i +'</a></li>');
+				}
+			
+			}
+
+		if(st == result.length)
+			$("#page").append('<li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>');
+			
+		else{
+			var st2 = st+10
+			$("#page").append('<li class="waves-effect"><a href="'+url2+ "start="+ st2 +'"><i class="material-icons">chevron_right</i></a></li>');
+			}
+
+	}
+	else{
+		for (var i = 1; i <= parseInt(result.length/10) +1 ; i++){
+			if(st/10 == i)
+				$("#page").append('<li class="active"><a href="#!">'+ i +'</a></li>');
+			else{
+				var st2 = i*10;
+				$("#page").append('<li class="waves-effect"><a href="'+url2+ "start="+ st2 +'">'+ i +'</a></li>');
+				}
+				
+		}
+		
+		if(st/10 == 
+		parseInt(result.length/10) + 1 ){
+			$("#page").append('<li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>');		
+			}
+		else{
+			var st2 = st+10
+			$("#page").append('<li class="waves-effect"><a href="'+url2+ "start="+ st2 +'"><i class="material-icons">chevron_right</i></a></li>');
+			}
+		
+	
+	}
+
+	
+}	// end of else (Data > 10)
+
+
+});
+
+
+}
+
+</script>
+
+<footer>
+<ul class="pagination" id = page>
+     </ul>
+
+
+</footer>

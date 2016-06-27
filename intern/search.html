@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+ <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	  <title>Local Search Engine</title>
+
+		
+		
+		<link rel="shortcut icon" href="img/searchcon.png">
+    </head>
+
+    <body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	 <nav>
+    <div class="nav-wrapper">
+      <a href="search.html" class="brand-logo">Local Search</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="search.html"><i class="material-icons">search</i></a></li>
+        <li><a href="setting.html"><i class="material-icons">settings</i></a></li>
+        
+      </ul>
+    </div>
+  </nav>
+
+ <div class="row">
+    <div class="col s12"></div>
+    <div class="col s12 m4 l2" id = "side">
+
+	<script>
+
+// index file and storage location status 
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState == 4) {
+	$( '<div class="chip"id = "chip"><img src="img/index.png" alt="Contact Person">Current Indexed File Location : ' + this.responseText + '</div><br><br>' ).insertBefore( "#side" );
+	$('#chip').css('position', 'absolute');
+$('#chip').css('top', 200); //or wherever you want it
+$('#chip').css('left', 30); //or wherever you want it
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/status/dataDir");
+xhr.send(data);
+
+
+
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState == 4) {
+	$( '<div class="chip" id = "chip2"><img src="img/storage.png" alt="Contact Person">Current Storage Location : ' + this.responseText + '</div><br><br>' ).insertBefore( "#side" );
+	$('#chip2').css('position', 'absolute');
+$('#chip2').css('top', 150); //or wherever you want it
+$('#chip2').css('left', 30); //or wherever you want it
+	
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/status/indexDir");
+xhr.send(data);
+
+
+
+
+
+ $(document).ready(function() {
+    $('select').material_select();
+  });
+
+  $('#side').css('position', 'absolute');
+$('#side').css('top', 100); //or wherever you want it
+$('#side').css('left', 30); //or wherever you want it
+
+
+</script>
+
+	<br><br><br><br><br><br><br><Br>
+	 <!-- filter -->
+	
+  <p><input type="checkbox" id ="Doc"checked="checked"/><label for="Doc">Document</label></p>
+  <p><input type="checkbox" id ="Excel"checked="checked"/><label for="Excel">Excel</label></p>
+  <p><input type="checkbox" id ="PPT"checked="checked"/><label for="PPT">PowerPoint</label></p>
+  <p><input type="checkbox" id ="PDF"checked="checked"/><label for="PDF">PDF</label></p>
+  <p><input type="checkbox" id ="TXT"checked="checked"/><label for="TXT">TEXT</label></p>
+  <p><input type="checkbox" id ="HTML"checked="checked"/><label for="HTML">HTML</label></p>
+
+
+	
+	
+	
+	</div>
+    <div class="col s12 m4 l8">
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br>
+
+	<!-- search button -->
+	<div class="input-field col s4" id ="input">
+          
+          <input id="search" type="text" class="validate">
+          <label for="icon_prefix">Search Here</label>
+        </div><br>
+		 
+	
+	</div>
+    <div class="col s12 m4 l2">
+	
+	
+	
+	
+	</div>
+  </div>
+  <Script>
+  $(document).ready(function(){
+
+  $('#search').keypress(function(e) {
+    if (e.which == 13) {
+    //e.preventDefault();
+    goResult();
+    }
+  });
+
+
+});
+
+
+
+  jQuery.fn.center = function () {
+    this.css("position","absolute");
+    this.css("top", ( $(window).height() - this.height() ) / 2+$(window).scrollTop() + "px");
+    this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");
+    return this;
+}
+ 
+  $('#input').center();
+  
+
+
+// checkfilter 
+  function goResult(){
+	var filter = "";
+
+	if($('#Doc').is(":checked"))
+		filter += "1";
+	else
+		filter += "0";	
+	if($('#Excel').is(":checked"))
+		filter += "1";
+	else
+		filter += "0";
+	if($('#PPT').is(":checked"))
+		filter += "1";
+	else
+		filter += "0";
+	if($('#PDF').is(":checked"))
+		filter += "1";
+	else
+		filter += "0";
+	if($('#TXT').is(":checked"))
+		filter += "1";
+	else
+		filter += "0";
+	if($('#HTML').is(":checked"))
+		filter += "1";
+	else
+		filter += "0";
+
+	var value = document.getElementById("search").value;
+	var link = "result.html?search=";
+	link += value;
+	link += "&filter=";
+	link += filter;
+	link += "&start=10";
+	window.location.href = link;
+	return false;
+	}
+  </script>
+
+ </body>
+</html>

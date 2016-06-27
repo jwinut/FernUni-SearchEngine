@@ -1,0 +1,15 @@
+var counter = 1;
+var limit = 5;
+function addInput(divName){
+     if (counter == limit)  {
+          alert("You have reached the limit of adding " + counter + " inputs");
+     }
+     else {
+          var newdiv = document.createElement('div');
+          newdiv.innerHTML = "<br><div class='input-field col s12'> <input id='path2' type='text' ><label for='path2' >Path To Index</label></div>";
+          document.body.appendChild(newdiv);
+          counter++;
+		  
+     }
+}
+

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Local Search Engine</title>
+
+		
+		
+		<link rel="shortcut icon" href="img/searchcon.png"> 
+		
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/style-responsive.css" />				
+		
+</head>
+
+<body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<div class="container">
+
+
+<!-- section start-page -->
+
+  <section class="start-page parallax-background" id="home">
+  
+    <div class="opacity"></div>
+      <div class="content">
+        <div class="text">
+        
+          <h1>Welcome<br/>
+          to our <span>Local Search Engine</span></h1>
+ 
+          
+          <a href="#about-us"><div class="read-more">Read more</div></a>
+          
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+  
+  </section>
+
+  <!-- section menu mobile -->
+  
+  <section class="menu-media">
+  
+    <div class="menu-content">
+    
+      <div class="logo">Local Search</div>
+      
+      <div class="icon"><a href="#"><img src="img/icons/menu-media.png"/></a></div>
+    
+    </div>
+   
+  </section>
+  
+    <ul class="menu-click">
+        <a href="#home"><li href="#home">HOME</li></a>
+        <a href="#about-us"><li href="#about-us">ABOUT US</li></a>
+        <a href="#portfolio"><li href="#portfolio">GET START!</li></a>
+        
+    </ul>
+   
+   
+  <!-- section menu -->
+  
+  <section class="menu">
+
+    <div class="menu-content">
+    
+    <div class="logo">Local Search</div>
+    
+      <ul id="menu">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about-us">ABOUT US</a></li>
+        <li><a href="#portfolio">GET STARTED!</a></li>
+      </ul>
+    </div>
+  
+  
+  </section>
+
+
+  <!-- section about us -->
+  
+  <section class="about-us" id="about-us">
+  
+    <h1>ABOUT US</h1>
+    <hr/>
+    <p class="title">We provide you a Local Search Engine with Indexing and Searching methods</p>
+  
+      <div class="column-one">
+  
+        <div class="circle-one"></div>
+    
+          <h2>VARIOUS<br/>DOCUMENT TYPES</h2>
+          <p>Our Search Engine Compatible With Many Document File Types <br><b> DOCX,PPTX,XMLX,TXT,HTML,PDF</b></p>
+    
+      </div>
+  
+      <div class="column-two">
+  
+        <div class="circle-two"></div>
+    
+          <h2>YOUR OWN<br/>SETTING</h2>
+          <p>Set Your Own Path To Index To Optimize The Performance</p>
+    
+      </div>
+  
+  
+      <div class="column-three">
+  
+        <div class="circle-three"></div>
+    
+        <h2>FREE<br/>DOWNLOAD</h2>
+        <p>Everything is Free</p>
+
+ 
+    </div>  
+    
+
+  </section>
+  
+  <div class="clear"></div>  
+
+  <!-- portoflio-->
+
+  <section class="portfolio" id="portfolio">
+
+
+    <div class="portfolio-margin">
+    
+      <h1>GET STARTED!</h1>
+	  
+      <hr/> 
+	  <p>For First Time Use, You Have to Setup 2 Basic Settings <br><br>
+	  1. Your Storage Location (for Index information).<br><br>
+	  2. You Path of Your Document that You Want To Index.<br><br>
+	   <b>For More Advance Setting, Please Visit Our Setting Page Inside The Program.	</b></p>
+  
+<Br><br>
+<form role="form">
+  <div class="form-group">
+    <label for="storage" class = "label1"><p>Enter Storage Location:</p><br></label>
+    <input type="text" class="form-control" id="storage">
+  </div>
+
+  <br>
+  <form role="form">
+  <div class="form-group">
+    <label for="index" class = "label2"><p>Enter Path You Want to Index:</p><br></label>
+    <input type="text" class="form-control" id="index">
+  </div>
+    
+     <br><br><br>
+   <button type="button" class = "button" button id = "btn">Submit Your Setting !</button>
+
+
+   
+   </div>   
+
+   
+         
+   </section>
+
+
+   <!-- script for functions -->
+<script>
+    $(document).ready(function() {
+
+       $('.label1').css('color','white');
+	    $('.label2').css('color','white');
+    });
+	//click submit button then  3 functions run
+    
+$('#btn').on('click',function(){
+		var storage = $('#storage').val();
+		var index = $('#index').val();
+		setTimeout(loadXMLDoc(storage),100);
+		setTimeout(addDataDir(index),100);
+		
+		
+
+		setTimeout(index2(),300);
+       
+		// set storage location, set data Directory to be indexed , index !
+		
+    });
+
+
+
+
+function index2(){    // index all file in the path
+
+var data = null;
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+$(".portfolio").append('<p>Redirecting, Please Wait.</p>')
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+	window.location.href = 'search.html'
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/index");
+xhr.send(data);
+
+
+
+}
+
+function addDataDir(str){    //add file location that you want to index
+
+var data = new FormData();
+data.append("path", str);
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("POST", "http://localhost:8080/addDataDir");
+
+
+xhr.send(data);
+
+
+
+}
+
+
+function loadXMLDoc(str){    //add storage location
+	
+	if(!str){
+		alert("Please Enter Storage Location Path")
+	}
+	else{
+	
+	var data = new FormData();
+data.append("path", str);
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("POST", "http://localhost:8080/setIndexDir");
+xhr.setRequestHeader("cache-control", "no-cache");
+xhr.setRequestHeader("postman-token", "34e2d9bf-371d-8b25-8a6e-cee52d82b3a0");
+
+xhr.send(data);
+	}
+
+
+}
+
+
+</script>
+  
+  
+   <div class="clear"></div>  
+  
+  
+  
+  
+  
+
+
+    <section class="footer">
+    
+      <div class="margin">
+      
+        <div class="menu-footer">
+        
+        <a href="#home">Home</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">RSS</a>
+        <a href="#">Facebook</a>
+        
+        </div>
+        
+             
+
+      </div>
+    
+    
+    </section>    
+    
+
+</div>
+
+
+
+	<!-- Scripts -->
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> <!-- jQuery -->
+	<script src="js/jquery.parallax.js"></script> <!-- jQuery Parallax -->
+	<script src="js/jquery.nicescroll.js"></script> <!-- jQuery NiceScroll -->
+	<script src="js/jquery.sticky.js"></script> <!-- jQuery Stick Menu -->
+	<script src="js/script.js"></script> <!-- All script -->
+
+</body>
+
+<style>
+input, select, textarea{
+    color: #000000;
+	background-color : #d1d1d1
+
+
+}
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	padding: 10px 24px;
+	font-size: 16px;
+}
+
+.button:hover {
+    background-color: #808080; /* grey */
+    color: white;
+}
+
+</style>
+
+<footer> 
+
+</footer>
+</html>

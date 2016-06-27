@@ -2,9 +2,9 @@ package com.fernuni.searchengine.SearchEngine;
 
 import com.fernuni.searchengine.FileWatcher.WatchService;
 import com.fernuni.searchengine.RESTController;
+import com.google.common.io.FileBackedOutputStream;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,6 +12,7 @@ import java.util.*;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.zip.InflaterInputStream;
 
 /**
  * Created by Winut Jiraruekmongkol, KMITL, Thailand on 5/30/2016 AD.

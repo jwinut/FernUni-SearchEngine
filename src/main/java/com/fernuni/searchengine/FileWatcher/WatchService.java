@@ -252,7 +252,6 @@ public class WatchService implements Runnable{
 
                 if (kind == ENTRY_DELETE && isAuto()) {
                     indexManager.deleteDocumentFromIndexUsingPath(child);
-                    //indexManager.deleteDocumentsFromIndexUsingQuery(child);
                 }
             }
 
