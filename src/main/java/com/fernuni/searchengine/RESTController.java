@@ -130,7 +130,7 @@ public class RESTController {
 		return manager.deleteIndex();
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteDataDir", params = "path")
+	@RequestMapping(method = RequestMethod.POST, value = "/deleteDataDir", params = "path")
 	public @ResponseBody boolean deleteDataDir(@RequestParam String path){
 		logger.info("[/deleteDataDir] was called with parameters\t[path:" +
 				path + "]");
@@ -316,10 +316,10 @@ public class RESTController {
 	private static void start() throws IOException {
 		File html;
 		if(isFirstTime){
-			html = new File("intern/index.html");
+			html = new File("intern/wait_index.html");
 		}
 		else{
-			html = new File("intern/search.html");
+			html = new File("intern/wait_search.html");
 		}
 		Desktop.getDesktop().browse(html.toURI());
 	}

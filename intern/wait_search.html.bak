@@ -1,0 +1,81 @@
+<head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	  <title>Local Search Engine</title>
+
+		
+		
+		<link rel="shortcut icon" href="img/searchcon.png">
+    </head>
+
+    <body>
+
+		 <nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo">Local Search</a>
+      
+    </div>
+  </nav>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+		
+		<div class="row">
+    <div class="col s12"><p></p></div>
+    <div class="col s12 m4 l2"><p></p></div>
+    <div class="col s12 m4 l8"><p><h1>Initializing The Server <br> Please Wait. <br><br>
+	
+	
+	<div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div></h1></p></div>
+    <div class="col s12 m4 l2"><p></div>
+  </div>
+		
+
+
+		<br>
+
+		
+
+		<script> 
+		
+		
+		$(document).ready(function() {
+    
+	var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+	  alert("ice");
+   window.location.href = "search.html";
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/");
+
+
+xhr.send(data);
+
+  });
+		
+		
+		</script>
+	  </body>

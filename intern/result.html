@@ -35,8 +35,12 @@
     <div class="nav-wrapper">
       <a href="search.html" class="brand-logo">Local Search</a>
       <ul class="right hide-on-med-and-down">
+
+		<li><a class = "material-icons modal-trigger" href="#modal1"><i class="material-icons">live_help</i></a></li>
+		 <li><a href="setting.html"><i class="material-icons">settings</i></a></li>
         <li><a href="search.html"><i class="material-icons">search</i></a></li>
-        <li><a href="setting.html"><i class="material-icons">settings</i></a></li>
+       
+		<li><a href="turningoff.html"><i class="material-icons left" id ="turnoff">power_settings_new</i>Turn Off</a></li>
         
       </ul>
     </div>
@@ -113,7 +117,6 @@ $.urlParam = function(name){
 	return results[1] ;
 }
 function submitOnEnter(inputElement, event) {
-
 		// set filter parameter 
         if (event.keyCode == 13) { // No need to do browser specific checks. It is always 13.
 			var filter = "";
@@ -181,8 +184,8 @@ var str  = $.urlParam('filter');
 	else
 		$( "#searchbar" ).append('<p><input type="checkbox" id ="html"/><label for="html">HTML</label></p>');
 
-
-
+	
+	$( "#searchbar" ).append('<br><button id = "btn"class="btn waves-effect waves-light" type="submit" name="action">Apply Filter<i class="material-icons right">send</i></button>');
 
 
 
@@ -369,6 +372,36 @@ else{   // Data > 10 (more than 1 page)
 
 
 }
+
+$('#btn').on('click',function(){
+		key = document.getElementById("search2").value;
+		
+		submitOnEnter(key,event);
+    });
+
+
+function stop(){
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+	window.location.href = 'index.html';
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/stop");
+
+xhr.send(data);
+}
+$('#turnoff').on('click',function(){
+		window.location.href = 'turningoff.html';
+			
+    });
+
 
 </script>
 

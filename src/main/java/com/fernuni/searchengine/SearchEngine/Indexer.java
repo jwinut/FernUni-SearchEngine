@@ -1,7 +1,9 @@
 package com.fernuni.searchengine.SearchEngine;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.FileHandler;
@@ -54,6 +56,7 @@ public class Indexer implements Runnable {
                                     "application/vnd.openxmlformats-officedocument.wordprocessingml.document\n" +
                                     "application/vnd.openxmlformats-officedocument.presentationml.slideshow\n" +
                                     "application/pdf";
+    private final String[] FILES_EXTENSION = {".txt", ".rtf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".html", ".xml", ".ppsx", ".pdf"};
     private int numOfFilesIndexed = 0;
 
     /**
@@ -145,7 +148,16 @@ public class Indexer implements Runnable {
          * Check again if the file really is a directory.
          */
         if(directory.isDirectory()){
-            File[] files = directory.listFiles();           //Get list of files inside a directory.
+            File[] files = directory.listFiles(new FilenameFilter() {
+                @Override
+                public boolean accept(File dir, String name) {
+                    if(Files.isDirectory(new File(dir, name).toPath())) return true;
+                    for(String extension : FILES_EXTENSION){
+                        if(name.endsWith(extension)) return true;
+                    }
+                    return false;
+                }
+            });           //Get list of files inside a directory.
             if (files != null) {
                 for(File file : files){
                     if(file.isDirectory())

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-29T11:05:04</date>
+  <millis>1467191104521</millis>
+  <sequence>2</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>10</thread>
+  <message>Scanning /Users/Nut/Documents/internship ...</message>
+</record>
+<record>
+  <date>2016-06-29T11:05:05</date>
+  <millis>1467191105429</millis>
+  <sequence>3</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>10</thread>
+  <message>Done.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-29T13:32:41</date>
+  <millis>1467199961116</millis>
+  <sequence>6</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Scanning /Users/Nut/Documents/internship ...</message>
+</record>
+<record>
+  <date>2016-06-29T13:32:41</date>
+  <millis>1467199961695</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-29T13:34:13</date>
+  <millis>1467200053678</millis>
+  <sequence>14</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>kill</method>
+  <thread>34</thread>
+  <message>Stopping WatchService...</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-29T13:34:31</date>
+  <millis>1467200071023</millis>
+  <sequence>6</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Scanning /Users/Nut/Documents/internship ...</message>
+</record>
+<record>
+  <date>2016-06-29T13:34:31</date>
+  <millis>1467200071318</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-29T13:34:56</date>
+  <millis>1467200096009</millis>
+  <sequence>12</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>kill</method>
+  <thread>30</thread>
+  <message>Stopping WatchService...</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-29T13:35:14</date>
+  <millis>1467200114390</millis>
+  <sequence>6</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Scanning /Users/Nut/Documents/internship ...</message>
+</record>
+<record>
+  <date>2016-06-29T13:35:15</date>
+  <millis>1467200115161</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-29T13:35:24</date>
+  <millis>1467200124442</millis>
+  <sequence>10</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>kill</method>
+  <thread>27</thread>
+  <message>Stopping WatchService...</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-29T13:36:43</date>
+  <millis>1467200203562</millis>
+  <sequence>9</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>27</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-29T13:36:43</date>
+  <millis>1467200203583</millis>
+  <sequence>10</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>27</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-29T13:36:54</date>
+  <millis>1467200214515</millis>
+  <sequence>31</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>kill</method>
+  <thread>36</thread>
+  <message>Stopping WatchService...</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-29T13:37:13</date>
+  <millis>1467200233096</millis>
+  <sequence>6</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-29T13:37:13</date>
+  <millis>1467200233105</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-29T13:37:22</date>
+  <millis>1467200242592</millis>
+  <sequence>20</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>kill</method>
+  <thread>27</thread>
+  <message>Stopping WatchService...</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-29T13:37:35</date>
+  <millis>1467200255589</millis>
+  <sequence>6</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-29T13:37:35</date>
+  <millis>1467200255596</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Done.</message>
+</record>
+<record>
+  <date>2016-06-29T13:38:26</date>
+  <millis>1467200306074</millis>
+  <sequence>40</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>kill</method>
+  <thread>31</thread>
+  <message>Stopping WatchService...</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-29T13:40:16</date>
+  <millis>1467200416183</millis>
+  <sequence>6</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-29T13:40:16</date>
+  <millis>1467200416192</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Done.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-29T13:43:09</date>
+  <millis>1467200589859</millis>
+  <sequence>6</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-29T13:43:09</date>
+  <millis>1467200589867</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Done.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-06-29T13:48:47</date>
+  <millis>1467200927281</millis>
+  <sequence>6</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Scanning /Users/Nut/Documents/internship/testsubjects ...</message>
+</record>
+<record>
+  <date>2016-06-29T13:48:47</date>
+  <millis>1467200927290</millis>
+  <sequence>7</sequence>
+  <logger>com.fernuni.searchengine.FileWatcher.WatchDir</logger>
+  <level>INFO</level>
+  <class>com.fernuni.searchengine.FileWatcher.WatchService</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Done.</message>
+</record>
+</log>

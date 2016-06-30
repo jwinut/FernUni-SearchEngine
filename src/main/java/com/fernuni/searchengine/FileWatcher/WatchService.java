@@ -84,6 +84,8 @@ public class WatchService implements Runnable{
      * Register the given directory with the WatchService
      */
     public void register(Path dir) {
+        if(dir.equals(DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath()))
+            return;
         try {
             WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
             if (trace) {
@@ -163,6 +165,9 @@ public class WatchService implements Runnable{
         }
         catch (IOException e){
             logger.severe("Error de-register all: " + e.toString());
+        }
+        catch (Exception e){
+            logger.severe("Error de-register all:" + e.toString());
         }
     }
 

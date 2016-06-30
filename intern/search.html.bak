@@ -24,8 +24,12 @@
     <div class="nav-wrapper">
       <a href="search.html" class="brand-logo">Local Search</a>
       <ul class="right hide-on-med-and-down">
+
+		<li><a class = "material-icons modal-trigger" href="#modal1"><i class="material-icons">live_help</i></a></li>
+		 <li><a href="setting.html"><i class="material-icons">settings</i></a></li>
         <li><a href="search.html"><i class="material-icons">search</i></a></li>
-        <li><a href="setting.html"><i class="material-icons">settings</i></a></li>
+       
+		<li><a href="turningoff.html"><i class="material-icons left" id ="turnoff">power_settings_new</i>Turn Off</a></li>
         
       </ul>
     </div>
@@ -34,7 +38,7 @@
  <div class="row">
     <div class="col s12"></div>
     <div class="col s12 m4 l2" id = "side">
-s
+
 	<script>
 
 // index file and storage location status 
@@ -45,7 +49,12 @@ xhr.withCredentials = true;
 
 xhr.addEventListener("readystatechange", function () {
   if (this.readyState == 4) {
-	$( '<div class="chip"id = "chip"><img src="img/index.png" alt="Contact Person">Current Indexed File Location : ' + this.responseText + '</div><br><br>' ).insertBefore( "#side" );
+	$( '<div class="chip"id = "chip"><img src="img/index2.png" alt="Contact Person">Current Indexed File Location : ' + this.responseText + '</div><br><br>' ).insertBefore( "#side" );
+	if(this.responseText == "No data directory has been entered."){
+	
+	alert("The Path you have entered was incorrect Please go to Setting page and Enter Again");
+	window.location.href = "setting.html";
+	}
 	$('#chip').css('position', 'absolute');
 $('#chip').css('top', 200); //or wherever you want it
 $('#chip').css('left', 30); //or wherever you want it
@@ -65,7 +74,11 @@ xhr.withCredentials = true;
 
 xhr.addEventListener("readystatechange", function () {
   if (this.readyState == 4) {
-	$( '<div class="chip" id = "chip2"><img src="img/storage.png" alt="Contact Person">Current Storage Location : ' + this.responseText + '</div><br><br>' ).insertBefore( "#side" );
+	$( '<div class="chip" id = "chip2"><img src="img/storage2.png" alt="Contact Person">Current Storage Location : ' + this.responseText + '</div><br><br>' ).insertBefore( "#side" ); 
+	if(this.responseText == "No data directory has been entered."){
+	
+	alert("The Path you have entered was incorrect Please go to Setting page and Enter Again");
+	}
 	$('#chip2').css('position', 'absolute');
 $('#chip2').css('top', 150); //or wherever you want it
 $('#chip2').css('left', 30); //or wherever you want it
@@ -190,6 +203,29 @@ $('#side').css('left', 30); //or wherever you want it
 	window.location.href = link;
 	return false;
 	}
+
+
+	function stop(){
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+	window.location.href = 'index.html';
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/stop");
+
+xhr.send(data);
+}
+$('#turnoff').on('click',function(){
+		window.location.href = 'turningoff.html';
+			
+    });
   </script>
 
  </body>

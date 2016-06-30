@@ -35,7 +35,6 @@ dependencies {
 	compile group: 'org.apache.lucene', name: 'lucene-queryparser', version: '6.1.0'
 	compile ('org.apache.tika:tika-parsers:1.13')
 	compile ('org.apache.tika:tika-core:1.13')
-	compile 'com.google.apis:google-api-services-customsearch:v1-rev51-1.22.0'
 
 }
 

@@ -101,7 +101,7 @@ public class DirectoryHandler {
      * Getter of indexDirectory.
      * @return  indexDirectory field.
      */
-    File getIndexDirectory() {
+    public File getIndexDirectory() {
         return indexDirectory;
     }
 

@@ -29,13 +29,32 @@
     <div class="nav-wrapper">
       <a href="search.html" class="brand-logo">Local Search</a>
       <ul class="right hide-on-med-and-down">
+
+		<li><a class = "material-icons modal-trigger" href="#modal1"><i class="material-icons">live_help</i></a></li>
+		 <li><a href="setting.html"><i class="material-icons">settings</i></a></li>
         <li><a href="search.html"><i class="material-icons">search</i></a></li>
-        <li><a href="setting.html"><i class="material-icons">settings</i></a></li>
+       
+		<li><a><i class="material-icons left" id ="turnoff">power_settings_new</i>Turn Off</a></li>
         
       </ul>
     </div>
   </nav>
-
+  <script> 
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+  
+  </script>
+ <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>HELP</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+  </div>
   <div class="container">
   <div class ="row">
 
@@ -97,22 +116,26 @@ Second,   Enter Folder Path for Storing your Indexed Files.
 	 <div class="container">
         <div class="row">
         <div class="input-field col s12">
+		<i class="material-icons prefix">perm_media</i>
           <input id="storage" type="text" class="validate" method >
-          <label for="storage">Storage Location</label>
+          <label for="storage">New Storage Location</label>
 
 
 
         </div>
-
 
 	<div class="row">
 
 		<input type="hidden" name="count" value="1" />
         <div class="control-group" id="fields">
             
-            <div class="input-field col s12" id="profs"> 
+            <div class="input-field col s12" > 
                 <form class="input-append">
-                    <div id="field"><input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Type Path" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
+					
+                    <div id="field">
+					<i class="material-icons  prefix black-text ">input</i>
+					<input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="New Data Path" data-items="8"/>
+					<button id="b1" class="btn add-more" type="button">+</button></div>
                 </form>
             <br>
             <small>Press + to add another form field</small>
@@ -122,7 +145,7 @@ Second,   Enter Folder Path for Storing your Indexed Files.
 
 	<br>
 <br>
-<button class="btn waves-effect waves-light" type="button" button id = "btn">Submit
+<button class="btn waves-effect waves-light" type="button" button id = "btn">Submit and Re-Index
     <i class="material-icons right">send</i>
   </button>
 
@@ -132,7 +155,25 @@ Second,   Enter Folder Path for Storing your Indexed Files.
 	  
 	  </div>
     </li>
-    
+     <li>
+      <div class="collapsible-header"><i class="material-icons">delete</i>Delete Data Directory</div>
+	  <div class="collapsible-body">    <p>Please Data Directory Path that you want to Delete</p> 
+	   <div class="container">
+        <div class="row">
+        <div class="input-field col s12">
+          <input id="pathdelete" type="text" class="validate" method >
+          <label for="pathdelete">Path</label>
+
+
+		<button class="btn waves-effect waves-light" type="button" button id = "btn4">Delete
+    <i class="material-icons right">send</i>
+  </button>
+
+        </div></div></div>
+	  
+	  
+	  </div>
+	  </li>
   </ul>
 
   </div>
@@ -144,6 +185,8 @@ Second,   Enter Folder Path for Storing your Indexed Files.
 pre = "";
 auto = "";
 content = "";
+
+
 var data = null;
 
 var xhr = new XMLHttpRequest();
@@ -216,6 +259,8 @@ xhr.send(data);
 
 
 
+function precon(){
+
 var data = null;
 
 var xhr = new XMLHttpRequest();
@@ -283,7 +328,9 @@ xhr.open("GET", "http://localhost:8080/isPrecontent");
 
 xhr.send(data);
 
+}
 
+function con(){
 var data = null;
 
 var xhr = new XMLHttpRequest();
@@ -292,7 +339,7 @@ xhr.withCredentials = true;
 xhr.addEventListener("readystatechange", function () {
   if (this.readyState === 4) {
     content = this.responseText;
-	if (content == "PreContent is on.")
+	if (content == "Content is on.")
 	{
 		$( "#setting" ).append('<p>Content</p><div class="switch" id = "sw3"><label>Off<input type="checkbox" id ="sw3" checked = "on"><span class="lever"></span>On</label></div>' );
 
@@ -352,7 +399,10 @@ xhr.open("GET", "http://localhost:8080/isContent");
 xhr.send(data);
 
 
+}
 
+setTimeout(precon,5);
+setTimeout(con,50);
 
 
 </script>
@@ -371,13 +421,32 @@ xhr.send(data);
       </div>
    
 
-<br><br>
+<br>
 
 <div class="divider"></div>
 <div class="container">
 
 <br> </br>
-<h5>Delete Index</h5>
+<h5>Re-Index</h5>
+
+<blockquote>
+<h6>Please click Delete Button</h6><br>
+Re Index The Old Path <br>
+in order to handle some Problem!
+
+</blockquote>
+
+<br>
+
+
+<button class="btn waves-effect waves-light" type="button" button id = "btn3">Re-Index
+    <i class="material-icons right">send</i>
+  </button>
+  <br><br>
+
+<div class="divider"></div>
+<br>
+<h5>Delete Current Index File</h5>
 
 <blockquote>
 <h6>Please click Delete Button</h6><br>
@@ -389,11 +458,9 @@ in order to  Make this Search Engine Live again!
 <br>
 
 
-<button class="btn waves-effect waves-light" type="button" button id = "btn2">Delete Indexed Path
+<button class="btn waves-effect waves-light" type="button" button id = "btn2">Delete
     <i class="material-icons right">send</i>
   </button>
-
-
 </div>
     </body>
   </html>
@@ -408,7 +475,7 @@ xhr.withCredentials = true;
 
 xhr.addEventListener("readystatechange", function () {
   if (this.readyState == 4) {
-	$(".status").append('<div class="chip"><img src="img/index.png" alt="Contact Person">Current Indexed File Location : ' + this.responseText + '</div><br><br>');
+	$(".status").append('<div class="chip"><img src="img/index2.png">Current Indexed File Location : ' + this.responseText + '</div><br><br>');
   }
 });
 
@@ -425,7 +492,7 @@ xhr.withCredentials = true;
 
 xhr.addEventListener("readystatechange", function () {
   if (this.readyState == 4) {
-	$(".status").append('<div class="chip"><img src="img/storage.png" alt="Contact Person">Current Storage Location : ' + this.responseText + '</div><br><br>');
+	$(".status").append('<div class="chip"><img src="img/storage2.png" >Current Storage Location : ' + this.responseText + '</div><br><br>');
   }
 });
 
@@ -554,6 +621,24 @@ xhr.send(data);
 
 }
 
+function stop(){
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+	window.location.href = 'index.html';
+  }
+});
+
+xhr.open("GET", "http://localhost:8080/stop");
+
+xhr.send(data);
+}
+
 
 // function for add more form button
 $(document).ready(function(){
@@ -619,8 +704,39 @@ $('#btn').on('click',function(){
 		deleteIndex();
 		alert("Your Indexs have been Deleted")
     });
+	
+	$('#btn3').on('click',function(){
+		index();
+    });
 
+	$('#btn4').on('click',function(){
+		var path = "http://localhost:8080/deleteDataDir?path=";
+		 path += $('#pathdelete').val();
+		alert(path)
 
+		var data = null;
+
+	var xhr = new XMLHttpRequest();
+	xhr.withCredentials = true;
+
+	xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+	window.location.href = 'setting.html'
+
+  }
+});
+
+	xhr.open("DELETE", path);
+	
+
+	xhr.send(data);
+    });
+
+$('#turnoff').on('click',function(){
+		window.location.href = 'turningoff.html';
+			
+    });
 
 	
 </script>

@@ -178,13 +178,16 @@
 $('#btn').on('click',function(){
 		var storage = $('#storage').val();
 		var index = $('#index').val();
-		setTimeout(loadXMLDoc(storage),100);
-		setTimeout(addDataDir(index),100);
-		
-		
+		var stoready=0;
+		var dataready=0;
+		stoready = loadXMLDoc(storage)
+		dataready = addDataDir(index)
 
-		setTimeout(index2(),300);
-       
+		
+		if(stoready==1 && dataready==1){
+			
+			setTimeout(index2(),300);
+		}
 		// set storage location, set data Directory to be indexed , index !
 		
     });
@@ -197,7 +200,7 @@ function index2(){    // index all file in the path
 var data = null;
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
-$(".portfolio").append('<p>Redirecting, Please Wait.</p>')
+$(".portfolio").append('<p>Indexing, Please Wait.</p>')
 xhr.addEventListener("readystatechange", function () {
   if (this.readyState === 4) {
     console.log(this.responseText);
@@ -214,6 +217,11 @@ xhr.send(data);
 
 function addDataDir(str){    //add file location that you want to index
 
+if(!str){
+	alert("Please Enter Data Directory path");
+	return 0;
+}
+else{
 var data = new FormData();
 data.append("path", str);
 
@@ -230,8 +238,8 @@ xhr.open("POST", "http://localhost:8080/addDataDir");
 
 
 xhr.send(data);
-
-
+return 1;
+}
 
 }
 
@@ -239,7 +247,8 @@ xhr.send(data);
 function loadXMLDoc(str){    //add storage location
 	
 	if(!str){
-		alert("Please Enter Storage Location Path")
+		alert("Please Enter Storage Location Path");
+		return 0;
 	}
 	else{
 	
@@ -256,10 +265,11 @@ xhr.addEventListener("readystatechange", function () {
 });
 
 xhr.open("POST", "http://localhost:8080/setIndexDir");
-xhr.setRequestHeader("cache-control", "no-cache");
-xhr.setRequestHeader("postman-token", "34e2d9bf-371d-8b25-8a6e-cee52d82b3a0");
+
 
 xhr.send(data);
+
+return 1;
 	}
 
 
