@@ -35,8 +35,10 @@ import com.fernuni.searchengine.SearchEngine.DirectoryHandler;
 import com.fernuni.searchengine.SearchEngine.IndexManager;
 
 import java.nio.file.*;
+
 import static java.nio.file.StandardWatchEventKinds.*;
 import static java.nio.file.LinkOption.*;
+
 import java.nio.file.attribute.*;
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -49,17 +51,19 @@ import java.util.logging.Logger;
  * Example to watch a directory (or tree) for changes to files.
  * Modified from the original to use with TheSearchEngine.
  */
-public class WatchService implements Runnable{
+
+public class WatchService implements Runnable {
 
     //Log related instances.
     private static SimpleDateFormat sdf_file_log = new SimpleDateFormat("yyyy-MM-dd");
     private static String logfile_str = "log" + File.separatorChar + "files_changes" + File.separatorChar + "file_changes_log_" + sdf_file_log.format(Calendar.getInstance().getTime()) + ".log";
     private static Logger logger = Logger.getLogger("com.fernuni.searchengine.FileWatcher.WatchDir");
     private static FileHandler fh;
+
     static {
-        try{
+        try {
             fh = new FileHandler(logfile_str, true);
-        } catch (IOException e){
+        } catch (IOException e) {
             logger.severe("Cannot log to file: " + logfile_str);
         }
         logger.addHandler(fh);
@@ -68,7 +72,7 @@ public class WatchService implements Runnable{
     }
 
     private final java.nio.file.WatchService watcher;
-    private final Map<WatchKey,Path> keys;
+    private final Map<WatchKey, Path> keys;
     private final boolean recursive;
     private boolean trace = false;
     private volatile boolean isStop = false;
@@ -77,14 +81,16 @@ public class WatchService implements Runnable{
 
     @SuppressWarnings("unchecked")
     private static <T> WatchEvent<T> cast(WatchEvent<?> event) {
-        return (WatchEvent<T>)event;
+        return (WatchEvent<T>) event;
     }
 
     /**
      * Register the given directory with the WatchService
+     *
+     * @param dir Path to be registered.
      */
     public void register(Path dir) {
-        if(dir.equals(DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath()))
+        if (dir.equals(DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath()))
             return;
         try {
             WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
@@ -99,8 +105,7 @@ public class WatchService implements Runnable{
                 }
             }
             keys.put(key, dir);
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             logger.severe("Error register: " + e.toString());
         }
     }
@@ -108,6 +113,8 @@ public class WatchService implements Runnable{
     /**
      * Register the given directory, and all its sub-directories, with the
      * WatchService.
+     *
+     * @param start Path to be start with and registered.
      */
     public void registerAll(final Path start) {
         try {
@@ -120,27 +127,26 @@ public class WatchService implements Runnable{
                     return FileVisitResult.CONTINUE;
                 }
             });
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             logger.severe("Error register all: " + e.toString());
         }
     }
 
     /**
      * De-Register a given path from a watch service, stop watching a directory with a given path.
-     * @param path  Path to a directory.
-     * @return  De-registered path.
+     *
+     * @param path Path to a directory.
+     * @return De-registered path.
      * @throws IOException
      */
     public Path deRegister(Path path) throws IOException {
         WatchKey key = path.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
         Path dir = keys.get(key);
-        if(dir.equals(path)){
+        if (dir.equals(path)) {
             logger.info("de-register: " + dir.toString());
             key.cancel();
             return dir;
-        }
-        else{
+        } else {
             logger.warning("de-register failed: " + dir.toString());
             return null;
         }
@@ -148,25 +154,24 @@ public class WatchService implements Runnable{
 
     /**
      * De-Register a given path and sub-directory inside a directory according to this path.
+     *
      * @param start A path to be de-registered.
      */
-    public void deRegisterAll(Path start){
+    public void deRegisterAll(Path start) {
         try {
             // register directory and sub-directories
             Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs)
                         throws IOException {
-                    if(!DirectoryHandler.hasPath(dir))  //Don't de-register path on the list.
+                    if (!DirectoryHandler.hasPath(dir))  //Don't de-register path on the list.
                         deRegister(dir);
                     return FileVisitResult.CONTINUE;
                 }
             });
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             logger.severe("Error de-register all: " + e.toString());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             logger.severe("Error de-register all:" + e.toString());
         }
     }
@@ -198,7 +203,7 @@ public class WatchService implements Runnable{
      * If it is possible to watch only visible files, it will be more practical for use.
      */
     public void run() {
-        while(!isStop) {
+        while (!isStop) {
 
             // wait for key to be signalled
             WatchKey key;
@@ -206,7 +211,7 @@ public class WatchService implements Runnable{
                 key = watcher.take();
             } catch (InterruptedException x) {
                 return;
-            } catch (ClosedWatchServiceException e){
+            } catch (ClosedWatchServiceException e) {
                 logger.info("WatchService has been close, Stop servicing...");
                 break;
             }
@@ -217,7 +222,7 @@ public class WatchService implements Runnable{
                 continue;
             }
 
-            for (WatchEvent<?> event: key.pollEvents()) {
+            for (WatchEvent<?> event : key.pollEvents()) {
                 WatchEvent.Kind kind = event.kind();
 
                 // TBD - provide example of how OVERFLOW event is handled
@@ -236,7 +241,7 @@ public class WatchService implements Runnable{
                 // if directory is created, and watching recursively, then
                 // register it and its sub-directories
                 if (recursive && (kind == ENTRY_CREATE)) {
-                    if(isAuto()) {
+                    if (isAuto()) {
                         try {
                             indexManager.addFileToIndex(child.toFile());
                         } catch (IOException e) {
@@ -256,6 +261,7 @@ public class WatchService implements Runnable{
                 }
 
                 if (kind == ENTRY_DELETE && isAuto()) {
+                    //Go remove documents from index
                     indexManager.deleteDocumentFromIndexUsingPath(child);
                 }
             }
@@ -275,9 +281,9 @@ public class WatchService implements Runnable{
     }
 
     /**
-     *  Stop the watcher when called.
+     * Stop the watcher when called.
      */
-    public void kill(){
+    public void kill() {
         System.out.println("kill");
         try {
             logger.info("Stopping WatchService...");
@@ -292,7 +298,8 @@ public class WatchService implements Runnable{
 
     /**
      * Indicator of auto indexing.
-     * @return  True, if auto indexing is ON.
+     *
+     * @return True, if auto indexing is ON.
      */
     public static boolean isAuto() {
         return auto;
@@ -300,7 +307,8 @@ public class WatchService implements Runnable{
 
     /**
      * Set auto indexing ON or OFF
-     * @param auto  True if you want auto indexing to be on.
+     *
+     * @param auto True if you want auto indexing to be on.
      */
     public static void setAuto(boolean auto) {
         WatchService.auto = auto;

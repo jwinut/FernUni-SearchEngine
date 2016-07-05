@@ -5,6 +5,7 @@ import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.AutoDetectParser;
 import org.apache.tika.sax.BodyContentHandler;
 import org.xml.sax.SAXException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,11 +19,12 @@ class FilesParser {
 
     /**
      * Parse a supported file contents into a String.
-     * @param file  Supported file to be parsed.
-     * @return  Contents of the file in a String format.
-     * @throws IOException  File not found?
+     *
+     * @param file Supported file to be parsed.
+     * @return Contents of the file in a String format.
+     * @throws IOException   File not found?
      * @throws SAXException
-     * @throws TikaException    Unsupported file type? cannot parse the file.
+     * @throws TikaException Unsupported file type? cannot parse the file.
      */
     String parseToString(File file) throws IOException, SAXException, TikaException {
         AutoDetectParser parser = new AutoDetectParser();

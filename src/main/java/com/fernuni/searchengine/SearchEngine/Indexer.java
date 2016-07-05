@@ -32,6 +32,7 @@ public class Indexer implements Runnable {
     //Log related instances.
     private static Logger logger = Logger.getLogger("com.fernuni.searchengine.SearchEngine.Indexer");
     private static FileHandler fh = RESTController.fh;
+
     static {
         logger.addHandler(fh);
         logger.setLevel(Level.ALL);
@@ -45,36 +46,36 @@ public class Indexer implements Runnable {
     private FilesParser parser = new FilesParser();
     private Tika tika = new Tika();
     private final String SUPPORT_TYPE = "text/html\n" + //File MIME type support list.
-                                    "text/plain\n" +
-                                    "application/rtf\n" +
-                                    "application/xml\n" +
-                                    "application/msword\n" +
-                                    "application/vnd.ms-excel\n" +
-                                    "application/vnd.ms-powerpoint\n" +
-                                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\n" +
-                                    "application/vnd.openxmlformats-officedocument.presentationml.presentation\n" +
-                                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document\n" +
-                                    "application/vnd.openxmlformats-officedocument.presentationml.slideshow\n" +
-                                    "application/pdf";
+            "text/plain\n" +
+            "application/rtf\n" +
+            "application/xml\n" +
+            "application/msword\n" +
+            "application/vnd.ms-excel\n" +
+            "application/vnd.ms-powerpoint\n" +
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\n" +
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation\n" +
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document\n" +
+            "application/vnd.openxmlformats-officedocument.presentationml.slideshow\n" +
+            "application/pdf";
     private final String[] FILES_EXTENSION = {".txt", ".rtf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".html", ".xml", ".ppsx", ".pdf"};
     private int numOfFilesIndexed = 0;
 
     /**
      * Normal constructor.
      */
-    private Indexer(){
+    private Indexer() {
         directoryHandler = DirectoryHandler.getDirectoryHandler();
         indexDir = directoryHandler.getIndexDirectory();
         dataDirs = directoryHandler.getDataDirectories();
     }
 
     /**
-     * @return  A Singleton object of Indexer.
+     * @return A Singleton object of Indexer.
      */
-    public static Indexer getIndexer(){
-        if(indexer != null)
+    public static Indexer getIndexer() {
+        if (indexer != null)
             return indexer;
-        else{
+        else {
             indexer = new Indexer();
             return indexer;
         }
@@ -83,7 +84,7 @@ public class Indexer implements Runnable {
     /**
      * Index every files in directory and in sub-directory entered to system.
      */
-    public void run(){
+    public void run() {
         //Delete old index data before re-index again.
         IndexManager indexManager = new IndexManager();
         indexManager.deleteIndex();
@@ -114,13 +115,13 @@ public class Indexer implements Runnable {
         List<List<File>> listlists = Lists.partition(files, size);*/
 
         //Get everything checked.
-        if(files.size() == 0){
+        if (files.size() == 0) {
             logger.severe("There's no data to be indexed.");
             return;
         }
 
         //Index every files in directory and within subdirectory.
-        for(File file : files){
+        for (File file : files) {
             numOfFilesIndexed += index(file, iwriter);
         }
         try {
@@ -135,10 +136,11 @@ public class Indexer implements Runnable {
 
     /**
      * add every files inside a directory to be indexed
+     *
      * @param directory File obj that is a directory.
      * @param iwriter   IndexWriter obj with StandardAnalyzer.
      */
-    public int index(File directory, IndexWriter iwriter){
+    public int index(File directory, IndexWriter iwriter) {
         /**
          * numOfFile for keep tracking the number of file indexed.
          */
@@ -147,28 +149,27 @@ public class Indexer implements Runnable {
         /**
          * Check again if the file really is a directory.
          */
-        if(directory.isDirectory()){
+        if (directory.isDirectory()) {
             File[] files = directory.listFiles(new FilenameFilter() {
                 @Override
                 public boolean accept(File dir, String name) {
-                    if(Files.isDirectory(new File(dir, name).toPath())) return true;
-                    for(String extension : FILES_EXTENSION){
-                        if(name.endsWith(extension)) return true;
+                    if (Files.isDirectory(new File(dir, name).toPath())) return true;
+                    for (String extension : FILES_EXTENSION) {
+                        if (name.endsWith(extension)) return true;
                     }
                     return false;
                 }
             });           //Get list of files inside a directory.
             if (files != null) {
-                for(File file : files){
-                    if(file.isDirectory())
+                for (File file : files) {
+                    if (file.isDirectory())
                         numOfFile += index(file, iwriter);  //Recursively index a directory out of files.
-                    else{
+                    else {
                         numOfFile += indexfile(file, iwriter);   //Index a file
                     }
                 }
             }
-        }
-        else{
+        } else {
             indexfile(directory, iwriter);   //Index a file
             numOfFile++;
         }
@@ -177,20 +178,20 @@ public class Indexer implements Runnable {
 
     /**
      * Index a single file.
-     * @param file  A file to be indexed.
-     * @param iwriter   A indexer obj with StandardAnalyzer.
+     *
+     * @param file    A file to be indexed.
+     * @param iwriter A indexer obj with StandardAnalyzer.
      */
-    private int indexfile(File file, IndexWriter iwriter){
+    private int indexfile(File file, IndexWriter iwriter) {
         logger.info("Indexing..." + file.getAbsolutePath());
         String contents;
         Document doc;
         try {
             String file_type = tika.detect(file);
-            if(!SUPPORT_TYPE.contains(file_type)) {
+            if (!SUPPORT_TYPE.contains(file_type)) {
                 logger.info("file: " + file.getName() + " file type: " + file_type + " is not supported.");
                 return 0;
-            }
-            else{
+            } else {
                 contents = parser.parseToString(file);
 
                 //Create new document add to index.
@@ -206,8 +207,7 @@ public class Indexer implements Runnable {
                 iwriter.addDocument(doc);
                 return 1;
             }
-        }
-        catch (IOException | TikaException | SAXException e){
+        } catch (IOException | TikaException | SAXException e) {
             logger.info("file: " + file.getName() + " is not supported.");
             return 0;
         }
@@ -216,7 +216,8 @@ public class Indexer implements Runnable {
 
     /**
      * Get a registered index directory.
-     * @return  Index directory instance.
+     *
+     * @return Index directory instance.
      */
     private File getIndexDir() {
         indexDir = directoryHandler.getIndexDirectory();
@@ -225,7 +226,8 @@ public class Indexer implements Runnable {
 
     /**
      * Get all registered data directory.
-     * @return  ArrayList of data directories.
+     *
+     * @return ArrayList of data directories.
      */
     private ArrayList<File> getDataDirs() {
         dataDirs = directoryHandler.getDataDirectories();
@@ -234,10 +236,11 @@ public class Indexer implements Runnable {
 
     /**
      * Create an instance of IndexWriter.
+     *
      * @param directory An instance of directory that should be close, So I pass it anyway.
-     * @return  IndexWriter instance.
+     * @return IndexWriter instance.
      */
-    public IndexWriter getIndexWriter(Directory directory){
+    public IndexWriter getIndexWriter(Directory directory) {
         //Create IndexWriter config and create IndexWriter.
         IndexWriterConfig config = new IndexWriterConfig(new StandardAnalyzer());
         IndexWriter iwriter = null;
@@ -252,7 +255,8 @@ public class Indexer implements Runnable {
 
     /**
      * Getter of contents_store field.
-     * @return  (FieldType) contents_store.
+     *
+     * @return (FieldType) contents_store.
      */
     private FieldType getContents_store() {
         return IndexManager.getContents_store();
@@ -260,7 +264,8 @@ public class Indexer implements Runnable {
 
     /**
      * Getter of pre_contents_store field.
-     * @return  (FieldType) pre_contents_store.
+     *
+     * @return (FieldType) pre_contents_store.
      */
     private Field.Store getPre_contents_store() {
         return IndexManager.getPre_contents_store();
@@ -268,17 +273,19 @@ public class Indexer implements Runnable {
 
     /**
      * Get words equal to PRE_CONTENT_SIZE value, to store as a pre-content, an example of each file.
-     * @param contents  Contents of each file as String.
-     * @return  first N words extract from String contents.
+     *
+     * @param contents Contents of each file as String.
+     * @return first N words extract from String contents.
      */
-    private String getNWords(String contents){
+    private String getNWords(String contents) {
         if (contents == null) return "";    //If there's nothing inside or can't read contents, then return nothing.
         //Split words by a space to array with size of PRE_CONTENT_SIZE (100 by default).
         String[] pre_contents = contents.split(" ", IndexManager.PRE_CONTENT_SIZE);
         //If contents have more words than PRE_CONTENT_SIZE then replace "..." to the last words.
-        if(pre_contents.length == IndexManager.PRE_CONTENT_SIZE) pre_contents[IndexManager.PRE_CONTENT_SIZE-1] = "...";
+        if (pre_contents.length == IndexManager.PRE_CONTENT_SIZE)
+            pre_contents[IndexManager.PRE_CONTENT_SIZE - 1] = "...";
         StringBuilder builder = new StringBuilder();
-        for(String s : pre_contents) {
+        for (String s : pre_contents) {
             s = s.replace("\n", " ");
             builder.append(s);
             builder.append(" ");
@@ -288,7 +295,8 @@ public class Indexer implements Runnable {
 
     /**
      * Getter of numOfFilesIndexed.
-     * @return  number of total file has been indexed.
+     *
+     * @return number of total file has been indexed.
      */
     public int getNumOfFilesIndexed() {
         return numOfFilesIndexed;
@@ -296,6 +304,7 @@ public class Indexer implements Runnable {
 
     /**
      * Setter of numOfFilesIndexed.
+     *
      * @param numOfFilesIndexed New value.
      */
     void setNumOfFilesIndexed(int numOfFilesIndexed) {

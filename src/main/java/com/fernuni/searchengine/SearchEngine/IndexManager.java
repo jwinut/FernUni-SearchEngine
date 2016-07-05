@@ -27,10 +27,12 @@ public class IndexManager {
     //Log related instances.
     private static Logger logger = Logger.getLogger("com.fernuni.searchengine.SearchEngine.DirectoryHandler");
     private static FileHandler fh = RESTController.fh;
+
     static {
         logger.addHandler(fh);
         logger.setLevel(Level.ALL);
     }
+
     static final int PRE_CONTENT_SIZE = 100;
     private static FieldType contents_store = TextField.TYPE_NOT_STORED;
     private static Field.Store pre_contents_store = Field.Store.YES;
@@ -45,9 +47,10 @@ public class IndexManager {
 
     /**
      * Delete old index with the path corresponding to DirectoryHandler.
-     * @return  successful, or not
+     *
+     * @return successful, or not
      */
-    public boolean deleteIndex(){
+    public boolean deleteIndex() {
         DirectoryHandler directoryHandler = DirectoryHandler.getDirectoryHandler();
         try {
             File indexDir = directoryHandler.getIndexDirectory();
@@ -78,9 +81,10 @@ public class IndexManager {
 
     /**
      * Report status of the system.
-     * @return  System report.
+     *
+     * @return System report.
      */
-    public static String statusReport(){
+    public static String statusReport() {
         Indexer indexer = Indexer.getIndexer();
         String status;
         logger.info("Status report was called.");
@@ -105,11 +109,9 @@ public class IndexManager {
                 tmp += "\t\t" + dir.getAbsolutePath() + "\n";
             }
             dataDir = tmp;
-        }
-        else if (dataDirs.size() == 0) {
+        } else if (dataDirs.size() == 0) {
             dataDir = "\tNo directory entered yet.\n";
-        }
-        else dataDir = "Directory error.\n";
+        } else dataDir = "Directory error.\n";
 
         //Get status of pre contents, contents.
         boolean contentsStoreStatus = isContent();
@@ -117,9 +119,9 @@ public class IndexManager {
         String contentsStoreStatus_str = contentsStoreStatus ? "\tContent is stored.\n" : "\tContent is not stored.\n";
         String preContentsStoreStatus_str = preContentsStoreStatus ? "\tPre content is stored.\n" : "\tPre content is not stored.\n";
         String fileContentsStatus = "\tPreview content using ";
-        if(getContents_store() == TextField.TYPE_STORED)
+        if (getContents_store() == TextField.TYPE_STORED)
             fileContentsStatus += "100 matched content words.\n";
-        else if(getPre_contents_store() == Field.Store.YES)
+        else if (getPre_contents_store() == Field.Store.YES)
             fileContentsStatus += "100 first words from the file\n";
         else
             fileContentsStatus += "[White Space], (No preview)\n";
@@ -134,7 +136,8 @@ public class IndexManager {
 
     /**
      * Set value of contents_store to TextField.TYPE_STORE to store contents of files in index.
-     * @return  true, but if something bad happens, it returns false.
+     *
+     * @return true, but if something bad happens, it returns false.
      */
     public static boolean setContentStoreTrue() {
         contents_store = TextField.TYPE_STORED;
@@ -143,16 +146,18 @@ public class IndexManager {
 
     /**
      * Set value of contents_store to TextField.TYPE_NOT_STORE to NOT store contents of files in index.
-     * @return  true, but if something bad happens, it returns false.
+     *
+     * @return true, but if something bad happens, it returns false.
      */
-    public static boolean setContentStoreFalse(){
+    public static boolean setContentStoreFalse() {
         contents_store = TextField.TYPE_NOT_STORED;
         return contents_store == TextField.TYPE_NOT_STORED;
     }
 
     /**
      * Set value of pre_contents_store to TextField.TYPE_STORE to store contents of files in index.
-     * @return  true, but if something bad happens, it returns false.
+     *
+     * @return true, but if something bad happens, it returns false.
      */
     public static boolean setPreContentStoreTrue() {
         pre_contents_store = Field.Store.YES;
@@ -161,16 +166,18 @@ public class IndexManager {
 
     /**
      * Set value of pre_contents_store to TextField.TYPE_NOT_STORE to NOT store contents of files in index.
-     * @return  true, but if something bad happens, it returns false.
+     *
+     * @return true, but if something bad happens, it returns false.
      */
-    public static boolean setPreContentStoreFalse(){
+    public static boolean setPreContentStoreFalse() {
         pre_contents_store = Field.Store.NO;
         return pre_contents_store == Field.Store.NO;
     }
 
     /**
      * Getter of contents_store field.
-     * @return  (FieldType) contents_store.
+     *
+     * @return (FieldType) contents_store.
      */
     public static FieldType getContents_store() {
         return contents_store;
@@ -178,7 +185,8 @@ public class IndexManager {
 
     /**
      * Getter of pre_contents_store field.
-     * @return  (FieldType) pre_contents_store.
+     *
+     * @return (FieldType) pre_contents_store.
      */
     public static Field.Store getPre_contents_store() {
         return pre_contents_store;
@@ -186,10 +194,11 @@ public class IndexManager {
 
     /**
      * Add a file to index, if it is a directory, all file will be added.
-     * @param file  File to be added into the index.
+     *
+     * @param file File to be added into the index.
      * @throws IOException
      */
-    public void addFileToIndex(File file) throws IOException{
+    public void addFileToIndex(File file) throws IOException {
         Path indexDir_path = DirectoryHandler.getDirectoryHandler().getIndexDirectory().toPath();
         Directory directory = FSDirectory.open(indexDir_path);
         IndexWriter indexWriter = indexer.getIndexWriter(directory);
@@ -201,9 +210,10 @@ public class IndexManager {
 
     /**
      * This method will remove a document with the same path as given from the index.
-     * @param path  Path to a desire file.
+     *
+     * @param path Path to a desire file.
      */
-    public void deleteDocumentFromIndexUsingPath(Path path){
+    public void deleteDocumentFromIndexUsingPath(Path path) {
         Term term1 = new Term("path", path.toString());
         Term term2 = new Term("parent", path.toString());
         try {
@@ -222,11 +232,21 @@ public class IndexManager {
         }
     }
 
-    public static boolean isPreContent(){
+    /**
+     * Is pre-contents is set to store?
+     *
+     * @return true, or false.
+     */
+    public static boolean isPreContent() {
         return (getPre_contents_store() == Field.Store.YES);
     }
 
-    public static boolean isContent(){
+    /**
+     * Is content is set to store?
+     *
+     * @return true, or false.
+     */
+    public static boolean isContent() {
         return (getContents_store() == TextField.TYPE_STORED);
     }
 

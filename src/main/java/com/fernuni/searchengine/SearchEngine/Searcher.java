@@ -28,6 +28,7 @@ public class Searcher {
     //Log related instances.
     private static Logger logger = Logger.getLogger("com.fernuni.searchengine.SearchEngine.Searcher");
     private static FileHandler fh = RESTController.fh;
+
     static {
         logger.addHandler(fh);
         logger.setLevel(Level.ALL);
@@ -40,7 +41,7 @@ public class Searcher {
     /**
      * When initialize, automatically ready up for search, use isCorrupt to check readily.
      */
-    public Searcher(){
+    public Searcher() {
         //Get a same directory as Indexer.
         DirectoryHandler directoryHandler = DirectoryHandler.getDirectoryHandler();
         File indexDir = directoryHandler.getIndexDirectory();
@@ -53,22 +54,21 @@ public class Searcher {
              * @param   Analyzer    Use the same analyzer as the Indexer.
              */
             parser = new QueryParser("contents", new StandardAnalyzer());
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             logger.severe("Index does not exist.");
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             logger.severe("Index directory is incorrect, Cannot search without setup the indexer.");
         }
     }
 
     /**
      * Check readily of the Searcher.
-     * @return  True when ready to use.
+     *
+     * @return True when ready to use.
      */
-    private boolean isCorrupted(){
-        if(indexSearcher != null){
-            if(parser != null){
+    private boolean isCorrupted() {
+        if (indexSearcher != null) {
+            if (parser != null) {
                 return false;
             }
         }
@@ -77,15 +77,16 @@ public class Searcher {
 
     /**
      * Search through index.
+     *
      * @param searchStr Keywords to use for search.
-     * @return  Result instances of results.
+     * @return Result instances of results.
      */
-    public ArrayList<Result> run(String searchStr){
+    public ArrayList<Result> run(String searchStr) {
         ArrayList<Result> results = new ArrayList<>();
         logger.info("======================\n" +
                 "\tSearching...\n");
 
-        if(!isCorrupted()) {
+        if (!isCorrupted()) {
             int numOfResult = 100;              //Number of top results limit.
             try {
                 //get top 'numOfResult' matching documents list for the query 'searchString'
@@ -95,37 +96,33 @@ public class Searcher {
 
                 //Get detail out of ScoreDoc which is a document user is looking for.
                 int counter = 1;
-                for(ScoreDoc hit : hits){
+                for (ScoreDoc hit : hits) {
                     Document doc = getDocument(hit.doc);
                     String filename = doc.get("file_name");
                     String filepath = doc.get("path");
                     String filecontent = doc.get("contents");
                     String filetype = doc.get("type");
                     //If user hasn't saved pre_contents then use contents instead.
-                    if(filecontent != null){
+                    if (filecontent != null) {
                         logger.info("Using file contents as a pre content.");
                         //Get 100 words around matched word.
                         filecontent = getNWordsMatched(filecontent, searchStr);
-                        if(filecontent.length() == 0) filecontent = "[No matched exact word from content]";
-                    }
-                    else{
+                        if (filecontent.length() == 0) filecontent = "[No matched exact word from content]";
+                    } else {
                         filecontent = doc.get("pre_contents");
-                        if(filecontent == null) filecontent = "[No content]";
+                        if (filecontent == null) filecontent = "[No content]";
                     }
                     //Report to a terminal.
                     logger.info("\t[" + counter++ + "]\n" + "\tFound: " + filename + "\n\t@[" + filepath +
-                        "]\n\t-----CONTENT-----\n\t" + filecontent + "\n");
+                            "]\n\t-----CONTENT-----\n\t" + filecontent + "\n");
                     results.add(new Result(filename, filepath, filecontent, filetype));    //add Result obj to a list for output.
                 }
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 logger.severe("QueryParser or IndexSearcher instance error.\n");
-            }
-            catch (ParseException e) {
+            } catch (ParseException e) {
                 logger.severe("Parser cannot complete the task.\n");
             }
-        }
-        else{
+        } else {
             logger.severe("Searcher object is corrupted.");
         }
         logger.info("======================");
@@ -134,8 +131,9 @@ public class Searcher {
 
     /**
      * Get Document's instance from IndexSearcher.
+     *
      * @param docId Id
-     * @return  Document from index.
+     * @return Document from index.
      * @throws IOException
      */
     private Document getDocument(int docId) throws IOException {
@@ -144,9 +142,10 @@ public class Searcher {
 
     /**
      * Do search with keywords.
-     * @param queryString   Keywords use for search.
-     * @param n             Number of results returned.
-     * @return              A list of result documents.
+     *
+     * @param queryString Keywords use for search.
+     * @param n           Number of results returned.
+     * @return A list of result documents.
      * @throws IOException
      * @throws ParseException
      */
@@ -157,7 +156,8 @@ public class Searcher {
 
     /**
      * Getter of IndexSearcher.
-     * @return  The instance of IndexSearcher.
+     *
+     * @return The instance of IndexSearcher.
      */
     private IndexSearcher getIndexSearcher() {
         return indexSearcher;
@@ -165,7 +165,8 @@ public class Searcher {
 
     /**
      * Getter of QueryParser.
-     * @return  The instance of QueryParser.
+     *
+     * @return The instance of QueryParser.
      */
     private QueryParser getParser() {
         return parser;
@@ -173,36 +174,37 @@ public class Searcher {
 
     /**
      * This method will find the keyword and get some of contents around that keyword.
-     * @param filecontent   File contents.
-     * @param searchStr     Keyword.
-     * @return  Number of words according to IndexManager.PRE_SIZE_CONTENT and numOfWordsBeforeMatchedWord around the first found keyword.
+     *
+     * @param filecontent File contents.
+     * @param searchStr   Keyword.
+     * @return Number of words according to IndexManager.PRE_SIZE_CONTENT and numOfWordsBeforeMatchedWord around the first found keyword.
      */
-    private String getNWordsMatched(String filecontent, String searchStr){
+    private String getNWordsMatched(String filecontent, String searchStr) {
         ArrayList<String> arr_str = new ArrayList<>();
         int matched_index = -1;
 
         String n_filecontent = filecontent.replaceAll("\n", " ");
         String[] strs = n_filecontent.split(" ");
 
-        for(String str : strs) {
-            if(str.length() > 0){
+        for (String str : strs) {
+            if (str.length() > 0) {
                 arr_str.add(str);
-                if(str.equals(searchStr)) matched_index = arr_str.indexOf(str);
+                if (str.equals(searchStr)) matched_index = arr_str.indexOf(str);
             }
         }
 
         //Cannot find a matched word in contents.
-        if(matched_index == -1) return "";
+        if (matched_index == -1) return "";
 
         //Adjust the index to make a string.
-        if(matched_index > numOfWordsBeforeMatchedWord) matched_index -= numOfWordsBeforeMatchedWord;
+        if (matched_index > numOfWordsBeforeMatchedWord) matched_index -= numOfWordsBeforeMatchedWord;
         else matched_index = 0;
 
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0; i < IndexManager.PRE_CONTENT_SIZE && i < arr_str.size(); i++) {
+        for (int i = 0; i < IndexManager.PRE_CONTENT_SIZE && i < arr_str.size(); i++) {
             stringBuilder.append(arr_str.get(matched_index + i)).append(" ");
         }
-        if(arr_str.size() > matched_index + IndexManager.PRE_CONTENT_SIZE) stringBuilder.append("...");
+        if (arr_str.size() > matched_index + IndexManager.PRE_CONTENT_SIZE) stringBuilder.append("...");
         return stringBuilder.toString();
     }
 }
